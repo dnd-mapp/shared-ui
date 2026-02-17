@@ -1,0 +1,56 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "cli": {
+        "packageManager": "pnpm",
+        "schematicCollections": ["angular-eslint"]
+    },
+    "newProjectRoot": "projects",
+    "projects": {
+        "shared-ui": {
+            "projectType": "library",
+            "root": "projects/shared-ui",
+            "sourceRoot": "projects/shared-ui/src",
+            "prefix": "dma",
+            "architect": {
+                "build": {
+                    "builder": "@angular/build:ng-packagr",
+                    "defaultConfiguration": "production",
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/shared-ui/tsconfig.lib.prod.json"
+                        },
+                        "development": {
+                            "tsConfig": "projects/shared-ui/tsconfig.lib.json"
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "options": {
+                        "lintFilePatterns": ["projects/shared-ui/**/*.ts", "projects/shared-ui/**/*.html"],
+                        "eslintConfig": "projects/shared-ui/eslint.config.mjs"
+                    }
+                },
+                "build-storybook": {
+                    "builder": "@storybook/angular:build-storybook",
+                    "options": {
+                        "browserTarget": "shared-ui:build",
+                        "configDir": "projects/shared-ui/.storybook",
+                        "compodoc": false,
+                        "outputDir": "dist/storybook-static"
+                    }
+                },
+                "storybook": {
+                    "builder": "@storybook/angular:start-storybook",
+                    "options": {
+                        "browserTarget": "shared-ui:build",
+                        "configDir": "projects/shared-ui/.storybook",
+                        "compodoc": false,
+                        "port": 6006
+                    }
+                }
+            }
+        }
+    }
+}
