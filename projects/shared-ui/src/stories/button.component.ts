@@ -30,10 +30,10 @@ export class ButtonComponent {
         const mode = this.mode();
         const size = this.size();
 
-        return `storybook-button storybook-button--${size} ${mode}`;
+        return `storybook-button storybook-button-${size} ${mode}`;
     });
 
     private readonly mode = computed(() =>
-        this.primary() ? 'storybook-button--primary' : 'storybook-button--secondary',
+        this.primary() ? 'storybook-button-primary' : 'storybook-button-secondary',
     );
 }
