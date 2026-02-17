@@ -16,6 +16,10 @@ runs:
               pnpm lint
               pnpm stylelint
 
-        - name: Compile code
+        - name: Compile library
           shell: bash
           run: pnpm build
+
+        - name: Compile storybook
+          shell: bash
+          run: pnpm storybook:build
