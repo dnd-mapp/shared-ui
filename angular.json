@@ -22,7 +22,8 @@
                             "tsConfig": "projects/shared-ui/tsconfig.lib.prod.json"
                         },
                         "development": {
-                            "tsConfig": "projects/shared-ui/tsconfig.lib.json"
+                            "tsConfig": "projects/shared-ui/tsconfig.lib.json",
+                            "watch": true
                         }
                     }
                 },
