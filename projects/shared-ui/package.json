@@ -4,9 +4,6 @@
   "description": "Official Angular component library for the D&D Mapp platform.",
   "author": "NoNamer777",
   "license": "UNLICENSED",
-  "publishConfig": {
-    "access": "restricted"
-  },
   "keywords": [
     "angular",
     "component-library",
