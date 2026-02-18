@@ -38,6 +38,7 @@ jobs:
                   install-dependencies: false
 
             - name: Validate inputs
+              id: validate-inputs
               shell: bash
               env:
                   VERSION: ${{ inputs.version }}

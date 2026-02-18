@@ -1,4 +1,4 @@
-import { readFile } from 'fs/promises';
+import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
 
 // --- Constants ---
@@ -220,6 +220,11 @@ async function main() {
     validate(versionInput, prereleaseIdInput, currentVersion);
 
     console.log('\n✓ All transition rules passed.');
+
+    const nextIsPrerelease = PRERELEASE_INIT_TYPES.includes(versionInput) || versionInput === 'prerelease';
+    const githubOutput = process.env['GITHUB_OUTPUT'];
+
+    await writeFile(githubOutput, `is-prerelease=${nextIsPrerelease}\n`, { flag: 'a' });
 }
 
 main().catch((error) => {
