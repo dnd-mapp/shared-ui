@@ -32,4 +32,4 @@ jobs:
                       TAG="latest"
                   fi
 
-                  pnpm publish --access public --provenance --no-git-checks --tag "$TAG"
+                  pnpm publish --no-git-checks --tag "$TAG"
