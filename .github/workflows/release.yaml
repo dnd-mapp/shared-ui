@@ -113,9 +113,6 @@ jobs:
 
                   echo "commit-sha=$NEW_COMMIT_SHA" >> $GITHUB_OUTPUT
 
-            - name: Checkout repository
-              uses: actions/checkout@v6
-
             - name: Create Release
               shell: bash
               env:
@@ -123,6 +120,6 @@ jobs:
               run: |
                   NEW_TAG_NAME="${{ steps.bump-version.outputs.raw-version }}"
 
-                  gh release create "$NEW_TAG_NAME" --title "$NEW_TAG_NAME" --target "$GITHUB_SHA" \
+                  gh release create "$NEW_TAG_NAME" --title "$NEW_TAG_NAME" --target "${{ steps.push-commit.outputs.commit-sha }}" \
                       --generate-notes=false --latest=${{ steps.validate-inputs.outputs.is-prerelease == 'false' }} \
                       --prerelease=${{ steps.validate-inputs.outputs.is-prerelease == 'true' }}
