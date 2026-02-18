@@ -90,6 +90,7 @@ jobs:
                   echo "clean-version=$CLEAN_VERSION" >> $GITHUB_OUTPUT
 
             - name: Push commit
+              id: push-commit
               shell: bash
               env:
                   GH_TOKEN: ${{ steps.app-token.outputs.token }}
@@ -137,6 +138,8 @@ jobs:
 
                   # Update the branch reference
                   gh api repos/$REPO/git/refs/heads/$BRANCH --method PATCH -f sha="$NEW_COMMIT_SHA" -F force=false
+
+                  echo "commit-sha=$NEW_COMMIT_SHA" >> $GITHUB_OUTPUT
 
             - name: Create tag
               shell: bash
