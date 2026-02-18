@@ -64,8 +64,8 @@ jobs:
             - name: Configure git
               shell: bash
               run: |
-                  git config user.name "github-actions[bot]"
-                  git config user.email "github-actions[bot]@users.noreply.github.com"
+                  git config user.name "${{ steps.bot-user.outputs.name }}"
+                  git config user.email "${{ steps.bot-user.outputs.email }}"
 
             - name: Bump version
               id: bump-version
