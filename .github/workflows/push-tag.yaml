@@ -22,4 +22,7 @@ jobs:
             - name: Publish package
               working-directory: dist/shared-ui
               shell: bash
-              run: pnpm publish --access public --provenance --no-git-checks --tag "$GITHUB_REF_NAME"
+              run: |
+                  TAG="${GITHUB_REF_NAME#v}"
+
+                  pnpm publish --access public --provenance --no-git-checks --tag "$TAG"
