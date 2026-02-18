@@ -1,5 +1,9 @@
 name: CI
 description: Runs Continuous Integration checks
+inputs:
+    build-storybook:
+        description: Whether to build Storybook
+        default: 'true'
 runs:
     using: composite
     steps:
@@ -21,5 +25,6 @@ runs:
           run: pnpm build
 
         - name: Compile storybook
+          if: ${{ inputs.build-storybook == 'true' }}
           shell: bash
           run: pnpm storybook:build
