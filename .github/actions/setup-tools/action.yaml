@@ -14,9 +14,10 @@ runs:
         - name: Set up Node.js
           uses: actions/setup-node@v6
           with:
-              node-version-file: .tool-versions
-              cache-dependency-path: pnpm-lock.yaml
-              cache: pnpm
+              node-version-file: '.tool-versions'
+              cache-dependency-path: 'pnpm-lock.yaml'
+              cache: 'pnpm'
+              registry-url: 'https://registry.npmjs.org'
 
         - name: Install dependencies
           if: ${{ inputs.install-dependencies == 'true' }}
