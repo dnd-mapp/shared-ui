@@ -90,5 +90,6 @@ jobs:
               shell: bash
               run: |
                   git add .
-                  git commit -m "Release ${{ steps.bump-version.outputs.clean-version }}"
+                  git commit -m "${{ steps.bump-version.outputs.clean-version }}"
+                  git tag ${{ steps.bump-version.outputs.raw-version }} -m "${{ steps.bump-version.outputs.clean-version }}"
                   git push --automic
