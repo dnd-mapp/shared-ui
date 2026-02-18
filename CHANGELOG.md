@@ -30,11 +30,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - (n/a)
 
+---
+
 ## [0.1.0] - 2026-02-18
 
 ### Added
 
 - Official initial release of the `shared-ui` library including standard generated components from Storybook.
+
+---
 
 ## [0.1.0-rc.1] - 2026-02-18
 
@@ -44,6 +48,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Chore
 
 - Validating the automated npm publishing pipeline with Trusted publishing.
+
+---
 
 ## [0.1.0-rc.0] - 2026-02-17
 
