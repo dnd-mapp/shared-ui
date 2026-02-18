@@ -15,6 +15,18 @@ The official Angular component library for the **D&D Mapp** platform. This libra
 
 ---
 
+## 🧱 UI Components
+
+A collection of high-performance, accessible components. Click on a component name to view its specific documentation, API, and usage examples.
+
+| Component                              | Status | Description                                                         |
+|----------------------------------------|--------|---------------------------------------------------------------------|
+| **[Button](src/lib/button/README.md)** | ✅      | Primary action component with support for variants (base, primary). |
+
+> **[!TIP]** ✅ Ready for Production | 🚧 In Development | 🧪 Experimental
+
+---
+
 ## 🚀 Installation
 
 Install the package via pnpm (recommended) or your preferred package manager:
