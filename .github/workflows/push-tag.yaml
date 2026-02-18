@@ -25,6 +25,11 @@ jobs:
               working-directory: dist/shared-ui
               shell: bash
               run: |
-                  TAG="${GITHUB_REF_NAME#v}"
+                  if [[ "$GITHUB_REF_NAME" == *"-"* ]]; then
+                      TAG="${GITHUB_REF_NAME#*-}"
+                      TAG="${TAG%%.*}"
+                  else
+                      TAG="latest"
+                  fi
 
                   pnpm publish --access public --provenance --no-git-checks --tag "$TAG"
