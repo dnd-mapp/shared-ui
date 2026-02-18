@@ -29,5 +29,3 @@ trustPolicyIgnoreAfter: 10080
 useNodeVersion: 24.13.1
 
 verifyDepsBeforeRun: prompt
-
-publishBranch: main
