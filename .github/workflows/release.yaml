@@ -90,6 +90,8 @@ jobs:
 
             - name: Push commit and tag
               shell: bash
+              env:
+                  GH_TOKEN: ${{ steps.app-token.outputs.token }}
               run: |
                   git add .
                   git commit -m "${{ steps.bump-version.outputs.clean-version }}"
