@@ -68,15 +68,16 @@ jobs:
                   git config user.email "github-actions[bot]@users.noreply.github.com"
 
             - name: Bump version
+              working-directory: projects/shared-ui
               shell: bash
               run: |
                   VERSION_INPUT="${{ inputs.version }}"
                   PRERELEASE_ID_INPUT="${{ inputs.prerelease-id }}"
 
                   if [[ "$PRERELEASE_ID_INPUT" == "none" ]]; then
-                      pnpm version "$VERSION_INPUT" --workspace projects/shared-ui
+                      pnpm version "$VERSION_INPUT"
                   else
-                      pnpm version "$VERSION_INPUT" --workspace projects/shared-ui --preid "$PRERELEASE_ID_INPUT"
+                      pnpm version "$VERSION_INPUT" --preid "$PRERELEASE_ID_INPUT"
                   fi
 
             - name: Push commit and tag
