@@ -1,6 +1,6 @@
 {
   "name": "@dnd-mapp/shared-ui",
-  "version": "0.1.0-rc.1",
+  "version": "0.1.0",
   "description": "Official Angular component library for the D&D Mapp platform.",
   "author": "NoNamer777",
   "license": "UNLICENSED",
