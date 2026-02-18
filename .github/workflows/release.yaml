@@ -93,4 +93,4 @@ jobs:
                   git add .
                   git commit -m "${{ steps.bump-version.outputs.clean-version }}"
                   git tag ${{ steps.bump-version.outputs.raw-version }} -m "${{ steps.bump-version.outputs.clean-version }}"
-                  git push --automic
+                  git push --atomic
