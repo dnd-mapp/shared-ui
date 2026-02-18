@@ -121,5 +121,5 @@ jobs:
                   NEW_TAG_NAME="${{ steps.bump-version.outputs.raw-version }}"
 
                   gh release create "$NEW_TAG_NAME" --title "$NEW_TAG_NAME" --target "$GITHUB_SHA" \
-                      --generate-notes=false --latest=${{ steps.bump-version.outputs.is-prerelease == 'false' }} \
-                      --prerelease=${{ steps.bump-version.outputs.is-prerelease == 'true' }}
+                      --generate-notes=false --latest=${{ !steps.bump-version.outputs.is-prerelease }} \
+                      --prerelease=${{ steps.bump-version.outputs.is-prerelease }}
