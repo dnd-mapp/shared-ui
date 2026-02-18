@@ -18,6 +18,8 @@ jobs:
 
             - name: CI
               uses: ./.github/actions/ci
+              with:
+                  build-storybook: false
 
             - name: Publish package
               working-directory: dist/shared-ui
