@@ -89,12 +89,21 @@ jobs:
                   echo "raw-version=$RAW_VERSION" >> $GITHUB_OUTPUT
                   echo "clean-version=$CLEAN_VERSION" >> $GITHUB_OUTPUT
 
-            - name: Push commit and tag
+            - name: Push commit
               shell: bash
               env:
                   GH_TOKEN: ${{ steps.app-token.outputs.token }}
               run: |
                   git add .
                   git commit -m "${{ steps.bump-version.outputs.clean-version }}"
-                  git tag ${{ steps.bump-version.outputs.raw-version }} -m "${{ steps.bump-version.outputs.clean-version }}"
-                  git push --atomic --follow-tags
+                  git push
+
+            - name: Create Release
+              uses: softprops/action-gh-release@v2
+              with:
+                  name: ${{ steps.bump-version.outputs.raw-version }}
+                  tag_name: ${{ steps.bump-version.outputs.raw-version }}
+                  token: ${{ steps.app-token.outputs.token }}
+                  generate_release_notes: false
+                  make_latest: ${{ steps.validate-inputs.outputs.is-prerelease == 'false' }}
+                  prerelease: ${{ steps.validate-inputs.outputs.is-prerelease == 'true' }}
