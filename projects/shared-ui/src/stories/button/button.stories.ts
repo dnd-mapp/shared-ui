@@ -21,11 +21,10 @@ export class StoryComponent {
 }
 
 const meta: Meta<StoryComponent> = {
+    title: 'Button',
     component: StoryComponent,
     args: {
         onButtonClick: fn(),
-        color: ButtonColors.PRIMARY,
-        label: 'My button',
     },
     argTypes: {
         onButtonClick: {
@@ -35,6 +34,18 @@ const meta: Meta<StoryComponent> = {
             },
         },
         color: {
+            name: 'dma-button',
+            description: 'Determines the visual style of the button.',
+            table: {
+                category: 'Inputs',
+                defaultValue: {
+                    summary: 'base',
+                },
+                type: {
+                    summary: 'ButtonColor',
+                    detail: Object.values(ButtonColors).join(' | '),
+                },
+            },
             control: 'select',
             options: Object.values(ButtonColors),
         },
@@ -48,11 +59,13 @@ type Story = StoryObj<StoryComponent>;
 export const Primary: Story = {
     args: {
         color: ButtonColors.PRIMARY,
+        label: 'Attack!',
     },
 };
 
 export const Base: Story = {
     args: {
         color: ButtonColors.BASE,
+        label: 'Dismiss',
     },
 };

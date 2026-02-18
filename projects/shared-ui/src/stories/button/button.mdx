@@ -1,6 +1,7 @@
-[← Back to Library Overview](../../../README.md#-ui-components)
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as ButtonStories from './button.stories.ts';
 
----
+<Meta of={ButtonStories} />
 
 # Button Component (`dma-button`)
 
@@ -23,14 +24,14 @@ Add `ButtonComponent` to your standalone component's `imports` array:
 
 ```ts
 import { Component } from '@angular/core';
-import { ButtonComponent } from '@dnd-mapp/shared-ui';
+import { ButtonComponent } from './button.component';
 
 @Component({
     selector: 'app-encounter-action',
     template: `
         <!-- Defaults to 'base' -->
         <button dma-button>Base Action</button>
-        
+
         <!-- Explicit 'primary' -->
         <button dma-button="primary">Roll Initiative</button>
     `,
@@ -47,11 +48,7 @@ Ensure Tailwind CSS v4 is configured in your project to process the utility clas
 
 ## 🎨 API Reference
 
-### Inputs
-
-| Input   | Attribute    | Type           | Default  | Description                                |
-|---------|--------------|----------------|----------|--------------------------------------------|
-| `color` | `dma-button` | `ButtonColors` | `'base'` | Determines the visual style of the button. |
+<ArgTypes of={ButtonStories} />
 
 ### Color Variants
 
@@ -100,15 +97,11 @@ The `dma-button` alias allows the attribute itself to serve as the input. If an 
 
 ### Primary Action (Natural 20 Style)
 
-```html
-<button dma-button="primary" (click)="rollDice()">Attack!</button>
-```
+<Canvas of={ButtonStories.Primary} />
 
 ### Secondary / Cancel Action
 
-```html
-<button dma-button (click)="closeModal()">Dismiss</button>
-```
+<Canvas of={ButtonStories.Base} />
 
 ---
 
