@@ -38,18 +38,20 @@
                     "builder": "@storybook/angular:build-storybook",
                     "options": {
                         "browserTarget": "shared-ui:build",
-                        "configDir": "projects/shared-ui/.storybook",
                         "compodoc": false,
-                        "outputDir": "dist/storybook-static"
+                        "configDir": "projects/shared-ui/.storybook",
+                        "outputDir": "dist/storybook-static",
+                        "styles": ["projects/shared-ui/.storybook/styles.css"]
                     }
                 },
                 "storybook": {
                     "builder": "@storybook/angular:start-storybook",
                     "options": {
                         "browserTarget": "shared-ui:build",
-                        "configDir": "projects/shared-ui/.storybook",
                         "compodoc": false,
-                        "port": 6006
+                        "configDir": "projects/shared-ui/.storybook",
+                        "port": 6006,
+                        "styles": ["projects/shared-ui/.storybook/styles.css"]
                     }
                 }
             }
