@@ -124,5 +124,5 @@ jobs:
                       --title "$NEW_TAG_NAME" \
                       --target "$GITHUB_SHA" \
                       --generate-notes false \
-                      --latest ${{ steps.bump-version.outputs.is-prerelease == 'false' }}
+                      --latest ${{ steps.bump-version.outputs.is-prerelease == 'false' }} \
                       --prerelease ${{ steps.bump-version.outputs.is-prerelease == 'true' }}
