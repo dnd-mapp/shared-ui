@@ -89,8 +89,31 @@ jobs:
                   echo "raw-version=$RAW_VERSION" >> $GITHUB_OUTPUT
                   echo "clean-version=$CLEAN_VERSION" >> $GITHUB_OUTPUT
 
-            - name: Create and push commit
-              id: push-commit
+            - name: Prepare release notes
+              shell: bash
+              env:
+                  CLEAN_VERSION: ${{ steps.bump-version.outputs.clean-version }}
+              run: node .github/scripts/prepare-release-notes.js
+
+            - name: Update changelog
+              shell: bash
+              env:
+                  GH_TOKEN: ${{ steps.app-token.outputs.token }}
+              run: |
+                  REPO="${{ github.repository }}"
+                  BRANCH="${{ github.ref_name }}"
+                  CHANGELOG_PATH="CHANGELOG.md"
+                  COMMIT_MESSAGE="Chore: Update changelog for ${{ steps.bump-version.outputs.clean-version }}"
+
+                  CURRENT_SHA=$(gh api "repos/$REPO/contents/$CHANGELOG_PATH" \
+                      --jq '.sha' -H "Accept: application/vnd.github.v3+json")
+
+                  COMMIT_SHA=$(gh api "repos/$REPO/contents/$CHANGELOG_PATH" --method PUT -f message="$COMMIT_MESSAGE" \
+                      -f content="$(base64 -w0 "$CHANGELOG_PATH")" -f sha="$CURRENT_SHA" -f branch="$BRANCH" \
+                  --jq '.commit.sha')
+
+            - name: Update package manifest
+              id: commit-manifest
               shell: bash
               env:
                   GH_TOKEN: ${{ steps.app-token.outputs.token }}
@@ -98,16 +121,16 @@ jobs:
                   REPO="${{ github.repository }}"
                   BRANCH="${{ github.ref_name }}"
                   COMMIT_MESSAGE="${{ steps.bump-version.outputs.clean-version }}"
-                  FILE_PATH="projects/shared-ui/package.json"
+                  MANIFEST_PATH="projects/shared-ui/package.json"
 
                   # Get the current file SHA (required by the Contents API for updates)
-                  FILE_SHA=$(gh api repos/$REPO/contents/$FILE_PATH --jq '.sha')
+                  FILE_SHA=$(gh api repos/$REPO/contents/$MANIFEST_PATH --jq '.sha')
 
                   # Base64-encode the file content
-                  CONTENT=$(base64 -w0 "$FILE_PATH")
+                  CONTENT=$(base64 -w0 "$MANIFEST_PATH")
 
                   # Commit via the Contents API — GitHub signs this automatically
-                  NEW_COMMIT_SHA=$(gh api repos/$REPO/contents/$FILE_PATH --method PUT -f message="$COMMIT_MESSAGE" \
+                  NEW_COMMIT_SHA=$(gh api repos/$REPO/contents/$MANIFEST_PATH --method PUT -f message="$COMMIT_MESSAGE" \
                       -f content="$CONTENT" -f sha="$FILE_SHA" -f branch="$BRANCH" \
                   --jq '.commit.sha')
 
@@ -120,6 +143,8 @@ jobs:
               run: |
                   NEW_TAG_NAME="${{ steps.bump-version.outputs.raw-version }}"
 
-                  gh release create "$NEW_TAG_NAME" --title "$NEW_TAG_NAME" --target "${{ steps.push-commit.outputs.commit-sha }}" \
-                      --generate-notes=false --latest=${{ steps.validate-inputs.outputs.is-prerelease == 'false' }} \
-                      --prerelease=${{ steps.validate-inputs.outputs.is-prerelease == 'true' }}
+                  gh release create "$NEW_TAG_NAME" --title "$NEW_TAG_NAME" \
+                      --target "${{ steps.commit-manifest.outputs.commit-sha }}" \
+                      --notes-file .github/release-notes.md \
+                      --latest ${{ steps.validate-inputs.outputs.is-prerelease == 'false' }} \
+                      --prerelease ${{ steps.validate-inputs.outputs.is-prerelease == 'true' }}
