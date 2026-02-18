@@ -1,0 +1,23 @@
+name: Push tag
+on:
+    push:
+        tags:
+            - 'v*'
+permissions:
+    contents: read
+    id-token: write
+jobs:
+    publish:
+        name: Publish
+        runs-on: ubuntu-22.04
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v6
+
+            - name: CI
+              uses: ./.github/actions/ci
+
+            - name: Publish package
+              working-directory: dist/shared-ui
+              shell: bash
+              run: pnpm publish --access public --provenance
