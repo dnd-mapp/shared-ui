@@ -89,7 +89,7 @@ jobs:
                   echo "raw-version=$RAW_VERSION" >> $GITHUB_OUTPUT
                   echo "clean-version=$CLEAN_VERSION" >> $GITHUB_OUTPUT
 
-            - name: Push commit
+            - name: Create and push commit
               id: push-commit
               shell: bash
               env:
@@ -100,48 +100,24 @@ jobs:
                   COMMIT_MESSAGE="${{ steps.bump-version.outputs.clean-version }}"
                   COMMITTER_NAME="${{ steps.bot-user.outputs.name }}"
                   COMMITTER_EMAIL="${{ steps.bot-user.outputs.email }}"
+                  FILE_PATH="projects/shared-ui/package.json"
 
-                  # Get the SHA of the latest commit on the branch
-                  LATEST_COMMIT_SHA=$(gh api repos/$REPO/git/ref/heads/$BRANCH --jq '.object.sha')
+                  # Get the current file SHA (required by the Contents API for updates)
+                  FILE_SHA=$(gh api repos/$REPO/contents/$FILE_PATH --jq '.sha')
 
-                  # Get the tree SHA of the latest commit
-                  BASE_TREE_SHA=$(gh api repos/$REPO/git/commits/$LATEST_COMMIT_SHA --jq '.tree.sha')
+                  # Base64-encode the file content
+                  CONTENT=$(base64 -w0 "$FILE_PATH")
 
-                  # Build the tree entries array from all staged changes
-                  TREE_ENTRIES="[]"
-                  while IFS= read -r -d '' FILE; do
-                      CONTENT=$(base64 -w0 "$FILE")
-
-                      BLOB_SHA=$(gh api repos/$REPO/git/blobs --method POST -f encoding=base64 -f content="$CONTENT" --jq '.sha')
-
-                      TREE_ENTRIES=$(echo "$TREE_ENTRIES" | jq --arg path "$FILE" --arg sha "$BLOB_SHA" \
-                          '. + [{"path": $path, "mode": "100644", "type": "blob", "sha": $sha}]')
-                  done < <(git diff --name-only HEAD | tr '\n' '\0')
-
-                  # Create a new tree based on the current one
-                  NEW_TREE_SHA=$(gh api repos/$REPO/git/trees --method POST --input - <<EOF | jq -r '.sha'
-                      {
-                          "base_tree": "$BASE_TREE_SHA",
-                          "tree": $TREE_ENTRIES
-                      }
-                  EOF
-                  )
-
-                  # Create the commit
-                  NOW=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-
-                  NEW_COMMIT_SHA=$(gh api repos/$REPO/git/commits --method POST -f message="$COMMIT_MESSAGE" -f "tree=$NEW_TREE_SHA" \
-                      -f "parents[]=$LATEST_COMMIT_SHA" -f "author[name]=$COMMITTER_NAME" -f "author[email]=$COMMITTER_EMAIL" \
-                      -f "author[date]=$NOW" -f "committer[name]=$COMMITTER_NAME" -f "committer[email]=$COMMITTER_EMAIL" \
-                      -f "committer[date]=$NOW" \
-                  --jq '.sha')
-
-                  # Update the branch reference
-                  gh api repos/$REPO/git/refs/heads/$BRANCH --method PATCH -f sha="$NEW_COMMIT_SHA" -F force=false
+                  # Commit via the Contents API — GitHub signs this automatically
+                  NEW_COMMIT_SHA=$(gh api repos/$REPO/contents/$FILE_PATH --method PUT -f message="$COMMIT_MESSAGE" \
+                      -f content="$CONTENT" -f sha="$FILE_SHA" -f branch="$BRANCH" -f "author[name]=$COMMITTER_NAME" \
+                      -f "author[email]=$COMMITTER_EMAIL" -f "committer[name]=$COMMITTER_NAME" \
+                      -f "committer[email]=$COMMITTER_EMAIL" \
+                  --jq '.commit.sha')
 
                   echo "commit-sha=$NEW_COMMIT_SHA" >> $GITHUB_OUTPUT
 
-            - name: Create tag
+            - name: Create and push tag
               shell: bash
               env:
                   GH_TOKEN: ${{ steps.app-token.outputs.token }}
