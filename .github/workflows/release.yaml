@@ -81,7 +81,7 @@ jobs:
                       RAW_VERSION=$(pnpm version "$VERSION_INPUT" --no-commit-hooks --no-workspaces-update --no-git-tag-version --preid "$PRERELEASE_ID_INPUT")
                   fi
 
-                  RAW_VERSION=$(echo "$RAW_VERSION" | xargs)
+                  RAW_VERSION="${RAW_OUTPUT##* }"
                   CLEAN_VERSION="${RAW_VERSION#v}"
 
                   echo "raw-version=$RAW_VERSION" >> $GITHUB_OUTPUT
