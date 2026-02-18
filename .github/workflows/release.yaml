@@ -98,8 +98,6 @@ jobs:
                   REPO="${{ github.repository }}"
                   BRANCH="${{ github.ref_name }}"
                   COMMIT_MESSAGE="${{ steps.bump-version.outputs.clean-version }}"
-                  COMMITTER_NAME="${{ steps.bot-user.outputs.name }}"
-                  COMMITTER_EMAIL="${{ steps.bot-user.outputs.email }}"
                   FILE_PATH="projects/shared-ui/package.json"
 
                   # Get the current file SHA (required by the Contents API for updates)
@@ -110,9 +108,7 @@ jobs:
 
                   # Commit via the Contents API — GitHub signs this automatically
                   NEW_COMMIT_SHA=$(gh api repos/$REPO/contents/$FILE_PATH --method PUT -f message="$COMMIT_MESSAGE" \
-                      -f content="$CONTENT" -f sha="$FILE_SHA" -f branch="$BRANCH" -f "author[name]=$COMMITTER_NAME" \
-                      -f "author[email]=$COMMITTER_EMAIL" -f "committer[name]=$COMMITTER_NAME" \
-                      -f "committer[email]=$COMMITTER_EMAIL" \
+                      -f content="$CONTENT" -f sha="$FILE_SHA" -f branch="$BRANCH" \
                   --jq '.commit.sha')
 
                   echo "commit-sha=$NEW_COMMIT_SHA" >> $GITHUB_OUTPUT
@@ -124,15 +120,10 @@ jobs:
               run: |
                   REPO="${{ github.repository }}"
                   TAG_NAME="${{ steps.bump-version.outputs.raw-version }}"
-                  COMMITTER_NAME="${{ steps.bot-user.outputs.name }}"
-                  COMMITTER_EMAIL="${{ steps.bot-user.outputs.email }}"
-                  NOW=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
                   # Create an annotated tag object
                   TAG_SHA=$(gh api repos/$REPO/git/tags --method POST -f tag="$TAG_NAME" -f message="$TAG_NAME" \
-                      -f object="${{ steps.push-commit.outputs.commit-sha }}" -f type="commit" -f "tagger[name]=$COMMITTER_NAME" \
-                      -f "tagger[email]=$COMMITTER_EMAIL" -f "tagger[date]=$NOW" \
-                  --jq '.sha')
+                      -f object="${{ steps.push-commit.outputs.commit-sha }}" -f type="commit" --jq '.sha')
 
                   # Create the ref that points to the tag object
                   gh api repos/$REPO/git/refs --method POST -f ref="refs/tags/$TAG_NAME" -f sha="$TAG_SHA"
