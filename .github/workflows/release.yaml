@@ -113,6 +113,9 @@ jobs:
 
                   echo "commit-sha=$NEW_COMMIT_SHA" >> $GITHUB_OUTPUT
 
+            - name: Checkout repository
+              uses: actions/checkout@v6
+
             - name: Create Release
               shell: bash
               env:
