@@ -146,5 +146,5 @@ jobs:
                   gh release create "$NEW_TAG_NAME" --title "$NEW_TAG_NAME" \
                       --target "${{ steps.commit-manifest.outputs.commit-sha }}" \
                       --notes-file .github/release-notes.md \
-                      --latest ${{ steps.validate-inputs.outputs.is-prerelease == 'false' }} \
-                      --prerelease ${{ steps.validate-inputs.outputs.is-prerelease == 'true' }}
+                      --latest=${{ steps.validate-inputs.outputs.is-prerelease == 'false' }} \
+                      --prerelease=${{ steps.validate-inputs.outputs.is-prerelease == 'true' }}
