@@ -9,6 +9,7 @@ permissions:
 jobs:
     publish:
         name: Publish
+        if: false
         runs-on: ubuntu-22.04
         steps:
             - name: Checkout repository
