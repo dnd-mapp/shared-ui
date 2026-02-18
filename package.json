@@ -61,7 +61,7 @@
     "prettier": "~3.8",
     "prettier-plugin-organize-imports": "~4.3",
     "storybook": "~10.2",
-    "stylelint": "~17.1",
+    "stylelint": "~17.2",
     "stylelint-config-standard": "~40.0",
     "tailwindcss": "~4.1",
     "typescript": "~5.9",
