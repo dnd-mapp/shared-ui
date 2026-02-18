@@ -110,3 +110,19 @@ jobs:
                   NEW_COMMIT_SHA=$(gh api repos/$REPO/contents/$FILE_PATH --method PUT -f message="$COMMIT_MESSAGE" \
                       -f content="$CONTENT" -f sha="$FILE_SHA" -f branch="$BRANCH" \
                   --jq '.commit.sha')
+
+                  echo "commit-sha=$NEW_COMMIT_SHA" >> $GITHUB_OUTPUT
+
+            - name: Create Release
+              shell: bash
+              env:
+                  GH_TOKEN: ${{ steps.app-token.outputs.token }}
+              run: |
+                  NEW_TAG_NAME="${{ steps.bump-version.outputs.raw-version }}"
+
+                  gh release create "$NEW_TAG_NAME" \
+                      --title "$NEW_TAG_NAME" \
+                      --target "$GITHUB_SHA" \
+                      --generate-notes false \
+                      --latest ${{ steps.bump-version.outputs.is-prerelease == 'false' }}
+                      --prerelease ${{ steps.bump-version.outputs.is-prerelease == 'true' }}
