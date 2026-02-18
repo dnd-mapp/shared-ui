@@ -68,6 +68,7 @@ jobs:
                   git config user.email "github-actions[bot]@users.noreply.github.com"
 
             - name: Bump version
+              id: bump-version
               working-directory: projects/shared-ui
               shell: bash
               run: |
@@ -75,11 +76,19 @@ jobs:
                   PRERELEASE_ID_INPUT="${{ inputs.prerelease-id }}"
 
                   if [[ "$PRERELEASE_ID_INPUT" == "none" ]]; then
-                      pnpm version "$VERSION_INPUT"
+                      RAW_VERSION=$(pnpm version "$VERSION_INPUT" --no-commit-hooks --no-workspaces-update --no-git-tag-version)
                   else
-                      pnpm version "$VERSION_INPUT" --preid "$PRERELEASE_ID_INPUT"
+                      RAW_VERSION=$(pnpm version "$VERSION_INPUT" --no-commit-hooks --no-workspaces-update --no-git-tag-version --preid "$PRERELEASE_ID_INPUT")
                   fi
+
+                  CLEAN_VERSION="${RAW_VERSION#v}"
+
+                  echo "raw-version=$RAW_VERSION" >> $GITHUB_OUTPUT
+                  echo "clean-version=$CLEAN_VERSION" >> $GITHUB_OUTPUT
 
             - name: Push commit and tag
               shell: bash
-              run: git push --follow-tags
+              run: |
+                  git add .
+                  git commit -m "Release ${{ steps.bump-version.outputs.clean-version }}"
+                  git push --automic
