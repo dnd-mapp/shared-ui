@@ -8,24 +8,53 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- New features.
+- (n/a)
 
 ### Changed
 
-- Changes in existing functionality.
+- (n/a)
 
 ### Deprecated
 
-- Soon-to-be removed features.
+- (n/a)
 
 ### Removed
 
-- Now removed features.
+- (n/a)
 
 ### Fixed
 
-- Bug fixes.
+- (n/a)
 
 ### Security
 
-- Case of vulnerabilities.
+- (n/a)
+
+## [0.1.0] - 2026-02-18
+
+### Added
+
+- Official initial release of the `shared-ui` library including standard generated components from Storybook.
+
+## [0.1.0-rc.1] - 2026-02-18
+
+> [!Note]
+> This is a technical release to verify the distribution pipeline and contains no functional changes to library API or logic.
+
+### Chore
+
+- Validating the automated npm publishing pipeline with Trusted publishing.
+
+## [0.1.0-rc.0] - 2026-02-17
+
+> [!Note]
+> This is a technical release to verify the distribution pipeline and contains no functional changes to library API or logic.
+
+### Added
+
+- Initial scaffold and source for the `shared-ui` library (components, stories, build config).
+
+### Chore
+
+- Validating the automated npm publishing pipeline with a granular access token.
+
