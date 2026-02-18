@@ -23,6 +23,7 @@
     "pnpm": ">=10.29.3"
   },
   "scripts": {
+    "prepublishOnly": "node tools/prepublish-only.js",
     "build": "pnpm exec ng build",
     "build-dev": "pnpm exec ng build -c development",
     "storybook:build": "pnpm exec ng run shared-ui:build-storybook",
