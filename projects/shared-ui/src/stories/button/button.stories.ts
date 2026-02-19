@@ -16,6 +16,17 @@ const meta: Meta<StoryComponent> = {
                 disable: true,
             },
         },
+        label: {
+            description:
+                'The content projected into the button. Accepts plain text, HTML strings, or nested components.',
+            table: {
+                category: 'Contents',
+                type: {
+                    summary: 'string | HTMLElement',
+                    detail: 'Can be a simple string or any valid HTML/Angular template content.',
+                },
+            },
+        },
         color: {
             name: 'dma-button',
             description: 'Determines the visual style of the button.',
