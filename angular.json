@@ -60,10 +60,11 @@
                                 "glob": "**/*",
                                 "output": "."
                             }
-                        ]
+                        ],
                         "browserTarget": "shared-ui:build",
                         "compodoc": false,
                         "configDir": "projects/shared-ui/.storybook",
+                        "open": false,
                         "port": 6006,
                         "styles": ["projects/shared-ui/.storybook/styles.css"]
                     }
