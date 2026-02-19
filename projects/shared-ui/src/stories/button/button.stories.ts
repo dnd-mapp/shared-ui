@@ -44,11 +44,29 @@ export const Primary: Story = {
         color: ButtonColors.PRIMARY,
         label: 'Attack!',
     },
+    parameters: {
+        docs: {
+            source: {
+                type: 'code',
+                language: 'html',
+                code: `<button type="button" dma-button="primary" (click)="onAttack()">Attack!</button>`,
+            },
+        },
+    },
 };
 
 export const Base: Story = {
     args: {
         color: ButtonColors.BASE,
         label: 'Dismiss',
+    },
+    parameters: {
+        docs: {
+            source: {
+                type: 'code',
+                language: 'html',
+                code: `<button type="button" dma-button (click)="onDismiss()">Dismiss</button>`,
+            },
+        },
     },
 };

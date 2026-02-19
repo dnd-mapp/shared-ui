@@ -8,10 +8,10 @@ import { buttonColorAttribute, ButtonColors, DEFAULT_BUTTON_COLOR } from './butt
     host: {
         '[class]': `'font-semibold cursor-pointer py-2 px-4 rounded-md'`,
         '[class.text-neutral-900]': 'isBase()',
-        '[class.text-neutral-100]': 'isPrimary()',
         '[class.bg-neutral-100]': 'isBase()',
         '[class.hover:bg-neutral-200]': 'isBase()',
         '[class.active:bg-neutral-300]': 'isBase()',
+        '[class.text-neutral-100]': 'isPrimary()',
         '[class.bg-blue-400]': 'isPrimary()',
         '[class.hover:bg-blue-500]': 'isPrimary()',
         '[class.active:bg-blue-600]': 'isPrimary()',
