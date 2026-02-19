@@ -5,6 +5,9 @@ import { ButtonComponent, buttonColorAttribute } from '@dnd-mapp/shared-ui';
     selector: 'dma-story',
     templateUrl: `./story.component.html`,
     changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        class: 'block p-4 bg-neutral-100',
+    },
     imports: [ButtonComponent],
 })
 export class StoryComponent {
