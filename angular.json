@@ -37,6 +37,13 @@
                 "build-storybook": {
                     "builder": "@storybook/angular:build-storybook",
                     "options": {
+                        "assets": [
+                            {
+                                "input": "projects/shared-ui/src/assets",
+                                "glob": "**/*",
+                                "output": "."
+                            }
+                        ],
                         "browserTarget": "shared-ui:build",
                         "compodoc": false,
                         "configDir": "projects/shared-ui/.storybook",
@@ -47,6 +54,13 @@
                 "storybook": {
                     "builder": "@storybook/angular:start-storybook",
                     "options": {
+                        "assets": [
+                            {
+                                "input": "projects/shared-ui/src/assets",
+                                "glob": "**/*",
+                                "output": "."
+                            }
+                        ]
                         "browserTarget": "shared-ui:build",
                         "compodoc": false,
                         "configDir": "projects/shared-ui/.storybook",
