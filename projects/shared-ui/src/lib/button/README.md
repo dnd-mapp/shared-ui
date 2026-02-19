@@ -16,8 +16,6 @@ The `ButtonComponent` is a versatile UI element designed for the **D&D Mapp** de
 
 ## 🚀 Usage
 
-### 1. Import
-
 Add `ButtonComponent` to your standalone component's `imports` array:
 
 ```typescript
