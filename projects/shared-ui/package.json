@@ -19,7 +19,12 @@
   "bugs": {
     "url": "https://github.com/dnd-mapp/shared-ui"
   },
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    "./styles/*": "./styles/*"
+  },
   "type": "module",
   "engines": {
     "node": ">=24.13.1",
