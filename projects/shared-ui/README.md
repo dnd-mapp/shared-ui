@@ -33,7 +33,7 @@ pnpm add @dnd-mapp/shared-ui
 Import the library's Tailwind-based styles into your application's global CSS file (e.g., `styles.css`):
 
 ```css
-@import "@dnd-mapp/shared-ui/styles/main.css";
+@import "@dnd-mapp/shared-ui/assets/styles/main.css";
 ```
 
 > [!NOTE]
