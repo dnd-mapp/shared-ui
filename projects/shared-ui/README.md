@@ -37,7 +37,7 @@ Import the library's Tailwind-based styles into your application's global CSS fi
 ```
 
 > [!NOTE]
-> Ensure your build pipeline is configured to process Tailwind CSS v4 imports.*
+> Ensure your build pipeline is configured to process Tailwind CSS v4 imports.
 
 ### 3. Usage
 
@@ -61,10 +61,11 @@ export class RootComponent {}
 
 For detailed API definitions and interactive examples, visit our **[Storybook](https://dnd-mapp.github.io/shared-ui/)** or view the documentation for the specific components below:
 
-| Component                                            | Status | Description                                         |
-|:-----------------------------------------------------|:-------|:----------------------------------------------------|
-| **[Button](src/lib/button/README.md)**               | ✅      | Actions with support for base and primary variants. |
-| **[Vertical Rule](src/lib/vertical-rule/README.md)** | ✅      | A layout-stretching divider for content separation. |
+| Component                                              | Status | Description                                                 |
+|--------------------------------------------------------|--------|-------------------------------------------------------------|
+| **[Button](src/lib/button/README.md)**                 | ✅      | Actions with support for base and primary variants.         |
+| **[Navbar Brand](src/lib/nav/navbar-brand/README.md)** | ✅      | A standardized header element for logo and brand identity.  |
+| **[Vertical Rule](src/lib/vertical-rule/README.md)**   | ✅      | A layout-stretching divider for content separation.         |
 
 > **Legend:** ✅ Production Ready | 🚧 In Development | 🧪 Experimental
 
