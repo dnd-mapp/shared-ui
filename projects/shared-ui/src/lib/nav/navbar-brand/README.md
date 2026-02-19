@@ -1,10 +1,14 @@
+[← Back to Library Overview](../../../../README.md#-component-library)
+
+---
+
 # Navbar Brand Component (`dma-navbar-brand`)
 
 The `NavbarBrandComponent` is a foundational UI element for application navigation bars. It provides a standardized way to display a brand logo alongside a brand name, automatically linking back to the application root.
 
 ---
 
-## Overview
+## 🏰 Overview
 
 - **Selector:** `dma-navbar-brand`
 - **Format:** Angular Standalone Component
@@ -12,7 +16,7 @@ The `NavbarBrandComponent` is a foundational UI element for application navigati
 
 ---
 
-## Usage
+## 🚀 Usage
 
 To use the `NavbarBrandComponent`, import it into your standalone component or Angular module, and then add it to your template.
 
