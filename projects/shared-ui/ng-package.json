@@ -5,7 +5,7 @@
         {
             "input": "src/assets",
             "glob": "**/*",
-            "output": "."
+            "output": "assets"
         },
         "src/**/README.md"
     ],

@@ -23,7 +23,7 @@
     "*.css"
   ],
   "exports": {
-    "./styles/*": "./styles/*"
+    "./assets/*": "./assets/*"
   },
   "type": "module",
   "engines": {
