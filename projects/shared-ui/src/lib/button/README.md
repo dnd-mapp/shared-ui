@@ -4,14 +4,13 @@
 
 # Button Component (`dma-button`)
 
-The `ButtonComponent` is a versatile, high-performance UI element built with **Angular 21 signals** and **Tailwind CSS v4**. It is designed as an attribute selector for standard HTML `<button>` elements, ensuring native accessibility and browser behavior while applying the **D&D Mapp** design system.
+The `ButtonComponent` is a versatile UI element designed for the **D&D Mapp** design system. It is implemented as an attribute selector for standard HTML `<button>` elements, ensuring native accessibility and browser behavior while providing consistent styling.
 
 ## 🏰 Overview
 
-- **Type**: Standalone Component.
 - **Selector**: `button[dma-button]`
-- **Styling**: Tailwind CSS v4 (via Host Bindings).
-- **Logic**: 100% Signal-based (Inputs & Computed state).
+- **Format**: Attribute-based standalone component.
+- **Compatibility**: Works with all standard HTML button attributes (e.g., `type`, `disabled`, `(click)`).
 
 ---
 
@@ -21,27 +20,23 @@ The `ButtonComponent` is a versatile, high-performance UI element built with **A
 
 Add `ButtonComponent` to your standalone component's `imports` array:
 
-```ts
+```typescript
 import { Component } from '@angular/core';
 import { ButtonComponent } from '@dnd-mapp/shared-ui';
 
 @Component({
     selector: 'app-encounter-action',
     template: `
-        <!-- Defaults to 'base' -->
+        <!-- Defaults to 'base' style -->
         <button dma-button>Base Action</button>
-        
-        <!-- Explicit 'primary' -->
+
+        <!-- Explicit 'primary' style -->
         <button dma-button="primary">Roll Initiative</button>
     `,
-    imports: [ButtonComponent]
+    imports: [ButtonComponent],
 })
 export class EncounterActionComponent {}
 ```
-
-### 2. Styles Requirement
-
-Ensure Tailwind CSS v4 is configured in your project to process the utility classes defined in the component host metadata.
 
 ---
 
@@ -49,65 +44,48 @@ Ensure Tailwind CSS v4 is configured in your project to process the utility clas
 
 ### Inputs
 
-| Input   | Attribute    | Type           | Default  | Description                                |
-|---------|--------------|----------------|----------|--------------------------------------------|
-| `color` | `dma-button` | `ButtonColors` | `'base'` | Determines the visual style of the button. |
+| Input         | Attribute    | Type                  | Default  | Description                                |
+|---------------|--------------|-----------------------|----------|--------------------------------------------|
+| `buttonColor` | `dma-button` | `'base' \| 'primary'` | `'base'` | Determines the visual style of the button. |
 
 ### Color Variants
 
-The component leverages `computed` signals to toggle Tailwind classes dynamically:
-
 1. **Base (`base`)**
-   - **Trigger**: `<button dma-button>` or `<button dma-button="base">`
-   - **Styles**: Light neutral background (`bg-neutral-100`), dark text (`text-neutral-900`).
-   - **States**: Subtle darkening on hover/active.
+   - **Usage**: `<button dma-button>` or `<button dma-button="base">`
+   - **Description**: A neutral style for secondary actions or standard UI tasks.
+   - **Appearance**: Light neutral background with dark text and subtle hover states.
 
 2. **Primary (`primary`)**
-   - **Trigger**: `<button dma-button="primary">`
-   - **Styles**: Blue background (`bg-blue-400`), light text (`text-neutral-100`).
-   - **States**: Vibrant blue scaling (`hover:bg-blue-500`, `active:bg-blue-600`).
-
----
-
-## 🛠 Technical Details
-
-### Signal Implementation
-
-The component uses modern Angular Signals for reactive state management:
-
-- **`input()`**: Uses a `transform` function (`buttonColorAttribute`) to sanitize input values and an `alias` to support the shorthand attribute syntax.
-- **`computed()`**: Derive boolean states (`isBase`, `isPrimary`) for highly efficient change detection.
-
-### Tailwind Integration
-
-Styles are applied directly to the host element using high-performance class bindings:
-
-```ts
-host: {
-    '[class]': `'font-semibold cursor-pointer py-2 px-4 rounded-md'`,
-    '[class.bg-blue-400]': 'isPrimary()',
-    // ... other conditional classes
-}
-```
-
-### Attribute Shorthand & Transformation
-
-The `dma-button` alias allows the attribute itself to serve as the input. If an empty string or invalid value is provided, the `buttonColorAttribute` transformer ensures it safely falls back to `DEFAULT_BUTTON_COLOR`.
+   - **Usage**: `<button dma-button="primary">`
+   - **Description**: High-emphasis style for main actions and "Call to Action" buttons.
+   - **Appearance**: Vibrant blue background with light text and distinct interaction states.
 
 ---
 
 ## 🧪 Examples
 
-### Primary Action (Natural 20 Style)
+### Primary Action (Attack)
+
+Use the `primary` variant for the main action in a view.
 
 ```html
 <button dma-button="primary" (click)="rollDice()">Attack!</button>
 ```
 
-### Secondary / Cancel Action
+### Secondary Action (Cancel)
+
+Use the default `base` variant for less prominent actions.
 
 ```html
 <button dma-button (click)="closeModal()">Dismiss</button>
+```
+
+### Standard Button Behavior
+
+Since this is an attribute selector, you can use all standard button features like `type="submit"` or the `disabled` state:
+
+```html
+<button type="submit" dma-button="primary" [disabled]="isSubmitting()">Save Character</button>
 ```
 
 ---
