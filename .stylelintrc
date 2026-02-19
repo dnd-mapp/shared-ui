@@ -1,4 +1,14 @@
 {
     "extends": ["stylelint-config-standard"],
-    "cache": true
+    "cache": true,
+    "rules": {
+        "at-rule-no-unknown": [
+            true,
+            {
+                "ignoreAtRules": [
+                    "reference"
+                ]
+            }
+        ]
+    }
 }
