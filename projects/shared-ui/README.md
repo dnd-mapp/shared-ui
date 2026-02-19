@@ -4,116 +4,75 @@
 ![NPM Version](https://img.shields.io/npm/v/@dnd-mapp/shared-ui)
 ![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)
 
-The official Angular component library for the **D&D Mapp** platform. This library provides a unified design language and a collection of reusable, accessible UI components built specifically for tabletop gaming applications.
+The official Angular component library for the **D&D Mapp** platform. This library provides a unified design language and high-performance, accessible UI components built specifically for tabletop gaming applications.
 
-## 🏰 Features
-
-- **Angular 21 Native**: Built with the latest signals-based patterns and standalone components.
-- **Tailwind CSS v4**: CSS-first configuration for high-performance styling.
-- **Accessible**: Built with A11y best practices to ensure all players can use the tools.
-- **Design Driven**: Single source of truth for the D&D Mapp brand.
+🏰 **[Explore the Live Storybook](https://dnd-mapp.github.io/shared-ui/)**
 
 ---
 
-## 🧱 UI Components
+## ✨ Key Features
 
-A collection of high-performance, accessible components. Click on a component name to view its specific documentation, API, and usage examples.
-
-| Component                              | Status | Description                                                         |
-|----------------------------------------|--------|---------------------------------------------------------------------|
-| **[Button](src/lib/button/README.md)** | ✅      | Primary action component with support for variants (base, primary). |
-
-> **[!TIP]** ✅ Ready for Production | 🚧 In Development | 🧪 Experimental
+- **Modern Architecture**: Built with **Angular 21** using signals and standalone components.
+- **Next-Gen Styling**: Powered by **Tailwind CSS v4** with a CSS-first configuration.
+- **Accessible & Consistent**: A11y-focused components that serve as the single source of truth for the D&D Mapp brand.
 
 ---
 
-## 🚀 Installation
+## 🚀 Getting Started
 
-Install the package via pnpm (recommended) or your preferred package manager:
+### 1. Installation
+
+Install the package via your preferred package manager:
 
 ```bash
 pnpm add @dnd-mapp/shared-ui
 ```
 
-### 1. Global Styles Integration
+### 2. Global Styles
 
-The library requires the shared Tailwind-based styles to function correctly. Add the following import to your application's global CSS file (e.g., `styles.css` or `main.css`):
+Import the library's Tailwind-based styles into your application's global CSS file (e.g., `styles.css`):
 
 ```css
-@import "@dnd-mapp/shared-ui/styles.css";
+@import "@dnd-mapp/shared-ui/styles/main.css";
 ```
 
-### 2. Configuration
+> [!NOTE]
+> Ensure your build pipeline is configured to process Tailwind CSS v4 imports.*
 
-Since this library uses **Tailwind CSS v4**, ensure your application is configured to process Tailwind imports. If you are using the Angular CLI with Tailwind support, no additional configuration is typically required beyond the import.
+### 3. Usage
 
----
-
-## 📖 Usage
-
-All components are exported as **Standalone Components**. You can import them directly into your component's `imports` array.
-
-### Example: Using the Button Component
+All components are **Standalone**. Import them directly into your component's `imports` array:
 
 ```typescript
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ButtonComponent } from '@dnd-mapp/shared-ui'; 
+import { Component } from '@angular/core';
+import { ButtonComponent } from '@dnd-mapp/shared-ui';
 
 @Component({
-      selector: 'dma-root',
-      template: `
-        <section>
-            <h1>Encounter Initiative</h1>
-            <button dma-button (click)="onRoll()">Roll for Initiative</button>
-        </section>
-      `,
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-root', 
+    template: `<button type="button" dma-button="primary">Roll Initiative</button>`,
     imports: [ButtonComponent],
 })
-export class RootComponent {
-  protected onRoll() {
-    console.log('Natural 20!');
-  }
-}
+export class RootComponent {}
 ```
 
 ---
 
-## 🛠 Development & Storybook
+## 🧱 Component Library
 
-If you are contributing to the library or want to explore the components in isolation:
+For detailed API definitions and interactive examples, visit our **[Storybook](https://dnd-mapp.github.io/shared-ui/)** or view the documentation for the specific components below:
 
-1. **Clone the repo**:
+| Component                                            | Status | Description                                         |
+|:-----------------------------------------------------|:-------|:----------------------------------------------------|
+| **[Button](src/lib/button/README.md)**               | ✅      | Actions with support for base and primary variants. |
+| **[Vertical Rule](src/lib/vertical-rule/README.md)** | ✅      | A layout-stretching divider for content separation. |
 
-   ```bash
-   git clone https://github.com/dnd-mapp/shared-ui.git
-   ```
-
-2. **Setup environment**:
-
-   This project uses [mise-en-place](https://mise.jdx.dev/) to manage Node.js and pnpm versions.
-
-   ```bash
-   mise install
-   pnpm install
-   ```
-
-3. **Launch Storybook**:
-
-   ```bash
-   pnpm storybook:start
-   ```
-
-   Navigate to `http://localhost:6006` to view the documentation and component playground.
+> **Legend:** ✅ Production Ready | 🚧 In Development | 🧪 Experimental
 
 ---
 
-## 📜 Available Scripts
+## 🛠 Development
 
-- `pnpm build`: Compiles the library for production.
-- `pnpm test`: Runs unit tests via Karma.
-- `pnpm lint`: Validates TypeScript and Angular logic.
-- `pnpm stylelint`: Validates CSS/Tailwind compliance.
+If you are contributing or wish to run the documentation locally, please refer to the [Main Repository README](https://github.com/dnd-mapp/shared-ui/blob/main/README.md) for environment setup and contribution guidelines.
 
 ---
 
@@ -121,4 +80,4 @@ If you are contributing to the library or want to explore the components in isol
 
 Copyright © 2026 NoNamer777. All rights reserved.
 
-This software is **proprietary**. Unauthorized copying, modification, or distribution is strictly prohibited. Use is subject to the terms in the [LICENSE](https://github.com/dnd-mapp/shared-ui?tab=License-1-ov-file) file.
+Proprietary software. Unauthorized copying or distribution is strictly prohibited. See the [LICENSE](https://github.com/dnd-mapp/shared-ui?tab=License-1-ov-file) for full terms.
