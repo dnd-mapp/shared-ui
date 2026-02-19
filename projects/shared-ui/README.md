@@ -64,6 +64,7 @@ For detailed API definitions and interactive examples, visit our **[Storybook](h
 | Component                                              | Status | Description                                                  |
 |--------------------------------------------------------|--------|--------------------------------------------------------------|
 | **[Button](src/lib/button/README.md)**                 | ✅      | Actions with support for base and primary variants.          |
+| **[Dropdowns](src/lib/dropdown/README.md)**            | 🚧     |                                                              |
 | **[Navbar Brand](src/lib/nav/navbar-brand/README.md)** | ✅      | A standardized header element for logo and brand identity.   |
 | **[Navbar Link](src/lib/nav/navbar-link/README.md)**   | ✅      | Navigation link with automatic active state and layout lock. |
 | **[Vertical Rule](src/lib/vertical-rule/README.md)**   | ✅      | A layout-stretching divider for content separation.          |
