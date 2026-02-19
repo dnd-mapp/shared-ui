@@ -1,4 +1,4 @@
-[← Back to Library Overview](../../../README.md#-ui-components)
+[← Back to Library Overview](../../../README.md#-component-library)
 
 ---
 
