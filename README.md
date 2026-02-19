@@ -45,16 +45,16 @@ We use Storybook to build components in isolation. This is the primary developme
 - **Start Storybook**:
 
   ```bash
-  pnpm storybook
+  pnpm storybook:start
   ```
+  
+Once running, navigate to `http://localhost:6006` to browse the component catalog.
 
 - **Build Storybook**:
 
   ```bash
-  pnpm build-storybook
+  pnpm storybook:build
   ```
-
-Once running, navigate to `http://localhost:6006` to browse the component catalog.
 
 ---
 

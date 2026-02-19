@@ -101,7 +101,7 @@ If you are contributing to the library or want to explore the components in isol
 3. **Launch Storybook**:
 
    ```bash
-   pnpm storybook
+   pnpm storybook:start
    ```
 
    Navigate to `http://localhost:6006` to view the documentation and component playground.
