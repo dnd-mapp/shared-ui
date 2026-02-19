@@ -35,6 +35,7 @@ This project uses [mise-en-place](https://mise.jdx.dev/) to manage runtime versi
     cd shared-ui
     mise install
     pnpm install
+    ```
 
 ---
 
