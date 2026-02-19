@@ -41,7 +41,7 @@
                         "compodoc": false,
                         "configDir": "projects/shared-ui/.storybook",
                         "outputDir": "dist/storybook-static",
-                        "styles": ["projects/shared-ui/src/styles.css"]
+                        "styles": ["projects/shared-ui/.storybook/styles.css"]
                     }
                 },
                 "storybook": {
@@ -51,7 +51,7 @@
                         "compodoc": false,
                         "configDir": "projects/shared-ui/.storybook",
                         "port": 6006,
-                        "styles": ["projects/shared-ui/src/styles.css"]
+                        "styles": ["projects/shared-ui/.storybook/styles.css"]
                     }
                 }
             }
