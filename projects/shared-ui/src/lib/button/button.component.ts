@@ -6,7 +6,7 @@ import { buttonColorAttribute, ButtonColors, DEFAULT_BUTTON_COLOR } from './butt
     selector: 'button[dma-button]',
     template: `<ng-content />`,
     host: {
-        '[class]': `'font-semibold cursor-pointer py-2 px-4 rounded-md'`,
+        'class': 'font-semibold cursor-pointer py-2 px-4 rounded-md',
         '[class.text-neutral-900]': 'isBase()',
         '[class.bg-neutral-100]': 'isBase()',
         '[class.hover:bg-neutral-200]': 'isBase()',
