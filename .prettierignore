@@ -5,6 +5,7 @@
 !*.json
 !*.yaml
 !*.html
+!*.svg
 !*.css
 !*.ts
 !*.cts
