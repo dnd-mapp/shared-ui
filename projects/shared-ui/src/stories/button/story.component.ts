@@ -15,8 +15,6 @@ export class StoryComponent {
 
     public readonly label = input.required<string>();
 
-    public readonly withLeadingIcon = input(false);
-
     // eslint-disable-next-line @angular-eslint/no-output-on-prefix
     public readonly onButtonClick = output<PointerEvent>();
 }

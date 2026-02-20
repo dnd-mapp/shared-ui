@@ -1,6 +1,3 @@
 <button type="button" [dma-button]="color()" (click)="onButtonClick.emit($event)">
-    @if (withLeadingIcon()) {
-        <dma-icon dma-circle-user-icon ngProjectAs="dma-leading-icon" />
-    }
     {{ label() }}
 </button>

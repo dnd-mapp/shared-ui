@@ -1,6 +1,7 @@
 import { ButtonColors } from '@dnd-mapp/shared-ui';
-import { Meta, StoryObj } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 import { fn } from 'storybook/test';
+import { LeadingIconStoryComponent } from './leading-icon-story.component';
 import { StoryComponent } from './story.component';
 
 const meta: Meta<StoryComponent> = {
@@ -43,11 +44,6 @@ const meta: Meta<StoryComponent> = {
             control: 'select',
             options: Object.values(ButtonColors),
         },
-        withLeadingIcon: {
-            table: {
-                disable: true,
-            },
-        },
     },
 };
 
@@ -88,10 +84,12 @@ export const Base: Story = {
 };
 
 export const LeadingIcon: Story = {
-    args: {
-        label: 'NoNamer777',
-        withLeadingIcon: true,
-    },
+    decorators: [moduleMetadata({ imports: [LeadingIconStoryComponent] })],
+    render: (args) => ({
+        props: args,
+        component: LeadingIconStoryComponent,
+        template: `<dma-leading-icon-story />`,
+    }),
     parameters: {
         docs: {
             source: {
