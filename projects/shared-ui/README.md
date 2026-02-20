@@ -66,7 +66,6 @@ For detailed API definitions and interactive examples, visit our **[Storybook](h
 | **[App Top Bar](src/lib/nav/app-top-bar/README.md)**     | 🚧     |                                                              |
 | **[Button](src/lib/button/README.md)**                   | ✅      | Actions with support for base and primary variants.          |
 | **[Dropdowns](src/lib/dropdown/README.md)**              | 🚧     |                                                              |
-| **[Navbar Action](src/lib/nav/navbar-action/README.md)** | 🚧     |                                                              |
 | **[Navbar Brand](src/lib/nav/navbar-brand/README.md)**   | ✅      | A standardized header element for logo and brand identity.   |
 | **[Navbar Link](src/lib/nav/navbar-link/README.md)**     | ✅      | Navigation link with automatic active state and layout lock. |
 | **[Navbar Menu](src/lib/nav/navbar-menu/README.md)**     | 🚧     |                                                              |
