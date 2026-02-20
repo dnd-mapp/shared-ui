@@ -1,7 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import {
     AppTopBarComponent,
     AppTopBarSectionComponent,
+    ButtonComponent,
+    CircleUserIcon,
     NavbarBrandComponent,
     NavbarComponent,
     NavbarLinkComponent,
@@ -19,6 +21,16 @@ import {
         NavbarComponent,
         VerticalRuleComponent,
         NavbarLinkComponent,
+        ButtonComponent,
+        CircleUserIcon,
     ],
 })
-export class StoryComponent {}
+export class StoryComponent {
+    public readonly authenticated = input(false);
+
+    protected readonly authenticatedUser = computed(() => (this.authenticated() ? { username: 'NoNamer777' } : null));
+
+    public readonly login = output<void>();
+
+    public readonly signup = output<void>();
+}

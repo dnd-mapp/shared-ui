@@ -8,6 +8,14 @@
         </nav>
     </dma-app-top-bar-section>
     <dma-app-top-bar-section position="end">
-        <p>End</p>
+        @if (authenticatedUser(); as user) {
+            <button type="button" dma-button>
+                <dma-icon dma-circle-user-icon ngProjectAs="dma-leading-icon" />
+                {{ user.username }}
+            </button>
+        } @else {
+            <button type="button" dma-button (click)="login.emit()">Log in</button>
+            <button type="button" dma-button="primary" (click)="signup.emit()">Sign up</button>
+        }
     </dma-app-top-bar-section>
 </dma-app-top-bar>
