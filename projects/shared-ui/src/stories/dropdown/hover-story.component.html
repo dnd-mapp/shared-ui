@@ -1,0 +1,18 @@
+<button
+    type="button"
+    dma-button
+    toggleOnHover
+    #anchor="dmaDropdownAnchor"
+    [dmaDropdownAnchor]="dropdownContainer"
+    (dropdownToggle)="this.dropdownShown.emit($event)"
+>
+    Knowledge center
+</button>
+
+<ng-template #dropdownContainer>
+    <dma-dropdown-container (hover)="anchor.scheduleHide(!$event)">
+        <dma-navbar-link label="Game mechanics" route="/knowledge/game-mechanics" />
+        <dma-navbar-link label="Spells" route="/knowledge/spells" />
+        <dma-navbar-link label="Monsters" route="/knowledge/monster-stats" />
+    </dma-dropdown-container>
+</ng-template>

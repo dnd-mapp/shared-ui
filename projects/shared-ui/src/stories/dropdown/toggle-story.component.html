@@ -1,0 +1,15 @@
+<button
+    type="button"
+    dma-button
+    [dmaDropdownAnchor]="dropdownContainer"
+    (dropdownToggle)="this.dropdownShown.emit($event)"
+>
+    <dma-icon dma-circle-user-icon />
+    NoNamer777
+</button>
+
+<ng-template #dropdownContainer>
+    <dma-dropdown-container>
+        <button type="button" class="w-full" dma-button (click)="logout.emit()">Log out</button>
+    </dma-dropdown-container>
+</ng-template>
