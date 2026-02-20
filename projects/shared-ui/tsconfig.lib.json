@@ -2,7 +2,8 @@
 /* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
     "extends": "../../tsconfig.json",
-    "include": ["src/**/*.ts"],
+    "references": [{ "path": "./tsconfig.lib.prod.json" }, { "path": "./.storybook/tsconfig.json" }],
+    "include": ["src/lib/**/*.ts"],
     "compilerOptions": {
         "declaration": true,
         "declarationMap": true,
