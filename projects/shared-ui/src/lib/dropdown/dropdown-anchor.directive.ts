@@ -47,7 +47,10 @@ export class DropdownAnchorDirective {
             .asObservable()
             .pipe(debounceTime(100), filter(Boolean), takeUntilDestroyed())
             .subscribe({
-                next: () => this.hide(),
+                next: () => {
+                    if (!this.toggleOnHover()) return;
+                    this.hide();
+                },
             });
     }
 
