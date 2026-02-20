@@ -34,6 +34,7 @@
     "stylelint": "pnpm exec stylelint \"**/*.css\""
   },
   "dependencies": {
+    "@angular/cdk": "~21.1",
     "@angular/common": "~21.1",
     "@angular/compiler": "~21.1",
     "@angular/core": "~21.1",
