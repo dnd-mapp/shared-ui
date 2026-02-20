@@ -4,9 +4,11 @@ import {
     AppTopBarSectionComponent,
     ButtonComponent,
     CircleUserIcon,
+    DropdownContainerComponent,
     NavbarBrandComponent,
     NavbarComponent,
     NavbarLinkComponent,
+    NavbarMenuComponent,
     VerticalRuleComponent,
 } from '@dnd-mapp/shared-ui';
 
@@ -23,6 +25,8 @@ import {
         NavbarLinkComponent,
         ButtonComponent,
         CircleUserIcon,
+        NavbarMenuComponent,
+        DropdownContainerComponent,
     ],
 })
 export class StoryComponent {

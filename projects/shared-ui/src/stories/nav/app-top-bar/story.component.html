@@ -6,13 +6,28 @@
             <dma-navbar-link route="/characters" label="Characters" />
             <dma-navbar-link route="/campaigns" label="Campaigns" />
         </nav>
+        <dma-navbar-menu toggleOnHover>
+            <ng-container ngProjectAs="dropdown-trigger-label">Knowledge center</ng-container>
+
+            <ng-container ngProjectAs="dropdown-content">
+                <dma-navbar-link route="/knowledge-center/game-mechanics" label="Game mechanics" />
+                <dma-navbar-link route="/knowledge-center/spells" label="Spells" />
+                <dma-navbar-link route="/knowledge-center/monsters" label="Monsters & NPCs" />
+            </ng-container>
+        </dma-navbar-menu>
     </dma-app-top-bar-section>
     <dma-app-top-bar-section position="end">
         @if (authenticatedUser(); as user) {
-            <button type="button" dma-button>
-                <dma-icon dma-circle-user-icon ngProjectAs="dma-leading-icon" />
-                {{ user.username }}
-            </button>
+            <dma-navbar-menu>
+                <ng-container ngProjectAs="dropdown-trigger-label">
+                    <dma-icon dma-circle-user-icon ngProjectAs="dma-leading-icon" />
+                    {{ user.username }}
+                </ng-container>
+
+                <ng-container ngProjectAs="dropdown-content">
+                    <button type="button" class="w-full" dma-button (click)="logout.emit()">Log out</button>
+                </ng-container>
+            </dma-navbar-menu>
         } @else {
             <button type="button" dma-button (click)="login.emit()">Log in</button>
             <button type="button" dma-button="primary" (click)="signup.emit()">Sign up</button>

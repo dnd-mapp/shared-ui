@@ -1,12 +1,13 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ButtonComponent } from '../../button';
+import { DropdownAnchorDirective, DropdownContainerComponent } from '../../dropdown';
 
 @Component({
     selector: 'dma-navbar-menu',
     templateUrl: './navbar-menu.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    host: {
-        class: 'block',
-    },
-    imports: [],
+    imports: [ButtonComponent, DropdownAnchorDirective, DropdownContainerComponent],
 })
-export class NavbarMenuComponent {}
+export class NavbarMenuComponent {
+    public readonly toggleOnHover = input(false, { transform: booleanAttribute });
+}
