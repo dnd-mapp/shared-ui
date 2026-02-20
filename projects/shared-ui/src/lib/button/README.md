@@ -11,6 +11,7 @@ The `ButtonComponent` is a versatile UI element designed for the **D&D Mapp** de
 - **Selector**: `button[dma-button]`
 - **Format**: Attribute-based standalone component.
 - **Compatibility**: Works with all standard HTML button attributes (e.g., `type`, `disabled`, `(click)`).
+- **Features**: Supports a leading icon via content projection.
 
 ---
 
@@ -26,10 +27,16 @@ import { ButtonComponent } from '@dnd-mapp/shared-ui';
     selector: 'app-encounter-action',
     template: `
         <!-- Defaults to 'base' style -->
-        <button dma-button>Base Action</button>
+        <button type="button" dma-button>Base Action</button>
 
         <!-- Explicit 'primary' style -->
-        <button dma-button="primary">Roll Initiative</button>
+        <button type="button" dma-button="primary">Roll Initiative</button>
+
+        <!-- With a leading icon -->
+        <button type="button" dma-button>
+            <dma-icon dma-user-circle-icon ngProjectAs="dma-leading-icon" />️
+            Username
+        </button>
     `,
     imports: [ButtonComponent],
 })
@@ -42,32 +49,46 @@ export class EncounterActionComponent {}
 
 ### Inputs
 
-| Input         | Attribute    | Type                  | Default  | Description                                |
-|---------------|--------------|-----------------------|----------|--------------------------------------------|
-| `buttonColor` | `dma-button` | `'base' \| 'primary'` | `'base'` | Determines the visual style of the button. |
+| Input   | Attribute    | Type                  | Default  | Description                                |
+|---------|--------------|-----------------------|----------|--------------------------------------------|
+| `color` | `dma-button` | `'base' \| 'primary'` | `'base'` | Determines the visual style of the button. |
 
-### Color Variants
+### Content Projection
+
+The component uses `<ng-content>` to allow for flexible labeling and icon placement:
+
+- **`dma-leading-icon`**: Use this tag to project an icon or element at the start of the button.
+- **Default Slot**: Any other content provided inside the button tag will be rendered as the button label.
+
+---
+
+## 🌈 Color Variants
 
 1. **Base (`base`)**
+
    - **Usage**: `<button dma-button>` or `<button dma-button="base">`
    - **Description**: A neutral style for secondary actions or standard UI tasks.
-   - **Appearance**: Light neutral background with dark text and subtle hover states.
+   - **Appearance**: Light neutral (`neutral-100`) background with dark text and subtle hover/active states.
 
 2. **Primary (`primary`)**
+
    - **Usage**: `<button dma-button="primary">`
    - **Description**: High-emphasis style for main actions and "Call to Action" buttons.
-   - **Appearance**: Vibrant blue background with light text and distinct interaction states.
+   - **Appearance**: Vibrant blue (`blue-400`) background with light text and distinct interaction states.
 
 ---
 
 ## 🧪 Examples
 
-### Primary Action (Attack)
+### Leading Icon (Profile)
 
-Use the `primary` variant for the main action in a view.
+Project a specialized icon element into the `dma-leading-icon` slot.
 
 ```html
-<button dma-button="primary" (click)="rollDice()">Attack!</button>
+<button type="button" dma-button dmaDropdownAnchor>
+    <dma-icon dma-user-circle-icon ngProjectAs="dma-leading-icon" />️
+    Username
+</button>
 ```
 
 ### Secondary Action (Cancel)

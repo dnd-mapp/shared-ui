@@ -4,7 +4,7 @@ import { buttonColorAttribute, ButtonColors, DEFAULT_BUTTON_COLOR } from './butt
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'button[dma-button]',
-    template: `<ng-content />`,
+    templateUrl: './button.component.html',
     host: {
         'class': 'font-semibold cursor-pointer py-2 px-4 rounded-md',
         '[class.text-neutral-900]': 'isBase()',

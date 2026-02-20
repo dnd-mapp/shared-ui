@@ -43,6 +43,11 @@ const meta: Meta<StoryComponent> = {
             control: 'select',
             options: Object.values(ButtonColors),
         },
+        withLeadingIcon: {
+            table: {
+                disable: true,
+            },
+        },
     },
 };
 
@@ -77,6 +82,27 @@ export const Base: Story = {
                 type: 'code',
                 language: 'html',
                 code: `<button type="button" dma-button (click)="onDismiss()">Dismiss</button>`,
+            },
+        },
+    },
+};
+
+export const LeadingIcon: Story = {
+    args: {
+        label: 'NoNamer777',
+        withLeadingIcon: true,
+    },
+    parameters: {
+        docs: {
+            source: {
+                type: 'code',
+                language: 'html',
+                code: `
+                    <button type="button" dma-button>
+                        <dma-icon dma-circle-user-icon />
+                        NoNamer777
+                    </button>
+                `,
             },
         },
     },
