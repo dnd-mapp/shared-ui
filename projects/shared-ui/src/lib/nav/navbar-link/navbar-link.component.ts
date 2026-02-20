@@ -6,7 +6,8 @@ import { isActive, Router, RouterLink } from '@angular/router';
     templateUrl: './navbar-link.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
-        'class': 'inline-block',
+        'class': 'block hover:text-neutral-900',
+        '[class.text-neutral-600]': '!isActive()',
         '[class.font-semibold]': 'isActive()',
     },
     imports: [RouterLink],
