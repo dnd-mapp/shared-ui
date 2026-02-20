@@ -11,7 +11,7 @@ import { ButtonComponent, buttonColorAttribute } from '@dnd-mapp/shared-ui';
     imports: [ButtonComponent],
 })
 export class StoryComponent {
-    public readonly color = input.required({ transform: buttonColorAttribute });
+    public readonly color = input(ButtonColors.BASE, { transform: buttonColorAttribute });
 
     public readonly label = input.required<string>();
 
