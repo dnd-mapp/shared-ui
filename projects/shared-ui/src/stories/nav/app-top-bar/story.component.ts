@@ -37,4 +37,6 @@ export class StoryComponent {
     public readonly login = output<void>();
 
     public readonly signup = output<void>();
+
+    public readonly logout = output<void>();
 }

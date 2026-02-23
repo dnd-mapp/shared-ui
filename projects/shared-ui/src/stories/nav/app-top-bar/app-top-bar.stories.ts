@@ -45,6 +45,7 @@ const meta: Meta<StoryComponent> = {
         authenticated: false,
         login: fn(),
         signup: fn(),
+        logout: fn(),
     },
     argTypes: {
         login: {
@@ -55,6 +56,12 @@ const meta: Meta<StoryComponent> = {
         },
         signup: {
             action: 'signup',
+            table: {
+                disable: true,
+            },
+        },
+        logout: {
+            action: 'logout',
             table: {
                 disable: true,
             },
