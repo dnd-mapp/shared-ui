@@ -1,11 +1,3 @@
-<a
-    class="grid grid-cols-1 grid-rows-1 place-items-center hover:bg-neutral-200 active:bg-neutral-300 rounded-md p-2"
-    [routerLink]="route()"
->
-    <!--
-        Using an invisible element with the label set to the active state so that
-        the element already takes all the space it needs and doesn't shift other elements around when it becomes active
-    -->
-    <span class="font-bold invisible col-1 row-1">{{ label() }}</span>
-    <span class="col-1 row-1">{{ label() }}</span>
+<a [routerLink]="route()">
+    <dma-active-marker [label]="label()" [active]="isActive()" />
 </a>

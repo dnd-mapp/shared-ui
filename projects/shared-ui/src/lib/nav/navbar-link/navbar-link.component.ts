@@ -1,16 +1,15 @@
 import { ChangeDetectionStrategy, Component, inject, input, OnInit, Signal } from '@angular/core';
 import { isActive, Router, RouterLink } from '@angular/router';
+import { ActiveMarkerComponent } from '../active-marker/active-marker.component';
 
 @Component({
     selector: 'dma-navbar-link',
     templateUrl: './navbar-link.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
-        'class': 'block hover:text-neutral-900',
-        '[class.text-neutral-600]': '!isActive()',
-        '[class.font-semibold]': 'isActive()',
+        class: 'block rounded-md p-2 hover:bg-neutral-200 hover:text-neutral-900 active:bg-neutral-300 cursor-pointer',
     },
-    imports: [RouterLink],
+    imports: [RouterLink, ActiveMarkerComponent],
 })
 export class NavbarLinkComponent implements OnInit {
     private readonly router = inject(Router);
