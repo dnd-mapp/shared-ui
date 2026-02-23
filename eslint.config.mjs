@@ -1,7 +1,6 @@
 // For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
 import storybook from 'eslint-plugin-storybook';
 
-import eslint from '@eslint/js';
 import angular from 'angular-eslint';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import { defineConfig } from 'eslint/config';
@@ -12,9 +11,8 @@ export default defineConfig([
     {
         files: ['**/*.ts'],
         extends: [
-            eslint.configs.recommended,
-            tseslint.configs.recommended,
-            tseslint.configs.stylistic,
+            tseslint.configs.strictTypeChecked,
+            tseslint.configs.stylisticTypeChecked,
             angular.configs.tsRecommended,
         ],
         processor: angular.processInlineTemplates,
