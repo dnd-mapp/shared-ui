@@ -1,16 +1,15 @@
 <button
     type="button"
-    class="font-normal!"
     dma-button
-    [toggleOnHover]="toggleOnHover()"
     #anchor="dmaDropdownAnchor"
+    [toggleOnHover]="toggleOnHover()"
     [dmaDropdownAnchor]="dropdownContainer"
 >
-    <ng-content select="dropdown-trigger-label" />
+    <dma-active-marker [label]="label()" />
 </button>
 
 <ng-template #dropdownContainer>
     <dma-dropdown-container (hover)="anchor.scheduleHide(!$event)">
-        <ng-content select="dropdown-content" />
+        <ng-content />
     </dma-dropdown-container>
 </ng-template>
