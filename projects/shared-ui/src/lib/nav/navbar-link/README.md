@@ -14,7 +14,6 @@ The `NavbarLinkComponent` provides a wrapper around Angular's `RouterLink`. A ke
 
 - **Selector:** `dma-navbar-link`
 - **Format:** Angular Standalone Component
-- **Library:** `@dnd-mapp/shared-ui`
 
 ---
 

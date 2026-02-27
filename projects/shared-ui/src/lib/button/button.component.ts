@@ -4,7 +4,7 @@ import { buttonColorAttribute, ButtonColors, DEFAULT_BUTTON_COLOR } from './butt
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'button[dma-button]',
-    template: `<ng-content />`,
+    templateUrl: './button.component.html',
     host: {
         'class': 'font-semibold cursor-pointer py-2 px-4 rounded-md',
         '[class.text-neutral-900]': 'isBase()',
@@ -15,6 +15,9 @@ import { buttonColorAttribute, ButtonColors, DEFAULT_BUTTON_COLOR } from './butt
         '[class.bg-blue-400]': 'isPrimary()',
         '[class.hover:bg-blue-500]': 'isPrimary()',
         '[class.active:bg-blue-600]': 'isPrimary()',
+        '[class.text-red-600]': 'isDanger()',
+        '[class.hover:bg-red-50]': 'isDanger()',
+        '[class.active:bg-red-100]': 'isDanger()',
     },
     imports: [],
 })
@@ -24,4 +27,6 @@ export class ButtonComponent {
     protected readonly isBase = computed(() => this.color() === ButtonColors.BASE);
 
     protected readonly isPrimary = computed(() => this.color() === ButtonColors.PRIMARY);
+
+    protected readonly isDanger = computed(() => this.color() === ButtonColors.DANGER);
 }

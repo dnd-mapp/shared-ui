@@ -1,0 +1,70 @@
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as DropdownStories from './dropdown.stories.ts';
+
+<Meta of={DropdownStories} />
+
+# Dropdown Anchor (`[dmaDropdownAnchor]`)
+
+The `DropdownAnchor` is a powerful directive that provides a flexible way to attach and manage overlays (dropdowns, menus, or tooltips) to any DOM element. It leverages the `@angular/cdk/overlay` to handle complex positioning and lifecycle management.
+
+While it is often used in conjunction with the `DropdownContainerComponent` for a consistent look and feel, it can be used with any `TemplateRef`.
+
+## 🏰 Overview
+
+- **Selector:** `[dmaDropdownAnchor]`
+- **Export As:** `dmaDropdownAnchor`
+- **Format:** Angular Attribute Directive
+
+## Installation
+
+The component is part of the `@dnd-mapp/shared-ui` library.
+
+```typescript
+import { DropdownAnchorDirective, DropdownContainerComponent } from '@dnd-mapp/shared-ui';
+```
+
+## 🚀 Usage
+
+To use the dropdown, define a template for your content and attach the `dmaDropdownAnchor` directive to your trigger element (like a button).
+
+### Basic Template Usage
+
+<Canvas of={DropdownStories.Toggle} />
+
+### Hover Mode
+
+The `DropdownAnchor` supports a hover-to-open mode. It includes a built-in 100ms debounce timer to prevent the dropdown from flickering or closing immediately when moving the mouse between the anchor and the container.
+
+<Canvas of={DropdownStories.Hover} />
+
+## 🎨 API Reference
+
+<ArgTypes of={DropdownStories} />
+
+## 🧪 Examples
+
+### Custom Positioning
+
+You can pass a custom configuration to control where the dropdown appears relative to the anchor.
+
+```typescript
+import { ConnectedPosition } from '@angular/cdk/overlay';
+
+export const MY_CUSTOM_POSITION: ConnectedPosition[] = [
+    {
+        originX: 'end',
+        originY: 'top',
+        overlayX: 'start',
+        overlayY: 'top',
+        offsetX: 10
+    }
+];
+```
+
+```html
+<button [dmaDropdownAnchor]="myDropdown" [positions]="MY_CUSTOM_POSITION">Right Aligned</button>
+```
+
+## 📜 License
+
+This component is part of the `@dnd-mapp/shared-ui` proprietary library. Refer to the root [LICENSE](https://github.com/dnd-mapp/shared-ui/blob/main/LICENSE) for usage restrictions.

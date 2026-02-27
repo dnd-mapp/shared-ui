@@ -1,0 +1,31 @@
+<dma-app-top-bar>
+    <dma-app-top-bar-section>
+        <dma-navbar-brand imgSrc="images/favicon-32.png" brandName="D&D Mapp" />
+        <dma-vr />
+        <nav dma-navbar>
+            <dma-navbar-link route="/characters" label="Characters" />
+            <dma-navbar-link route="/campaigns" label="Campaigns" />
+            <dma-navbar-menu toggleOnHover>
+                <ng-container ngProjectAs="dropdown-trigger">
+                    <dma-active-marker label="Knowledge center" [active]="knowledgeCenterIsActive()" />
+                </ng-container>
+                <ng-container ngProjectAs="dropdown-menu">
+                    <dma-navbar-link route="/knowledge-center/game-mechanics" label="Game mechanics" />
+                    <dma-navbar-link route="/knowledge-center/spells" label="Spells" />
+                    <dma-navbar-link route="/knowledge-center/monsters" label="Monsters & NPCs" />
+                </ng-container>
+            </dma-navbar-menu>
+        </nav>
+    </dma-app-top-bar-section>
+    <dma-app-top-bar-section position="end">
+        <dma-navbar-menu>
+            <ng-container ngProjectAs="dropdown-trigger">
+                <dma-icon dma-circle-user-icon ngProjectAs="dma-leading-icon" />
+                {{ authenticatedUser.username }}
+            </ng-container>
+            <ng-container ngProjectAs="dropdown-menu">
+                <button type="button" class="w-full" dma-button="danger" (click)="logout.emit()">Log out</button>
+            </ng-container>
+        </dma-navbar-menu>
+    </dma-app-top-bar-section>
+</dma-app-top-bar>

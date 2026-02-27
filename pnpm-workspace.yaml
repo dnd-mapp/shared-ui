@@ -6,7 +6,7 @@ blockExoticSubdeps: true
 engineStrict: true
 
 executionEnv:
-    nodeVersion: 24.13.1
+    nodeVersion: 24.14.0
 
 ignoreDepScripts: true
 
@@ -14,7 +14,7 @@ ignoreScripts: true
 
 minimumReleaseAge: 10080
 
-nodeVersion: 24.13.1
+nodeVersion: 24.14.0
 
 packageManagerStrictVersion: true
 
@@ -26,6 +26,6 @@ trustPolicy: no-downgrade
 
 trustPolicyIgnoreAfter: 10080
 
-useNodeVersion: 24.13.1
+useNodeVersion: 24.14.0
 
 verifyDepsBeforeRun: prompt

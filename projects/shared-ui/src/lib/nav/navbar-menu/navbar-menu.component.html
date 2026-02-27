@@ -1,1 +1,15 @@
-<p>navbar-menu works!</p>
+<button
+    type="button"
+    dma-button
+    #anchor="dmaDropdownAnchor"
+    [toggleOnHover]="toggleOnHover()"
+    [dmaDropdownAnchor]="dropdownContainer"
+>
+    <ng-content select="dropdown-trigger" />
+</button>
+
+<ng-template #dropdownContainer>
+    <dma-dropdown-container (hover)="anchor.scheduleHide(!$event)">
+        <ng-content select="dropdown-menu" />
+    </dma-dropdown-container>
+</ng-template>

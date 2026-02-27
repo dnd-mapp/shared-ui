@@ -1,21 +1,71 @@
 import { Component } from '@angular/core';
 import { provideRouter, Routes, withHashLocation } from '@angular/router';
-import { applicationConfig, Meta, StoryObj } from '@storybook/angular';
-import { StoryComponent } from './story.component';
+import {
+    AppTopBarComponent,
+    AppTopBarSectionComponent,
+    DEFAULT_SECTION_POSITION,
+    SectionPositions,
+} from '@dnd-mapp/shared-ui';
+import { applicationConfig, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
+import { AuthenticatedStoryComponent } from './authenticated-story.component';
+import { UnauthenticatedStoryComponent } from './unauthenticated-story.component';
 
 @Component({
     template: '',
 })
 class NoopComponent {}
 
-const mockRoutes: Routes = ['', 'characters', 'campaigns'].map((path) => ({
-    path: path,
-    component: NoopComponent,
-}));
+const mockRoutes: Routes = [
+    {
+        path: 'characters',
+        component: NoopComponent,
+    },
+    {
+        path: 'campaigns',
+        component: NoopComponent,
+    },
+    {
+        path: 'knowledge-center',
+        component: NoopComponent,
+        children: [
+            {
+                path: 'game-mechanics',
+                component: NoopComponent,
+            },
+            {
+                path: 'spells',
+                component: NoopComponent,
+            },
+            {
+                path: 'monsters',
+                component: NoopComponent,
+            },
+        ],
+    },
+];
 
-const meta: Meta<StoryComponent> = {
+const meta: Meta<AppTopBarComponent & AppTopBarSectionComponent> = {
     title: 'nav/AppTopBar',
-    component: StoryComponent,
+    component: AuthenticatedStoryComponent,
+    argTypes: {
+        position: {
+            description:
+                "Determines the alignment. `'start'` sections will grow to fill available space if applicable.",
+            table: {
+                category: 'AppTopBarSectionComponent',
+                subcategory: 'Inputs',
+                defaultValue: {
+                    summary: `'${DEFAULT_SECTION_POSITION}'`,
+                },
+                type: {
+                    summary: 'SectionPosition',
+                    detail: Object.values(SectionPositions)
+                        .map((position) => `'${position}'`)
+                        .join(' | '),
+                },
+            },
+        },
+    },
     decorators: [
         applicationConfig({
             providers: [provideRouter(mockRoutes, withHashLocation())],
@@ -25,8 +75,28 @@ const meta: Meta<StoryComponent> = {
 
 export default meta;
 
-type Story = StoryObj<StoryComponent>;
+type Story = StoryObj<AuthenticatedStoryComponent>;
 
-export const Unauthenticated: Story = {};
+export const Authenticated: Story = {
+    decorators: [
+        applicationConfig({ providers: [provideRouter(mockRoutes, withHashLocation())] }),
+        moduleMetadata({ imports: [AuthenticatedStoryComponent] }),
+    ],
+    render: (args) => ({
+        props: args,
+        component: AuthenticatedStoryComponent,
+        template: `<dma-authenticated-story />`,
+    }),
+};
 
-export const Authenticated: Story = {};
+export const Unauthenticated: Story = {
+    decorators: [
+        applicationConfig({ providers: [provideRouter(mockRoutes, withHashLocation())] }),
+        moduleMetadata({ imports: [UnauthenticatedStoryComponent] }),
+    ],
+    render: (args) => ({
+        props: args,
+        component: UnauthenticatedStoryComponent,
+        template: `<dma-unauthenticated-story />`,
+    }),
+};

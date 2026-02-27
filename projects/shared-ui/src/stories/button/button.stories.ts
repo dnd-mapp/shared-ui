@@ -1,6 +1,7 @@
 import { ButtonColors } from '@dnd-mapp/shared-ui';
-import { Meta, StoryObj } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 import { fn } from 'storybook/test';
+import { LeadingIconStoryComponent } from './leading-icon-story.component';
 import { StoryComponent } from './story.component';
 
 const meta: Meta<StoryComponent> = {
@@ -77,6 +78,45 @@ export const Base: Story = {
                 type: 'code',
                 language: 'html',
                 code: `<button type="button" dma-button (click)="onDismiss()">Dismiss</button>`,
+            },
+        },
+    },
+};
+
+export const Danger: Story = {
+    args: {
+        color: ButtonColors.DANGER,
+        label: 'Log out',
+    },
+    parameters: {
+        docs: {
+            source: {
+                type: 'code',
+                language: 'html',
+                code: `<button type="button" dma-button="danger" (click)="onLogout()">Log out</button>`,
+            },
+        },
+    },
+};
+
+export const LeadingIcon: Story = {
+    decorators: [moduleMetadata({ imports: [LeadingIconStoryComponent] })],
+    render: (args) => ({
+        props: args,
+        component: LeadingIconStoryComponent,
+        template: `<dma-leading-icon-story />`,
+    }),
+    parameters: {
+        docs: {
+            source: {
+                type: 'code',
+                language: 'html',
+                code: `
+                    <button type="button" dma-button>
+                        <dma-icon dma-circle-user-icon />
+                        NoNamer777
+                    </button>
+                `,
             },
         },
     },

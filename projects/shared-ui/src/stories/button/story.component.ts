@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
-import { ButtonComponent, buttonColorAttribute } from '@dnd-mapp/shared-ui';
+import { buttonColorAttribute, ButtonColors, ButtonComponent, CircleUserIcon } from '@dnd-mapp/shared-ui';
 
 @Component({
     selector: 'dma-story',
@@ -8,10 +8,10 @@ import { ButtonComponent, buttonColorAttribute } from '@dnd-mapp/shared-ui';
     host: {
         class: 'block p-4 bg-neutral-100',
     },
-    imports: [ButtonComponent],
+    imports: [ButtonComponent, CircleUserIcon],
 })
 export class StoryComponent {
-    public readonly color = input.required({ transform: buttonColorAttribute });
+    public readonly color = input(ButtonColors.BASE, { transform: buttonColorAttribute });
 
     public readonly label = input.required<string>();
 

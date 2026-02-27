@@ -1,7 +1,10 @@
 /* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
 /* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
-    "references": [{ "path": "./projects/shared-ui/tsconfig.lib.json" }],
+    "references": [
+        { "path": "./projects/shared-ui/tsconfig.lib.json" },
+        { "path": "./projects/shared-ui/tsconfig.editor.json" }
+    ],
     "files": [],
     "compileOnSave": false,
     "compilerOptions": {
@@ -27,6 +30,7 @@
         "strictBindCallApply": true,
         "strictBuiltinIteratorReturn": true,
         "strictFunctionTypes": true,
+        "strictNullChecks": true,
         "target": "ES2022",
         "useUnknownInCatchVariables": true
     },

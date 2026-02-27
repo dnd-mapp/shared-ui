@@ -3,6 +3,7 @@ import { AttributeInput } from '../attribute-input';
 export const ButtonColors = {
     PRIMARY: 'primary',
     BASE: 'base',
+    DANGER: 'danger',
 } as const;
 
 export type ButtonColor = (typeof ButtonColors)[keyof typeof ButtonColors];
