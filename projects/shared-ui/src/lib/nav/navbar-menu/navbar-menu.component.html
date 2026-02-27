@@ -5,11 +5,11 @@
     [toggleOnHover]="toggleOnHover()"
     [dmaDropdownAnchor]="dropdownContainer"
 >
-    <dma-active-marker [label]="label()" />
+    <ng-content select="dropdown-trigger" />
 </button>
 
 <ng-template #dropdownContainer>
     <dma-dropdown-container (hover)="anchor.scheduleHide(!$event)">
-        <ng-content />
+        <ng-content select="dropdown-menu" />
     </dma-dropdown-container>
 </ng-template>

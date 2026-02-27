@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
+import { isActive, Router } from '@angular/router';
 import {
+    ActiveMarkerComponent,
     AppTopBarComponent,
     AppTopBarSectionComponent,
     ButtonComponent,
     CircleUserIcon,
-    DropdownContainerComponent,
     NavbarBrandComponent,
     NavbarComponent,
     NavbarLinkComponent,
@@ -26,17 +27,26 @@ import {
         ButtonComponent,
         CircleUserIcon,
         NavbarMenuComponent,
-        DropdownContainerComponent,
+        ActiveMarkerComponent,
     ],
 })
 export class StoryComponent {
-    public readonly authenticated = input(false);
+    private readonly router = inject(Router);
 
-    protected readonly authenticatedUser = computed(() => (this.authenticated() ? { username: 'NoNamer777' } : null));
+    public readonly authenticated = input(false);
 
     public readonly login = output<void>();
 
     public readonly signup = output<void>();
 
     public readonly logout = output<void>();
+
+    protected readonly authenticatedUser = computed(() => (this.authenticated() ? { username: 'NoNamer777' } : null));
+
+    protected readonly knowledgeCenterIsActive = isActive('/knowledge-center', this.router, {
+        paths: 'subset',
+        queryParams: 'subset',
+        fragment: 'ignored',
+        matrixParams: 'ignored',
+    });
 }

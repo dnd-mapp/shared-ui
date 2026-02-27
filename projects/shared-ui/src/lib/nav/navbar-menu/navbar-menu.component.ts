@@ -10,7 +10,5 @@ import { ActiveMarkerComponent } from '../active-marker/active-marker.component'
     imports: [ButtonComponent, DropdownAnchorDirective, DropdownContainerComponent, ActiveMarkerComponent],
 })
 export class NavbarMenuComponent {
-    public readonly label = input.required<string>();
-
     public readonly toggleOnHover = input(false, { transform: booleanAttribute });
 }
