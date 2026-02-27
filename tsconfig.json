@@ -27,6 +27,7 @@
         "strictBindCallApply": true,
         "strictBuiltinIteratorReturn": true,
         "strictFunctionTypes": true,
+        "strictNullChecks": true,
         "target": "ES2022",
         "useUnknownInCatchVariables": true
     },
