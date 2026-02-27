@@ -3,6 +3,7 @@
 {
     "extends": "../../tsconfig.json",
     "references": [{ "path": "./tsconfig.lib.prod.json" }, { "path": "./.storybook/tsconfig.json" }],
+    "files": ["src/public-api.ts"],
     "include": ["src/lib/**/*.ts"],
     "compilerOptions": {
         "declaration": true,
