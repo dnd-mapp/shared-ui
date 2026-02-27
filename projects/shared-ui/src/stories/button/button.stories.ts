@@ -83,6 +83,22 @@ export const Base: Story = {
     },
 };
 
+export const Danger: Story = {
+    args: {
+        color: ButtonColors.DANGER,
+        label: 'Log out',
+    },
+    parameters: {
+        docs: {
+            source: {
+                type: 'code',
+                language: 'html',
+                code: `<button type="button" dma-button="danger" (click)="onLogout()">Log out</button>`,
+            },
+        },
+    },
+};
+
 export const LeadingIcon: Story = {
     decorators: [moduleMetadata({ imports: [LeadingIconStoryComponent] })],
     render: (args) => ({

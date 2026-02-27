@@ -12,7 +12,7 @@ The `ButtonComponent` is a versatile UI element designed for the **D&D Mapp** de
 - **Selector**: `button[dma-button]`
 - **Format**: Attribute-based standalone component.
 - **Compatibility**: Works with all standard HTML button attributes (e.g., `type`, `disabled`, `(click)`).
-- **Features**: Supports a leading icon via content projection.
+- **Features**: Supports a leading icon via content projection and multiple semantic color variants.
 
 ---
 
@@ -33,9 +33,12 @@ import { ButtonComponent } from './button.component';
         <!-- Explicit 'primary' style -->
         <button type="button" dma-button="primary">Roll Initiative</button>
 
+        <!-- Danger style -->
+        <button type="button" dma-button="danger">Delete Character</button>
+
         <!-- With a leading icon -->
         <button type="button" dma-button>
-            <dma-icon dma-user-circle-icon ngProjectAs="dma-leading-icon" />️
+            <dma-icon dma-user-circle-icon ngProjectAs="dma-leading-icon" />
             Username
         </button>
     `,
@@ -54,24 +57,28 @@ export class EncounterActionComponent {}
 
 The component uses `<ng-content>` to allow for flexible labeling and icon placement:
 
-- **`dma-leading-icon`**: Use this tag to project an icon or element at the start of the button.
+- **`<dma-leading-icon>`**: Use this element tag (or `ngProjectAs="dma-leading-icon"`) to project an icon or element at the start of the button.
 - **Default Slot**: Any other content provided inside the button tag will be rendered as the button label.
 
 ### 🌈 Color Variants
-
-The component leverages `computed` signals to toggle Tailwind classes dynamically:
 
 1. **Base (`base`)**
 
    - **Usage**: `<button dma-button>` or `<button dma-button="base">`
    - **Description**: A neutral style for secondary actions or standard UI tasks.
-   - **Appearance**: Light neutral (`neutral-100`) background with dark text and subtle hover/active states.
+   - **Appearance**: Light neutral (`neutral-100`) background with dark text.
 
 2. **Primary (`primary`)**
 
    - **Usage**: `<button dma-button="primary">`
    - **Description**: High-emphasis style for main actions and "Call to Action" buttons.
-   - **Appearance**: Vibrant blue (`blue-400`) background with light text and distinct interaction states.
+   - **Appearance**: Vibrant blue (`blue-400`) background with light text.
+
+3. **Danger (`danger`)**
+
+   - **Usage**: `<button dma-button="danger">`
+   - **Description**: Used for destructive actions (e.g., deleting, removing, or canceling high-stakes operations).
+   - **Appearance**: Transparent background with red text (`red-600`) and light red hover/active states.
 
 ---
 
@@ -87,9 +94,15 @@ Project a specialized icon element into the `dma-leading-icon` slot.
 
 <Canvas of={ButtonStories.Primary} />
 
-### Secondary / Cancel Action
+### Secondary Action (Cancel)
 
 <Canvas of={ButtonStories.Base} />
+
+### Destructive Action
+
+Use the `danger` variant for deletions.
+
+<Canvas of={ButtonStories.Danger} />
 
 ---
 
