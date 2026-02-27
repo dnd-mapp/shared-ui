@@ -11,7 +11,7 @@ import { NavbarLinkComponent } from '@dnd-mapp/shared-ui';
     imports: [NavbarLinkComponent],
 })
 export class StoryComponent {
-    public readonly label = input<string>('My route');
+    public readonly label = input('My route');
 
-    public readonly route = input<string>('/my-route');
+    public readonly route = input('/my-route');
 }

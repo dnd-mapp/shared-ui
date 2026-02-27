@@ -26,7 +26,7 @@ import { DEFAULT_DROPDOWN_POSITIONS } from './positions';
 })
 export class DropdownAnchorDirective {
     private readonly overlay = inject(Overlay);
-    private readonly elementRef = inject(ElementRef);
+    private readonly elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
     private readonly viewContainerRef = inject(ViewContainerRef);
     private readonly destroyRef = inject(DestroyRef);
 
@@ -40,7 +40,7 @@ export class DropdownAnchorDirective {
 
     private readonly hideScheduler = new Subject<boolean>();
 
-    private overlayRef: OverlayRef = null;
+    private overlayRef: OverlayRef | null = null;
 
     constructor() {
         this.hideScheduler
@@ -60,7 +60,7 @@ export class DropdownAnchorDirective {
 
         const positionStrategy = this.overlay
             .position()
-            .flexibleConnectedTo(this.elementRef.nativeElement)
+            .flexibleConnectedTo(this.elementRef)
             .withPositions(this.positions());
 
         this.overlayRef = this.overlay.create({
