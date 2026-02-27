@@ -47,15 +47,15 @@
     "@angular/build": "~21.1",
     "@angular/cli": "~21.1",
     "@angular/compiler-cli": "~21.1",
-    "@eslint/js": "~9.39",
+    "@eslint/js": "~10.0",
     "@storybook/addon-a11y": "~10.2",
     "@storybook/addon-docs": "~10.2",
     "@storybook/addon-onboarding": "~10.2",
     "@storybook/angular": "~10.2",
-    "@tailwindcss/postcss": "~4.1",
+    "@tailwindcss/postcss": "~4.2",
     "@types/node": "~24.10",
     "angular-eslint": "~21.2",
-    "eslint": "~9.39",
+    "eslint": "~10.0",
     "eslint-config-prettier": "~10.1",
     "eslint-plugin-storybook": "~10.2",
     "ng-packagr": "~21.1",
@@ -63,10 +63,10 @@
     "prettier": "~3.8",
     "prettier-plugin-organize-imports": "~4.3",
     "storybook": "~10.2",
-    "stylelint": "~17.2",
+    "stylelint": "~17.3",
     "stylelint-config-standard": "~40.0",
-    "tailwindcss": "~4.1",
+    "tailwindcss": "~4.2",
     "typescript": "~5.9",
-    "typescript-eslint": "~8.55"
+    "typescript-eslint": "~8.56"
   }
 }
