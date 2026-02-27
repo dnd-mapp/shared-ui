@@ -14,6 +14,7 @@ The official Angular component library for the **D&D Mapp** platform. This libra
 
 - **Modern Architecture**: Built with **Angular 21** using signals and standalone components.
 - **Next-Gen Styling**: Powered by **Tailwind CSS v4** with a CSS-first configuration.
+- **Layout Integrity**: Specialized components like `Active Marker` prevent Layout Shifts (CLS) during state toggles.
 - **Accessible & Consistent**: A11y-focused components that serve as the single source of truth for the D&D Mapp brand.
 
 ---
@@ -61,17 +62,20 @@ export class RootComponent {}
 
 For detailed API definitions and interactive examples, visit our **[Storybook](https://dnd-mapp.github.io/shared-ui/)** or view the documentation for the specific components below:
 
-| Component                                              | Status | Description                                                  |
-|--------------------------------------------------------|--------|--------------------------------------------------------------|
-| **[App Top Bar](src/lib/nav/app-top-bar/README.md)**   | 🚧     |                                                              |
-| **[Button](src/lib/button/README.md)**                 | ✅      | Actions with support for base and primary variants.          |
-| **[Dropdowns](src/lib/dropdown/README.md)**            | ✅      |                                                              |
-| **[Navbar Brand](src/lib/nav/navbar-brand/README.md)** | ✅      | A standardized header element for logo and brand identity.   |
-| **[Navbar Link](src/lib/nav/navbar-link/README.md)**   | ✅      | Navigation link with automatic active state and layout lock. |
-| **[Navbar Menu](src/lib/nav/navbar-menu/README.md)**   | 🚧     |                                                              |
-| **[Vertical Rule](src/lib/vertical-rule/README.md)**   | ✅      | A layout-stretching divider for content separation.          |
+| Component                                                | Status | Description                                                  |
+|----------------------------------------------------------|--------|--------------------------------------------------------------|
+| **[Active Marker](src/lib/nav/active-marker/README.md)** | ✅      | Prevents CLS by reserving space for bold text states.        |
+| **[App Top Bar](src/lib/nav/app-top-bar/README.md)**     | ✅      | Layout-oriented header with `start` and `end` sections.      |
+| **[Button](src/lib/button/README.md)**                   | ✅      | Actions with support for base and primary variants.          |
+| **[Dropdown](src/lib/dropdown/README.md)**               | ✅      | Directive-based overlay system using Angular CDK.            |
+| **[Navbar](src/lib/nav/navbar/README.md)**               | ✅      | Semantic `<nav>` container with standardized flex spacing.   |
+| **[Navbar Brand](src/lib/nav/navbar-brand/README.md)**   | ✅      | A standardized header element for logo and brand identity.   |
+| **[Navbar Link](src/lib/nav/navbar-link/README.md)**     | ✅      | Navigation link with automatic active state and layout lock. |
+| **[Navbar Menu](src/lib/nav/navbar-menu/README.md)**     | ✅      | Specialized dropdown trigger for navigation bars.            |
+| **[Vertical Rule](src/lib/vertical-rule/README.md)**     | ✅      | A layout-stretching divider for content separation.          |
 
-> **Legend:** ✅ Production Ready | 🚧 In Development | 🧪 Experimental
+> **Legend:**
+> ✅ Production Ready | 🚧 In Development | 🧪 Experimental
 
 ---
 
