@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, output } from '@angular/core';
 import { isActive, Router } from '@angular/router';
 import {
     ActiveMarkerComponent,
@@ -14,8 +14,8 @@ import {
 } from '@dnd-mapp/shared-ui';
 
 @Component({
-    selector: 'dma-story',
-    templateUrl: `./story.component.html`,
+    selector: 'dma-authenticated-story',
+    templateUrl: `./authenticated-story.component.html`,
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         AppTopBarComponent,
@@ -30,18 +30,12 @@ import {
         ActiveMarkerComponent,
     ],
 })
-export class StoryComponent {
+export class AuthenticatedStoryComponent {
     private readonly router = inject(Router);
-
-    public readonly authenticated = input(false);
-
-    public readonly login = output<void>();
-
-    public readonly signup = output<void>();
 
     public readonly logout = output<void>();
 
-    protected readonly authenticatedUser = computed(() => (this.authenticated() ? { username: 'NoNamer777' } : null));
+    protected readonly authenticatedUser = { username: 'NoNamer777' };
 
     protected readonly knowledgeCenterIsActive = isActive('/knowledge-center', this.router, {
         paths: 'subset',

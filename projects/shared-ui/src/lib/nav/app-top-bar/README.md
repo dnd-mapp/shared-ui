@@ -10,11 +10,9 @@ A flexible and layout-oriented header component designed to host navigation, bra
 
 The `AppTopBarComponent` acts as a container that leverages Tailwind CSS for layout and provides a specific slot for `AppTopBarSectionComponent` instances. This allows developers to easily group elements at the start or end of the bar.
 
-| Property             | Value                |
-|----------------------|----------------------|
-| **Selector**         | `dma-app-top-bar`    |
-| **Format**           | Standalone Component |
-| **Change Detection** | `OnPush`             |
+- **Selector**: `dma-app-top-bar`
+- **Format**: Standalone Component
+- **Change Detection**: `OnPush`
 
 ---
 

@@ -18,19 +18,14 @@
         </nav>
     </dma-app-top-bar-section>
     <dma-app-top-bar-section position="end">
-        @if (authenticatedUser(); as user) {
-            <dma-navbar-menu>
-                <ng-container ngProjectAs="dropdown-trigger">
-                    <dma-icon dma-circle-user-icon ngProjectAs="dma-leading-icon" />
-                    {{ user.username }}
-                </ng-container>
-                <ng-container ngProjectAs="dropdown-menu">
-                    <button type="button" class="w-full" dma-button="danger" (click)="logout.emit()">Log out</button>
-                </ng-container>
-            </dma-navbar-menu>
-        } @else {
-            <button type="button" dma-button (click)="login.emit()">Log in</button>
-            <button type="button" dma-button="primary" (click)="signup.emit()">Sign up</button>
-        }
+        <dma-navbar-menu>
+            <ng-container ngProjectAs="dropdown-trigger">
+                <dma-icon dma-circle-user-icon ngProjectAs="dma-leading-icon" />
+                {{ authenticatedUser.username }}
+            </ng-container>
+            <ng-container ngProjectAs="dropdown-menu">
+                <button type="button" class="w-full" dma-button="danger" (click)="logout.emit()">Log out</button>
+            </ng-container>
+        </dma-navbar-menu>
     </dma-app-top-bar-section>
 </dma-app-top-bar>
