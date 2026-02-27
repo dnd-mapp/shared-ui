@@ -7,6 +7,7 @@ import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input }
     host: {
         'class': 'block',
         '[class.text-neutral-600]': 'inactive()',
+        '[class.font-normal]': 'inactive()',
         '[class.font-semibold]': 'active()',
     },
     imports: [],
