@@ -23,8 +23,8 @@ The official Angular component library for the D&D Mapp platform. This library p
 This project uses [mise-en-place](https://mise.jdx.dev/) to manage runtime versions.
 
 1. **Install Mise** to automatically manage:
-   - **Node.js**: v24.13.1
-   - **pnpm**: v10.29.3
+   - **Node.js**: v24.14.0
+   - **pnpm**: v10.30.1
 
 ### Local Setup
 
