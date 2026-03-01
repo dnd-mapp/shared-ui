@@ -34,6 +34,7 @@
     "@angular/cdk": "~21.2",
     "@angular/common": "~21.2",
     "@angular/core": "~21.2",
+    "@angular/forms": "~21.2",
     "@angular/router": "~21.2",
     "tailwindcss": "~4.1"
   },
