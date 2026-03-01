@@ -24,7 +24,7 @@ This project uses [mise-en-place](https://mise.jdx.dev/) to manage runtime versi
 
 1. **Install Mise** to automatically manage:
    - **Node.js**: v24.14.0
-   - **pnpm**: v10.30.1
+   - **pnpm**: v10.30.3
 
 ### Local Setup
 

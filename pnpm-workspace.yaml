@@ -12,7 +12,9 @@ ignoreDepScripts: true
 
 ignoreScripts: true
 
-minimumReleaseAge: 10080
+minimumReleaseAge: 2880
+minimumReleaseAgeExclude:
+    - '@dnd-mapp/*'
 
 nodeVersion: 24.14.0
 
