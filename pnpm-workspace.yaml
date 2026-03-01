@@ -12,7 +12,7 @@ ignoreDepScripts: true
 
 ignoreScripts: true
 
-minimumReleaseAge: 10080
+minimumReleaseAge: 2880
 
 nodeVersion: 24.14.0
 
