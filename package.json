@@ -13,14 +13,14 @@
   "bugs": {
     "url": "https://github.com/dnd-mapp/shared-ui/issues"
   },
-  "packageManager": "pnpm@10.30.1",
+  "packageManager": "pnpm@10.30.3",
   "workspaces": [
     "projects/*"
   ],
   "type": "module",
   "engines": {
     "node": ">=24.14.0",
-    "pnpm": ">=10.30.1"
+    "pnpm": ">=10.30.3"
   },
   "scripts": {
     "prepublishOnly": "node tools/prepublish-only.js",
