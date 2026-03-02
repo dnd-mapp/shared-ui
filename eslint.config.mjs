@@ -44,6 +44,7 @@ export default defineConfig([
                     style: 'kebab-case',
                 },
             ],
+            '@typescript-eslint/unbound-method': 'off',
         },
     },
     {
