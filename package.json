@@ -52,7 +52,6 @@
     "@eslint/js": "~9.39",
     "@storybook/addon-a11y": "~10.2",
     "@storybook/addon-docs": "~10.2",
-    "@storybook/addon-onboarding": "~10.2",
     "@storybook/angular": "~10.2",
     "@tailwindcss/postcss": "~4.2",
     "@types/node": "~24.10",
