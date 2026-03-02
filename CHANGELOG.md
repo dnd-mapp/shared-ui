@@ -8,6 +8,34 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
+- (n/a)
+
+### Changed
+
+- (n/a)
+
+### Deprecated
+
+- (n/a)
+
+### Removed
+
+- (n/a)
+
+### Fixed
+
+- (n/a)
+
+### Security
+
+- (n/a)
+
+---
+
+## [1.1.0] - 2026-03-02
+
+### Added
+
 - Introduce `InputComponent` with support for Angular forms.
 - Add a dedicated Angular forms package and a `provideValueAccessor` helper.
 - Add a danger button type and support for a leading icon content slot in buttons.
@@ -22,10 +50,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Update component documentation across the repo with numerous story and README enhancements.
 - Bump dependencies, update ESLint rules, and perform various build/tooling chores.
 
-### Deprecated
-
-- (n/a)
-
 ### Removed
 
 - Remove the onboarding Storybook addon and obsolete LLM documents.
@@ -34,10 +58,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - Ensure clicks on navbar links outside the anchor element still trigger navigation.
 - Ignore hide requests for scheduler toggle when hover is disabled.
-
-### Security
-
-- (n/a)
 
 ---
 
