@@ -1,0 +1,13 @@
+<label class="inline-block text-sm text-neutral-900 font-semibold mb-2" [for]="inputId()">{{ label() }}</label>
+<input
+    class="block w-full disabled:opacity-35 border text-neutral-900 group-[.ng-invalid.ng-touched]:text-red-500 border-neutral-300 not-disabled:not-group-[.ng-invalid.ng-touched]:not-group-[.ng-valid.ng-touched]:hover:border-neutral-500 disabled:bg-neutral-300 group-[.ng-invalid.ng-touched]:border-red-500 group-[.ng-valid.ng-touched]:border-green-500 rounded-xl py-2 px-4 not-group-[.ng-invalid.ng-touched]:not-group-[.ng-valid.ng-touched]:focus:outline-blue-400 read-only:outline-0 group-[.ng-invalid.ng-touched]:outline-red-500 group-[.ng-valid.ng-touched]:outline-green-500 disabled:cursor-default read-only:cursor-default"
+    type="text"
+    #input
+    [id]="inputId()"
+    [placeholder]="placeholder()"
+    [value]="value()"
+    [disabled]="disabled()"
+    [readOnly]="readonly()"
+    (focus)="onFocus()"
+    (input)="onInput(input.value)"
+/>

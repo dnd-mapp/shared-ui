@@ -10,12 +10,8 @@ function getAbsolutePath(value: string) {
     return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)));
 }
 const config: StorybookConfig = {
-    stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-    addons: [
-        getAbsolutePath('@storybook/addon-a11y'),
-        getAbsolutePath('@storybook/addon-docs'),
-        getAbsolutePath('@storybook/addon-onboarding'),
-    ],
+    stories: ['../src/**/*.mdx', '../src/**/*.stories.ts'],
+    addons: [getAbsolutePath('@storybook/addon-a11y'), getAbsolutePath('@storybook/addon-docs')],
     framework: getAbsolutePath('@storybook/angular'),
 };
 export default config;

@@ -1,0 +1,5 @@
+<form class="mb-3" [formGroup]="form">
+    <dma-input formControlName="input" [inputId]="inputId()" [label]="label()" [placeholder]="placeholder()" />
+</form>
+
+<pre class="bg-neutral-100 p-3 rounded-md text-neutral-500">{{ formValue | async | json }}</pre>

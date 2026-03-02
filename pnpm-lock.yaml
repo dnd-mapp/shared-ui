@@ -20,6 +20,9 @@ importers:
       '@angular/core':
         specifier: ~21.2
         version: 21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2)
+      '@angular/forms':
+        specifier: ~21.2
+        version: 21.2.0(@angular/common@21.2.0(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(@angular/platform-browser@21.2.0(@angular/common@21.2.0(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2)))(rxjs@7.8.2)
       '@angular/router':
         specifier: ~21.2
         version: 21.2.0(@angular/common@21.2.0(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(@angular/platform-browser@21.2.0(@angular/common@21.2.0(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2)))(rxjs@7.8.2)
@@ -54,9 +57,6 @@ importers:
       '@storybook/addon-docs':
         specifier: ~10.2
         version: 10.2.13(@types/react@19.2.13)(esbuild@0.27.3)(rollup@4.59.0)(storybook@10.2.13(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vite@7.3.1(@types/node@24.10.15)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.31.1)(sass@1.97.3)(terser@5.44.1))(webpack@5.105.3(esbuild@0.27.3))
-      '@storybook/addon-onboarding':
-        specifier: ~10.2
-        version: 10.2.13(storybook@10.2.13(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       '@storybook/angular':
         specifier: ~10.2
         version: 10.2.13(28e010df54d35715ccaa4407bdf70e9b)
@@ -120,6 +120,9 @@ importers:
       '@angular/core':
         specifier: ~21.2
         version: 21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2)
+      '@angular/forms':
+        specifier: ~21.2
+        version: 21.2.0(@angular/common@21.2.0(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(@angular/platform-browser@21.2.0(@angular/common@21.2.0(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2)))(rxjs@7.8.2)
       '@angular/router':
         specifier: ~21.2
         version: 21.2.0(@angular/common@21.2.0(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(@angular/platform-browser@21.2.0(@angular/common@21.2.0(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2)))(rxjs@7.8.2)
@@ -471,6 +474,15 @@ packages:
         optional: true
       zone.js:
         optional: true
+
+  '@angular/forms@21.2.0':
+    resolution: {integrity: sha512-NduUtPWLauH/FLayEDkLyaKAGqKzXbcfO7468LOWCXN3crhNVQyIWRQPOUcdpoJwDAGLpN85m3DhJhXNnA9c5w==}
+    engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
+    peerDependencies:
+      '@angular/common': 21.2.0
+      '@angular/core': 21.2.0
+      '@angular/platform-browser': 21.2.0
+      rxjs: ^6.5.3 || ^7.4.0
 
   '@angular/platform-browser-dynamic@21.2.0':
     resolution: {integrity: sha512-eTHNTnTEP25eCyu4MJdPAAc/7Ib5XtR/dqUlzZdNoAldREPNw95FF12QMunvnen66v3CvCYdND8rAlbz2LkK7g==}
@@ -2499,6 +2511,9 @@ packages:
     resolution: {integrity: sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ==}
     engines: {node: '>=18'}
 
+  '@standard-schema/spec@1.1.0':
+    resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
+
   '@storybook/addon-a11y@10.2.13':
     resolution: {integrity: sha512-zuR1n1xgWoieEnr6E5xdTR40BI61IBQahgmsRpTvqRffL3mxAs5aFoORDmA5pZWI2LE9URdMkY85h218ijuLiw==}
     peerDependencies:
@@ -2506,11 +2521,6 @@ packages:
 
   '@storybook/addon-docs@10.2.13':
     resolution: {integrity: sha512-puMxpJbt/CuodLIbKDxWrW1ZgADYomfNHWEKp2d2l2eJjp17rADx0h3PABuNbX+YHbJwYcDdqluSnQwMysFEOA==}
-    peerDependencies:
-      storybook: ^10.2.13
-
-  '@storybook/addon-onboarding@10.2.13':
-    resolution: {integrity: sha512-kw2GgIY67UR8YXKfuVS0k+mfWL1joNQHeSe5DlDL4+7qbgp9zfV6cRJ199BMdfRAQNMzQoxHgRUcAMAqs3Rkpw==}
     peerDependencies:
       storybook: ^10.2.13
 
@@ -6562,6 +6572,15 @@ snapshots:
     optionalDependencies:
       '@angular/compiler': 21.2.0
 
+  '@angular/forms@21.2.0(@angular/common@21.2.0(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(@angular/platform-browser@21.2.0(@angular/common@21.2.0(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2)))(rxjs@7.8.2)':
+    dependencies:
+      '@angular/common': 21.2.0(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(rxjs@7.8.2)
+      '@angular/core': 21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2)
+      '@angular/platform-browser': 21.2.0(@angular/common@21.2.0(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))
+      '@standard-schema/spec': 1.1.0
+      rxjs: 7.8.2
+      tslib: 2.8.1
+
   '@angular/platform-browser-dynamic@21.2.0(@angular/common@21.2.0(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@21.2.0)(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(@angular/platform-browser@21.2.0(@angular/common@21.2.0(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2)))':
     dependencies:
       '@angular/common': 21.2.0(@angular/core@21.2.0(@angular/compiler@21.2.0)(rxjs@7.8.2))(rxjs@7.8.2)
@@ -8404,6 +8423,8 @@ snapshots:
 
   '@sindresorhus/merge-streams@4.0.0': {}
 
+  '@standard-schema/spec@1.1.0': {}
+
   '@storybook/addon-a11y@10.2.13(storybook@10.2.13(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
     dependencies:
       '@storybook/global': 5.0.0
@@ -8426,10 +8447,6 @@ snapshots:
       - rollup
       - vite
       - webpack
-
-  '@storybook/addon-onboarding@10.2.13(storybook@10.2.13(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
-    dependencies:
-      storybook: 10.2.13(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
 
   '@storybook/angular@10.2.13(28e010df54d35715ccaa4407bdf70e9b)':
     dependencies:

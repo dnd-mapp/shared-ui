@@ -1,0 +1,76 @@
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as InputStories from './input.stories.ts';
+
+<Meta of={InputStories} />
+
+# Input
+
+# Input Component `dma-input`
+
+A versatile, accessible text input component designed for the `@dnd-mapp` ecosystem. It features built-in support for Angular Forms (ControlValueAccessor), custom validation styling, and debounced input handling to optimize performance.
+
+## 🏰 Overview
+
+The `InputComponent` provides a styled wrapper around the native HTML input element. It includes integrated label handling, status-based border coloring (valid/invalid/touched), and a 500 ms debounce on value changes to prevent excessive form updates during rapid typing.
+
+- **Selector**: `dma-input`
+- **Format**: Standalone Component
+- **Change Detection**: OnPush
+
+---
+
+## 🚀 Usage
+
+<Canvas of={InputStories.Default} />
+
+---
+
+## 🎨 API Reference
+
+<ArgTypes of={InputStories} />
+
+---
+
+## 🧪 Examples
+
+### 1. Reactive Forms Integration
+
+Since the component implements `ControlValueAccessor`, it integrates seamlessly with `FormControl`.
+
+```ts
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { InputComponent } from '@dnd-mapp/shared-ui';
+
+@Component({
+    selector: 'app-profile-form',
+    template: `
+        <form [formGroup]="form">
+            <dma-input
+                label="Username"
+                inputId="username-field"
+                formControlName="username"
+            />
+        </form>
+    `,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [ReactiveFormsModule, InputComponent],
+})
+export class ProfileFormComponent {
+    username = new FormControl('', [Validators.required, Validators.minLength(3)]);
+}
+```
+
+### 2. Read-only State
+
+Useful for displaying data that was previously entered but cannot be changed in the current context.
+
+```html
+<dma-input readonly inputId="char-id-001" label="Character ID" value="#88219" />
+```
+
+---
+
+## 📜 License
+
+This component is part of the `@dnd-mapp/shared-ui` proprietary library. All rights reserved.
