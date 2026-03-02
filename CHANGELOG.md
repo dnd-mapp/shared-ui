@@ -8,11 +8,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- (n/a)
+- Introduce `InputComponent` with support for Angular forms.
+- Add a dedicated Angular forms package and a `provideValueAccessor` helper.
+- Add a danger button type and support for a leading icon content slot in buttons.
+- Create `NavbarMenu`, `DropdownAnchor`, and related navigation components along with exports like `SectionPositions`.
+- Implement `ActiveMarker` component and active‑marker logic for navigation menus.
+- Add `CircleUserIcon` to the icon set.
+- Add `@angular/cdk` as a dependency to support accessibility and layout utilities.
 
 ### Changed
 
-- (n/a)
+- Adjust main background color in the demo/storybook.
+- Update component documentation across the repo with numerous story and README enhancements.
+- Bump dependencies, update ESLint rules, and perform various build/tooling chores.
 
 ### Deprecated
 
@@ -20,11 +28,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Removed
 
-- (n/a)
+- Remove the onboarding Storybook addon and obsolete LLM documents.
 
 ### Fixed
 
-- (n/a)
+- Ensure clicks on navbar links outside the anchor element still trigger navigation.
+- Ignore hide requests for scheduler toggle when hover is disabled.
 
 ### Security
 
