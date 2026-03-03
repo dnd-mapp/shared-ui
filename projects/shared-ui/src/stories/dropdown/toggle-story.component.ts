@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 import {
     ButtonComponent,
-    CircleUserIcon,
+    CircleUserSoIcon,
     DropdownAnchorDirective,
     DropdownContainerComponent,
 } from '@dnd-mapp/shared-ui';
@@ -13,7 +13,7 @@ import {
     host: {
         class: 'block p-4 bg-neutral-50 h-[8rem]',
     },
-    imports: [ButtonComponent, CircleUserIcon, DropdownAnchorDirective, DropdownContainerComponent],
+    imports: [ButtonComponent, CircleUserSoIcon, DropdownAnchorDirective, DropdownContainerComponent],
 })
 export class ToggleStoryComponent {
     public readonly logout = output<void>();

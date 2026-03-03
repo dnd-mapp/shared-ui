@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ButtonComponent, CircleUserIcon } from '@dnd-mapp/shared-ui';
+import { ButtonComponent, CircleUserSoIcon } from '@dnd-mapp/shared-ui';
 
 @Component({
     selector: 'dma-leading-icon-story',
@@ -8,6 +8,6 @@ import { ButtonComponent, CircleUserIcon } from '@dnd-mapp/shared-ui';
     host: {
         class: 'block p-4 bg-neutral-100',
     },
-    imports: [ButtonComponent, CircleUserIcon],
+    imports: [ButtonComponent, CircleUserSoIcon],
 })
 export class LeadingIconStoryComponent {}
