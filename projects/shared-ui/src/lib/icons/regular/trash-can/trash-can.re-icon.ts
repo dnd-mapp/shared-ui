@@ -5,6 +5,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     templateUrl: './trash-can.re-icon.svg',
     styleUrl: '../../icon.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [],
 })
 export class TrashCanReIcon {}
