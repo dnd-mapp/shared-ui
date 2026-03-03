@@ -8,6 +8,7 @@ export * from './circle-user/circle-user.so-icon';
 export * from './clone/clone.so-icon';
 export * from './eye-slash/eye-slash.so-icon';
 export * from './eye/eye.so-icon';
+export * from './file/file.so-icon';
 export * from './floppy-disk/floppy-disk.so-icon';
 export * from './plus/plus.so-icon';
 export * from './trash-can/trash-can.so-icon';
