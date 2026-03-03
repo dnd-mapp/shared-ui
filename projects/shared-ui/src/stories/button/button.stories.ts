@@ -1,35 +1,14 @@
-import { ButtonColors } from '@dnd-mapp/shared-ui';
-import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
-import { fn } from 'storybook/test';
+import { ButtonColors, ButtonComponent } from '@dnd-mapp/shared-ui';
+import { argsToTemplate, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 import { LeadingIconStoryComponent } from './leading-icon-story.component';
 import { StoryComponent } from './story.component';
 
-const meta: Meta<StoryComponent> = {
+const meta: Meta<ButtonComponent> = {
     title: 'Button',
-    component: StoryComponent,
-    args: {
-        onButtonClick: fn(),
-    },
+    component: ButtonComponent,
     argTypes: {
-        onButtonClick: {
-            action: 'onButtonClick',
-            table: {
-                disable: true,
-            },
-        },
-        label: {
-            description:
-                'The content projected into the button. Accepts plain text, HTML strings, or nested components.',
-            table: {
-                category: 'Contents',
-                type: {
-                    summary: 'string | HTMLElement',
-                    detail: 'Can be a simple string or any valid HTML/Angular template content.',
-                },
-            },
-        },
         color: {
-            name: 'dma-button',
+            name: 'color (`dma-button`)',
             description: 'Determines the visual style of the button.',
             table: {
                 category: 'Inputs',
@@ -49,13 +28,17 @@ const meta: Meta<StoryComponent> = {
 
 export default meta;
 
-type Story = StoryObj<StoryComponent>;
-
-export const Primary: Story = {
+export const Primary: StoryObj<StoryComponent> = {
     args: {
         color: ButtonColors.PRIMARY,
         label: 'Attack!',
     },
+    decorators: [moduleMetadata({ imports: [StoryComponent] })],
+    render: (args) => ({
+        props: args,
+        component: StoryComponent,
+        template: `<dma-story ${argsToTemplate(args)} />`,
+    }),
     parameters: {
         docs: {
             source: {
@@ -67,11 +50,17 @@ export const Primary: Story = {
     },
 };
 
-export const Base: Story = {
+export const Base: StoryObj<StoryComponent> = {
     args: {
         color: ButtonColors.BASE,
         label: 'Dismiss',
     },
+    decorators: [moduleMetadata({ imports: [StoryComponent] })],
+    render: (args) => ({
+        props: args,
+        component: StoryComponent,
+        template: `<dma-story ${argsToTemplate(args)} />`,
+    }),
     parameters: {
         docs: {
             source: {
@@ -83,11 +72,17 @@ export const Base: Story = {
     },
 };
 
-export const Danger: Story = {
+export const Danger: StoryObj<StoryComponent> = {
     args: {
         color: ButtonColors.DANGER,
         label: 'Log out',
     },
+    decorators: [moduleMetadata({ imports: [StoryComponent] })],
+    render: (args) => ({
+        props: args,
+        component: StoryComponent,
+        template: `<dma-story ${argsToTemplate(args)} />`,
+    }),
     parameters: {
         docs: {
             source: {
@@ -99,12 +94,12 @@ export const Danger: Story = {
     },
 };
 
-export const LeadingIcon: Story = {
+export const LeadingIcon: StoryObj<LeadingIconStoryComponent> = {
     decorators: [moduleMetadata({ imports: [LeadingIconStoryComponent] })],
     render: (args) => ({
         props: args,
         component: LeadingIconStoryComponent,
-        template: `<dma-leading-icon-story />`,
+        template: `<dma-leading-icon-story ${argsToTemplate(args)} />`,
     }),
     parameters: {
         docs: {
