@@ -7,8 +7,8 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-50: oklch(97.1% 0.013 17.38);
     --color-red-100: oklch(93.6% 0.032 17.717);
+    --color-red-200: oklch(88.5% 0.062 18.334);
     --color-red-500: oklch(63.7% 0.237 25.331);
     --color-red-600: oklch(57.7% 0.245 27.325);
     --color-green-500: oklch(72.3% 0.219 149.579);
@@ -523,10 +523,10 @@
       }
     }
   }
-  .hover\:bg-red-50 {
+  .hover\:bg-red-100 {
     &:hover {
       @media (hover: hover) {
-        background-color: var(--color-red-50);
+        background-color: var(--color-red-100);
       }
     }
   }
@@ -569,9 +569,9 @@
       background-color: var(--color-neutral-300);
     }
   }
-  .active\:bg-red-100 {
+  .active\:bg-red-200 {
     &:active {
-      background-color: var(--color-red-100);
+      background-color: var(--color-red-200);
     }
   }
   .disabled\:cursor-default {
