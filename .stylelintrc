@@ -9,6 +9,7 @@
                     "reference"
                 ]
             }
-        ]
+        ],
+        "import-notation": null
     }
 }
