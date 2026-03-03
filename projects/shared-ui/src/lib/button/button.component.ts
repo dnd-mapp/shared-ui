@@ -16,8 +16,8 @@ import { buttonColorAttribute, ButtonColors, DEFAULT_BUTTON_COLOR } from './butt
         '[class.hover:bg-blue-500]': 'isPrimary()',
         '[class.active:bg-blue-600]': 'isPrimary()',
         '[class.text-red-600]': 'isDanger()',
-        '[class.hover:bg-red-50]': 'isDanger()',
-        '[class.active:bg-red-100]': 'isDanger()',
+        '[class.hover:bg-red-100]': 'isDanger()',
+        '[class.active:bg-red-200]': 'isDanger()',
     },
     imports: [],
 })
