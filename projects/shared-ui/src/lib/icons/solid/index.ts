@@ -1,4 +1,5 @@
 export * from './arrow-rotate-left/arrow-rotate-left.so-icon';
+export * from './check/check.so-icon';
 export * from './circle-user/circle-user.so-icon';
 export * from './clone/clone.so-icon';
 export * from './eye-slash/eye-slash.so-icon';
