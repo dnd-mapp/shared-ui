@@ -82,6 +82,14 @@ export class DropdownAnchorDirective {
         this.dropdownToggle.emit(true);
     }
 
+    public hide() {
+        if (this.overlayRef === null) return;
+        this.overlayRef.dispose();
+        this.overlayRef = null;
+
+        this.dropdownToggle.emit(false);
+    }
+
     public scheduleHide(shouldHide: boolean) {
         this.hideScheduler.next(shouldHide);
     }
@@ -104,13 +112,5 @@ export class DropdownAnchorDirective {
     private toggle() {
         if (this.overlayRef) this.hide();
         else this.show();
-    }
-
-    private hide() {
-        if (this.overlayRef === null) return;
-        this.overlayRef.dispose();
-        this.overlayRef = null;
-
-        this.dropdownToggle.emit(false);
     }
 }
