@@ -14,4 +14,5 @@ export * from './floppy-disk/floppy-disk.so-icon';
 export * from './plus/plus.so-icon';
 export * from './trash-can/trash-can.so-icon';
 export * from './users/users.so-icon';
+export * from './wand-magic-sparkles/wand-magic-sparkles.so-icon';
 export * from './xmark/xmark.so-icon';
