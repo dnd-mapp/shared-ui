@@ -2,6 +2,7 @@ import { ConnectedPosition, Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import {
     booleanAttribute,
+    computed,
     DestroyRef,
     Directive,
     ElementRef,
@@ -38,24 +39,26 @@ export class DropdownAnchorDirective {
 
     public readonly dropdownToggle = output<boolean>();
 
-    private readonly hideScheduler = new Subject<boolean>();
+    public readonly dropdownOpen = computed(() => Boolean(this.overlayRef));
+
+    private readonly closeScheduler = new Subject<boolean>();
 
     private overlayRef: OverlayRef | null = null;
 
     constructor() {
-        this.hideScheduler
+        this.closeScheduler
             .asObservable()
             .pipe(debounceTime(100), filter(Boolean), takeUntilDestroyed())
             .subscribe({
                 next: () => {
                     if (!this.toggleOnHover()) return;
-                    this.hide();
+                    this.close();
                 },
             });
     }
 
-    public show() {
-        this.hideScheduler.next(false);
+    public open() {
+        this.closeScheduler.next(false);
         if (this.overlayRef) return;
 
         const positionStrategy = this.overlay
@@ -76,13 +79,20 @@ export class DropdownAnchorDirective {
             .detachments()
             .pipe(takeUntilDestroyed(this.destroyRef))
             .subscribe({
-                next: () => this.hide(),
+                next: () => this.close(),
+            });
+
+        this.overlayRef
+            .outsidePointerEvents()
+            .pipe(takeUntilDestroyed(this.destroyRef))
+            .subscribe({
+                next: (mouseEvent) => this.onOutsideClick(mouseEvent),
             });
 
         this.dropdownToggle.emit(true);
     }
 
-    public hide() {
+    public close() {
         if (this.overlayRef === null) return;
         this.overlayRef.dispose();
         this.overlayRef = null;
@@ -90,8 +100,8 @@ export class DropdownAnchorDirective {
         this.dropdownToggle.emit(false);
     }
 
-    public scheduleHide(shouldHide: boolean) {
-        this.hideScheduler.next(shouldHide);
+    public scheduleClose(shouldClose: boolean) {
+        this.closeScheduler.next(shouldClose);
     }
 
     protected onClick() {
@@ -101,16 +111,27 @@ export class DropdownAnchorDirective {
 
     protected onMouseenter() {
         if (!this.toggleOnHover()) return;
-        this.show();
+        this.open();
     }
 
     protected onMouseleave() {
         if (!this.toggleOnHover()) return;
-        this.hideScheduler.next(true);
+        this.closeScheduler.next(true);
     }
 
     private toggle() {
-        if (this.overlayRef) this.hide();
-        else this.show();
+        if (this.overlayRef) this.close();
+        else this.open();
+    }
+
+    private onOutsideClick(mouseEvent: MouseEvent) {
+        let target = mouseEvent.target as HTMLElement | null;
+
+        while (target !== null && target !== this.elementRef.nativeElement) {
+            target = target?.parentElement ?? null;
+        }
+        if (!target) {
+            this.close();
+        }
     }
 }

@@ -9,7 +9,7 @@
 </button>
 
 <ng-template #dropdownContainer>
-    <dma-dropdown-container (hover)="anchor.scheduleHide(!$event)">
+    <dma-dropdown-container (hover)="anchor.scheduleClose(!$event)">
         <ng-content select="dropdown-menu" />
     </dma-dropdown-container>
 </ng-template>
