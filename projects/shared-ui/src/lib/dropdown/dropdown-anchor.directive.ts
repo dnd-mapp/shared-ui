@@ -82,6 +82,13 @@ export class DropdownAnchorDirective {
                 next: () => this.close(),
             });
 
+        this.overlayRef
+            .outsidePointerEvents()
+            .pipe(takeUntilDestroyed(this.destroyRef))
+            .subscribe({
+                next: (mouseEvent) => this.onOutsideClick(mouseEvent),
+            });
+
         this.dropdownToggle.emit(true);
     }
 
@@ -115,5 +122,16 @@ export class DropdownAnchorDirective {
     private toggle() {
         if (this.overlayRef) this.close();
         else this.open();
+    }
+
+    private onOutsideClick(mouseEvent: MouseEvent) {
+        let target = mouseEvent.target as HTMLElement | null;
+
+        while (target !== null && target !== this.elementRef.nativeElement) {
+            target = target?.parentElement ?? null;
+        }
+        if (!target) {
+            this.close();
+        }
     }
 }
