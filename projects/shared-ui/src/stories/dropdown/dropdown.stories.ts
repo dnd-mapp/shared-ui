@@ -89,7 +89,7 @@ const meta: Meta<ToggleStoryComponent & DropdownAnchorDirective & DropdownContai
                 subcategory: 'Outputs',
             },
         },
-        show: {
+        open: {
             description: 'Programmatically opens the dropdown.',
             table: {
                 category: 'DmaDropdownAnchorDirective',
@@ -99,13 +99,13 @@ const meta: Meta<ToggleStoryComponent & DropdownAnchorDirective & DropdownContai
                 },
             },
         },
-        scheduleHide: {
-            description: 'Schedules a hide action with a 100ms debounce. Useful for hover interactions.',
+        scheduleClose: {
+            description: 'Schedules a close action with a 100ms debounce. Useful for hover interactions.',
             table: {
                 category: 'DmaDropdownAnchorDirective',
                 subcategory: 'Methods',
                 type: {
-                    summary: '(shouldHide: boolean) => void',
+                    summary: '(shouldClose: boolean) => void',
                 },
             },
         },
