@@ -6,7 +6,9 @@
             true,
             {
                 "ignoreAtRules": [
-                    "reference"
+                    "plugin",
+                    "reference",
+                    "source"
                 ]
             }
         ],
