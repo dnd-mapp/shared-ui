@@ -1,4 +1,6 @@
-@reference 'tailwindcss';
+@plugin 'tailwind-scrollbar' {
+    nocompatible: true;
+}
 
 html,
 body {
