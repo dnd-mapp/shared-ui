@@ -26,7 +26,7 @@ strictDepBuilds: true
 
 trustPolicy: no-downgrade
 
-trustPolicyIgnoreAfter: 10080
+trustPolicyIgnoreAfter: 2880
 
 useNodeVersion: 24.14.0
 
