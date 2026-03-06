@@ -46,8 +46,13 @@ To ensure the custom themes, fonts, and assets are correctly bundled, update you
                             "src/assets",
                             {
                                 "glob": "**/*",
-                                "input": "node_modules/@dnd-mapp/shared-ui/assets",
-                                "output": "assets"
+                                "input": "node_modules/@dnd-mapp/shared-ui/assets/fonts",
+                                "output": "assets/fonts"
+                            },
+                            {
+                                "glob": "**/*",
+                                "input": "node_modules/@dnd-mapp/shared-ui/assets/images",
+                                "output": "assets/images"
                             }
                         ],
                         "styles": ["src/styles.scss"]
@@ -68,8 +73,8 @@ Additionally, you need to import the library styles directly into your applicati
   1. Import Fonts first
   2. Import Main Theme and Component Styles
  */
-@import "@dnd-mapp/shared-ui/assets/styles/fonts.scss"; /* 1. */
-@import "@dnd-mapp/shared-ui/assets/styles/main.scss"; /* 2. */
+@import "@dnd-mapp/shared-ui/styles/fonts"; /* 1. */
+@import "@dnd-mapp/shared-ui/styles/main"; /* 2. */
 ```
 
 ---
