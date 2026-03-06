@@ -13,7 +13,8 @@ The official Angular component library for the **D&D Mapp** platform. This libra
 ## ✨ Key Features
 
 - **Modern Architecture**: Built with **Angular 21** using signals and standalone components.
-- **Next-Gen Styling**: Powered by **Tailwind CSS v4** with a CSS-first configuration.
+- **Custom Theming**: A proprietary SCSS-based design system.
+- **Integrated Typography**: Includes custom fonts optimized for readability in high-density gaming interfaces.
 - **Layout Integrity**: Specialized components like `Active Marker` prevent Layout Shifts (CLS) during state toggles.
 - **Accessible & Consistent**: A11y-focused components that serve as the single source of truth for the D&D Mapp brand.
 
@@ -29,36 +30,71 @@ Install the package via your preferred package manager:
 pnpm add @dnd-mapp/shared-ui
 ```
 
-### 2. Global Styles
+### 2. Configuration (Angular.json)
 
-Import the library's Tailwind-based styles into your application's global CSS file (e.g., `styles.css`):
+To ensure the custom themes, fonts, and assets are correctly bundled, update your `angular.json` file. You must include the global styles and the assets folder:
 
-```css
-@import "@dnd-mapp/shared-ui/assets/styles/main.css";
+```json
+{
+    "projects": {
+        "your-app-name": {
+            "architect": {
+                "build": {
+                    "options": {
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets",
+                            {
+                                "glob": "**/*",
+                                "input": "node_modules/@dnd-mapp/shared-ui/assets",
+                                "output": "assets"
+                            }
+                        ],
+                        "styles": ["src/styles.scss"]
+                    }
+                }
+            }
+        }
+    }
+}
 ```
 
-> [!NOTE]
-> Ensure your build pipeline is configured to process Tailwind CSS v4 imports.
+### 3. Global Styles Integration
 
-### 3. Usage
+Additionally, you need to import the library styles directly into your application's primary SCSS file (e.g., `styles.scss`):
 
-All components are **Standalone**. Import them directly into your component's `imports` array:
-
-```typescript
-import { Component } from '@angular/core';
-import { ButtonComponent } from '@dnd-mapp/shared-ui';
-
-@Component({
-    selector: 'app-root', 
-    template: `<button type="button" dma-button="primary">Roll Initiative</button>`,
-    imports: [ButtonComponent],
-})
-export class RootComponent {}
+```scss
+/*
+  1. Import Fonts first
+  2. Import Main Theme and Component Styles
+ */
+@import "@dnd-mapp/shared-ui/assets/styles/fonts.scss"; /* 1. */
+@import "@dnd-mapp/shared-ui/assets/styles/main.scss"; /* 2. */
 ```
 
 ---
 
-## 🧱 Component Library
+## 🧱 Usage
+
+All components are **Standalone**. Import them directly into your component's `imports` array:
+
+```typescript
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ButtonComponent } from '@dnd-mapp/shared-ui';
+
+@Component({
+    selector: 'app-root',
+    template: `<button type="button" dma-button="primary">Roll Initiative</button>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [ButtonComponent],
+})
+export class RootComponent {
+}
+```
+
+---
+
+## 🏟 Component Library
 
 For detailed API definitions and interactive examples, visit our **[Storybook](https://dnd-mapp.github.io/shared-ui/)** or view the documentation for the specific components below:
 
@@ -66,15 +102,16 @@ For detailed API definitions and interactive examples, visit our **[Storybook](h
 |----------------------------------------------------------|--------|--------------------------------------------------------------|
 | **[Active Marker](src/lib/nav/active-marker/README.md)** | ✅      | Prevents CLS by reserving space for bold text states.        |
 | **[App Top Bar](src/lib/nav/app-top-bar/README.md)**     | ✅      | Layout-oriented header with `start` and `end` sections.      |
-| **[Button](src/lib/button/README.md)**                   | ✅      | Actions with support for base and primary variants.          |
+| **[Button](src/lib/button/README.md)**                   | ✅      | Actions with support for base, primary, and danger variants. |
 | **[Dropdown](src/lib/dropdown/README.md)**               | ✅      | Directive-based overlay system using Angular CDK.            |
+| **[Input](src/lib/forms/input/README.md)**               | ✅      | Debounced, form-aware text inputs with validation states.    |
 | **[Navbar](src/lib/nav/navbar/README.md)**               | ✅      | Semantic `<nav>` container with standardized flex spacing.   |
 | **[Navbar Brand](src/lib/nav/navbar-brand/README.md)**   | ✅      | A standardized header element for logo and brand identity.   |
-| **[Navbar Link](src/lib/nav/navbar-link/README.md)**     | ✅      | Navigation link with automatic active state and layout lock. |
+| **[Navbar Link](src/lib/nav/navbar-link/README.md)**     | ✅      | Navigation link with automatic active state detection.       |
 | **[Navbar Menu](src/lib/nav/navbar-menu/README.md)**     | ✅      | Specialized dropdown trigger for navigation bars.            |
 | **[Vertical Rule](src/lib/vertical-rule/README.md)**     | ✅      | A layout-stretching divider for content separation.          |
 
-> **Legend:**
+> **Legend:**  
 > ✅ Production Ready | 🚧 In Development | 🧪 Experimental
 
 ---
