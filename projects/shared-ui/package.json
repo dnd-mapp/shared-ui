@@ -20,7 +20,7 @@
     "url": "https://github.com/dnd-mapp/shared-ui"
   },
   "sideEffects": [
-    "*.css"
+    "*.scss"
   ],
   "exports": {
     "./assets/*": "./assets/*"

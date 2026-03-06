@@ -31,7 +31,7 @@
     "format:check": "pnpm exec prettier -l .",
     "format:write": "pnpm exec prettier -w .",
     "lint": "pnpm exec ng lint",
-    "stylelint": "pnpm exec stylelint \"**/*.css\""
+    "stylelint": "pnpm exec stylelint \"**/*.scss\""
   },
   "dependencies": {
     "@angular/cdk": "~21.2",
@@ -66,8 +66,8 @@
     "prettier-plugin-organize-imports": "~4.3",
     "storybook": "~10.2",
     "stylelint": "~17.4",
-    "stylelint-config-standard": "~40.0",
     "tailwindcss": "~4.2",
+    "stylelint-config-standard-scss": "~17.0",
     "typescript": "~5.9",
     "typescript-eslint": "~8.56"
   }
