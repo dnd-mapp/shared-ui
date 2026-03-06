@@ -24,11 +24,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Fixed
 
-- Properly export bundled assets in `package.json` (fixes missing assets on install).
+- (n/a)
 
 ### Security
 
 - (n/a)
+
+---
+
+## [2.0.1] - 2026-03-06
+
+### Fixed
+
+- Properly export bundled assets in `package.json` (fixes missing assets on install).
 
 ---
 
