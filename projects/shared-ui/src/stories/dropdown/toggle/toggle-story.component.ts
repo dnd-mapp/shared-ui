@@ -16,5 +16,5 @@ import {
 export class ToggleStoryComponent {
     public readonly logout = output<void>();
 
-    public readonly dropdownShown = output<boolean>();
+    public readonly dropdownToggle = output<boolean>();
 }

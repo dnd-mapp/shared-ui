@@ -4,14 +4,18 @@
 
 # Button Component (`dma-button`)
 
-The `ButtonComponent` is a versatile UI element designed for the **D&D Mapp** design system. It is implemented as an attribute selector for standard HTML `<button>` elements, ensuring native accessibility and browser behavior while providing consistent styling.
+The `ButtonComponent` is a versatile UI element designed for the **D&D Mapp** design system. It is implemented as an attribute selector for standard HTML `<button>` elements, ensuring native accessibility and browser behavior while providing consistent styling and flexbox-based content alignment.
 
 ## 🏰 Overview
 
 - **Selector**: `button[dma-button]`
 - **Format**: Attribute-based standalone component.
 - **Compatibility**: Works with all standard HTML button attributes (e.g., `type`, `disabled`, `(click)`).
-- **Features**: Supports a leading icon via content projection and multiple semantic color variants.
+- **Features**:
+  - Supports a leading icon via content projection.
+  - Automatic flex alignment for icons and text.
+  - Responsive states (hover/active) for all variants.
+  - Full-width support when nested inside a `dma-dropdown-container`.
 
 ---
 
@@ -21,7 +25,7 @@ Add `ButtonComponent` to your standalone component's `imports` array:
 
 ```typescript
 import { Component } from '@angular/core';
-import { ButtonComponent } from '@dnd-mapp/shared-ui';
+import { ButtonComponent, LeadingIconDirective } from '@dnd-mapp/shared-ui';
 
 @Component({
     selector: 'app-encounter-action',
@@ -37,11 +41,11 @@ import { ButtonComponent } from '@dnd-mapp/shared-ui';
 
         <!-- With a leading icon -->
         <button type="button" dma-button>
-            <dma-icon dma-user-circle-icon ngProjectAs="dma-leading-icon" />
+            <dma-icon dma-user-circle-icon dmaLeadingIcon />
             Username
         </button>
     `,
-    imports: [ButtonComponent],
+    imports: [ButtonComponent, LeadingIconDirective],
 })
 export class EncounterActionComponent {}
 ```
@@ -56,11 +60,14 @@ export class EncounterActionComponent {}
 |---------|--------------|-----------------------------------|----------|--------------------------------------------|
 | `color` | `dma-button` | `'base' \| 'primary' \| 'danger'` | `'base'` | Determines the visual style of the button. |
 
+> [!NOTE]
+> The `dma-button` attribute acts as both the component selector and the input for the color variant.
+
 ### Content Projection
 
-The component uses `<ng-content>` to allow for flexible labeling and icon placement:
+The component wraps content in a `.button-content` container with a predefined layout and alignment:
 
-- **`<dma-leading-icon>`**: Use this element tag (or `ngProjectAs="dma-leading-icon"`) to project an icon or element at the start of the button.
+- **`[dmaLeadingIcon]`**: Use this element directive to project an icon at the start.
 - **Default Slot**: Any other content provided inside the button tag will be rendered as the button label.
 
 ---
@@ -68,22 +75,19 @@ The component uses `<ng-content>` to allow for flexible labeling and icon placem
 ## 🌈 Color Variants
 
 1. **Base (`base`)**
-
    - **Usage**: `<button dma-button>` or `<button dma-button="base">`
-   - **Description**: A neutral style for secondary actions or standard UI tasks.
-   - **Appearance**: Light neutral (`neutral-100`) background with dark text.
+   - **Appearance**: Standard neutral styling for secondary actions.
+   - **States**: Includes visual feedback for hover and active interactions.
 
 2. **Primary (`primary`)**
-
    - **Usage**: `<button dma-button="primary">`
-   - **Description**: High-emphasis style for main actions and "Call to Action" buttons.
-   - **Appearance**: Vibrant blue (`blue-400`) background with light text.
+   - **Appearance**: High-contrast brand coloring to highlight the main action.
+   - **States**: Shifts in tone to indicate interaction.
 
 3. **Danger (`danger`)**
-
    - **Usage**: `<button dma-button="danger">`
-   - **Description**: Used for destructive actions (e.g., deleting, removing, or canceling high-stakes operations).
-   - **Appearance**: Transparent background with red text (`red-600`) and light red hover/active states.
+   - **Appearance**: Semantic warning styling to highlight destructive intent.
+   - **States**: Subtle highlights to indicate destructive potential without overwhelming the UI.
 
 ---
 
@@ -91,37 +95,31 @@ The component uses `<ng-content>` to allow for flexible labeling and icon placem
 
 ### Leading Icon (Profile)
 
-Project a specialized icon element into the `dma-leading-icon` slot.
+Project a specialized icon directive into the `[dmaLeadingIcon]` slot. The component automatically handles the spacing between the icon and the text.
 
 ```html
 <button type="button" dma-button>
-    <dma-icon dma-user-circle-icon ngProjectAs="dma-leading-icon" />
+    <dma-icon dma-user-circle-icon dmaLeadingIcon />
     Username
 </button>
 ```
 
-### Secondary Action (Cancel)
+### Layout Behavior
 
-Use the default `base` variant for less prominent actions.
-
-```html
-<button dma-button (click)="closeModal()">Dismiss</button>
-```
-
-### Destructive Action
-
-Use the `danger` variant for deletions.
-
-```html
-<button dma-button="danger" (click)="deleteEntry()">Delete Entry</button>
-```
+When a `dma-button` is placed inside a component or element with the `dma-dropdown-container` attribute, it will automatically expand to fill the container width.
 
 ### Standard Button Behavior
 
-Since this is an attribute selector, you can use all standard button features like `type="submit"` or the `disabled` state:
+Since this is an attribute selector, you can use all standard button features:
 
 ```html
-<button type="submit" dma-button="primary" [disabled]="isSubmitting()">Save Character</button>
+<button 
+    type="submit" 
+    dma-button="primary" 
+    [disabled]="isSubmitting()"
+>
+    Save Character
+</button>
 ```
 
 ---

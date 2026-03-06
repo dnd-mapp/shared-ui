@@ -8,11 +8,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- (n/a)
+- Directives for `DropdownMenu` and `DropdownTrigger`.
+- Directives enabling leading and trailing icons in components.
+- Exposed dropdown `hide` function for programmatic control and support for closing dropdowns on outside clicks.
+- Monospace font along with several global style improvements including normalization rules, SCSS variables, and a comprehensive color theme.
+- A large number of new icons added to the library (e.g. Trash, WandMagicSparkles, FileLines, File, BookOpen, Users, Box, AngleUp/AngleDown, FloppyDisk, Check, EyeSlash, Eye, clone, Plus, Xmark, ArrowRotateLeft, TrashCan, and others).
 
 ### Changed
 
-- (n/a)
+- Removed Tailwind CSS in favor of plain SCSS styling; Tailwind dependencies and related Stylelint rules have been stripped.
+- Reorganized font-face declarations and renamed `CircleUserIcon`.
+- Adjusted default styling for dropdown containers and updated danger button colors.
+- Refactored dropdown API to use `open`/`close` methods instead of `hide`/`show`.
+- Various documentation updates and cleanup across components.
 
 ### Deprecated
 
@@ -20,7 +28,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Removed
 
-- (n/a)
+- Removed unneeded attributes and the `tailwindcss` keyword from package metadata.
+- Tailwind-related configuration and styling files.
 
 ### Fixed
 

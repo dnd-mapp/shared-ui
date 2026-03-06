@@ -2,13 +2,13 @@
 
 ---
 
-# App Top Bar `dma-app-top-bar`
+# App Top Bar
 
 A flexible and layout-oriented header component designed to host navigation, branding, and action elements. It uses a composition-based approach with dedicated sections to ensure consistent spacing and alignment across the application.
 
 ## 🏰 Overview
 
-The `AppTopBarComponent` acts as a container that leverages Tailwind CSS for layout and provides a specific slot for `AppTopBarSectionComponent` instances. This allows developers to easily group elements at the start or end of the bar.
+The `AppTopBarComponent` acts as a flexbox container that provides a specific slot for `AppTopBarSectionComponent` instances. It handles the top-level layout, background colors, and borders, while the sections handle internal alignment and spacing.
 
 - **Selector**: `dma-app-top-bar`
 - **Format**: Standalone Component
@@ -26,8 +26,13 @@ import { AppTopBarComponent, AppTopBarSectionComponent } from '@dnd-mapp/shared-
     selector: 'app-root',
     template: `
         <dma-app-top-bar>
-            <dma-app-top-bar-section position="start"><span>Logo</span></dma-app-top-bar-section>
-            <dma-app-top-bar-section position="end"><button>Profile</button></dma-app-top-bar-section>
+            <dma-app-top-bar-section>
+                <span>Logo</span>
+            </dma-app-top-bar-section>
+            
+            <dma-app-top-bar-section position="end">
+                <button>Profile</button>
+            </dma-app-top-bar-section>
         </dma-app-top-bar>
     `,
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -44,9 +49,9 @@ export class RootComponent {}
 
 #### Content Projection
 
-| Slot                      | Description                                         |
-|:--------------------------|:----------------------------------------------------|
-| `dma-app-top-bar-section` | Used to define alignment groups within the top bar. |
+| Slot                      | Description                                                                      |
+|---------------------------|----------------------------------------------------------------------------------|
+| `dma-app-top-bar-section` | Selects components of type `dma-app-top-bar-section` to define alignment groups. |
 
 ---
 
@@ -54,9 +59,9 @@ export class RootComponent {}
 
 #### Inputs
 
-| Name         | Type               | Default   | Description                                                                                   |
-|--------------|--------------------|-----------|-----------------------------------------------------------------------------------------------|
-| `[position]` | `'start' \| 'end'` | `'start'` | Determines the alignment. `'start'` sections will grow to fill available space if applicable. |
+| Name         | Type               | Default   | Description                                                                                                                               |
+|--------------|--------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| `[position]` | `'start' \| 'end'` | `'start'` | Determines the alignment. Sections with `position="start"` will `flex-grow` to fill available space, pushing "end" sections to the right. |
 
 #### Content Projection
 
@@ -74,34 +79,12 @@ A standard layout with a title on the left and a single action on the right.
 
 ```html
 <dma-app-top-bar>
-    <dma-app-top-bar-section position="start">
-        <img src="logo.png" alt="Logo" class="h-6" />
-        <h1 class="text-lg font-bold">D&D Mapp</h1>
+    <dma-app-top-bar-section>
+        Start section
     </dma-app-top-bar-section>
 
     <dma-app-top-bar-section position="end">
-        <button class="btn-primary">Logout</button>
-    </dma-app-top-bar-section>
-</dma-app-top-bar>
-```
-
-### Complex Action Bar
-
-Using multiple items within the sections to create a rich interface.
-
-```html
-<dma-app-top-bar>
-    <dma-app-top-bar-section position="start">
-        <dma-icon dma-bars-icon />
-        <nav>
-            <a href="#">Dashboard</a>
-            <a href="#">Campaigns</a>
-        </nav>
-    </dma-app-top-bar-section>
-
-    <dma-app-top-bar-section position="end">
-        <dma-search-input />
-        <dma-avatar user="Oscar" />
+        End Section
     </dma-app-top-bar-section>
 </dma-app-top-bar>
 ```

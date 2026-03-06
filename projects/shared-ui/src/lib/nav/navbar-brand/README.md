@@ -2,7 +2,7 @@
 
 ---
 
-# Navbar Brand Component (`dma-navbar-brand`)
+# Navbar Brand
 
 The `NavbarBrandComponent` is a foundational UI element for application navigation bars. It provides a standardized way to display a brand logo alongside a brand name, automatically linking back to the application root.
 
@@ -21,11 +21,13 @@ The `NavbarBrandComponent` is a foundational UI element for application navigati
 To use the `NavbarBrandComponent`, import it into your standalone component or Angular module, and then add it to your template.
 
 ```ts
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NavbarBrandComponent } from '@dnd-mapp/shared-ui';
 
 @Component({
     selector: 'app-layout',
     template: `<dma-navbar-brand imgSrc="assets/logo.svg" brandName="D&D Mapp" />`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [NavbarBrandComponent],
 })
 export class LayoutComponent {}
@@ -37,6 +39,8 @@ export class LayoutComponent {}
 
 ### Inputs
 
+The component uses Angular Signals for its input properties.
+
 | Name        | Type     | Required | Description                                        |
 |-------------|----------|----------|----------------------------------------------------|
 | `imgSrc`    | `string` | Yes      | The source URL for the brand logo image.           |
@@ -44,7 +48,7 @@ export class LayoutComponent {}
 
 ### Routing
 
-The component internally uses `RouterLink` and is hardcoded to navigate to the root path (`/`). Ensure that the `provideRouter` or `RouterModule` is configured in your application.
+The component internally uses `RouterLink` and is hardcoded to navigate to the root path (`/`). Ensure that `provideRouter` is configured in your application bootstrap.
 
 ---
 
@@ -52,22 +56,37 @@ The component internally uses `RouterLink` and is hardcoded to navigate to the r
 
 ### Basic Branding
 
-```html
-<dma-navbar-brand 
-    imgSrc="/favicon.ico" 
-    brandName="My Application" 
-/>
+```ts
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { NavbarBrandComponent } from '@dnd-mapp/shared-ui';
+
+@Component({
+    selector: 'app-root',
+    template: '<dma-navbar-brand imgSrc="/favicon.ico" brandName="My Application" />',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [NavbarBrandComponent],
+})
+export class RootComponent {}
 ```
 
 ### Dynamic Branding
 
-If your brand information comes from a configuration object or a signal:
+Since the component uses Signal inputs, you can pass values from other Signals or standard properties:
 
-```html
-<dma-navbar-brand 
-    [imgSrc]="config.logoPath" 
-    [brandName]="config.appName" 
-/>
+```ts
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { NavbarBrandComponent } from '@dnd-mapp/shared-ui';
+
+@Component({
+    selector: 'app-root',
+    template: '<dma-navbar-brand [imgSrc]="logo()" [brandName]="name()" />',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [NavbarBrandComponent],
+})
+export class RootComponent {
+    protected readonly logo = signal('assets/dynamic-logo.svg');
+    protected readonly name = signal('Prototyping App');
+}
 ```
 
 ---

@@ -2,11 +2,11 @@
 
 ---
 
-# NavbarLink Component (`dma-navbar-link`)
+# NavbarLink
 
-A lightweight, navigation-aware component designed for use within navigation bars. It handles active state detection automatically, ensuring that the link is visually highlighted when the current route matches its destination.
+A navigation-aware component designed for use within navigation bars. It handles active state detection using Angular's functional `isActive` utility and provides a consistent visual experience for routing.
 
-The `NavbarLinkComponent` provides a wrapper around Angular's `RouterLink`. A key feature of this component is its layout stability: it uses a hidden "bold" placeholder to pre-calculate the space required for its active state. This prevents the "shaking" or layout shifting effect that often occurs when a font weight changes from normal to bold upon selection.
+The `NavbarLinkComponent` integrates with the Angular Router to automatically determine its active state. It manages navigation both through a standard `[routerLink]` directive for accessibility (allowing right-clicks/middle-clicks) and a programmatic `onClick` handler.
 
 ---
 
@@ -14,25 +14,28 @@ The `NavbarLinkComponent` provides a wrapper around Angular's `RouterLink`. A ke
 
 - **Selector:** `dma-navbar-link`
 - **Format:** Angular Standalone Component
+- **Change Detection:** `OnPush`
 
 ---
 
 ## 🚀 Usage
 
-To use the `NavbarLinkComponent`, import it into your standalone component or Angular module and add it to your template.
+To use the `NavbarLinkComponent`, import it into your standalone component and add it to your template.
 
 ```ts
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NavbarLinkComponent } from '@dnd-mapp/shared-ui';
 
-@Component({ 
-    selector: 'app-nav-container', 
+@Component({
+    selector: 'app-nav-container',
     template: `
         <nav>
             <dma-navbar-link label="Dashboard" route="/dashboard" />
             <dma-navbar-link label="Settings" route="/settings" />
         </nav>
     `,
-  imports: [NavbarLinkComponent],
+    changeDetection: ChangeDetectionStrategy.OnPush, 
+    imports: [NavbarLinkComponent],
 })
 export class NavContainerComponent {}
 ```
@@ -43,10 +46,18 @@ export class NavContainerComponent {}
 
 ### Inputs
 
-| Name    | Type     | Required | Description                                                                 |
-|---------|----------|----------|-----------------------------------------------------------------------------|
-| `label` | `string` | Yes      | The text to be displayed inside the link.                                   |
-| `route` | `string` | Yes      | The destination URL path (passed to `routerLink`).                          |
+| Name    | Type     | Required | Description                                                                  |
+|---------|----------|----------|------------------------------------------------------------------------------|
+| `label` | `string` | **Yes**  | The text label passed to the internal active marker.                         |
+| `route` | `string` | **Yes**  | The destination URL path used for both navigation and active state matching. |
+
+### Active State Logic
+
+The component uses a `Signal<boolean>` to track the active state. It is considered active if the current URL matches the `route` input based on the following criteria:
+
+- **Paths:** `subset` (Matches if the route is a prefix of the current URL).
+- **Query Params:** `subset`.
+- **Fragments/Matrix Params:** `ignored`.
 
 ---
 

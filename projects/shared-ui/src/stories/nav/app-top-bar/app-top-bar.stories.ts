@@ -6,13 +6,38 @@ import {
     DEFAULT_SECTION_POSITION,
     SectionPositions,
 } from '@dnd-mapp/shared-ui';
-import { applicationConfig, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
-import { AuthenticatedStoryComponent } from './authenticated-story.component';
-import { UnauthenticatedStoryComponent } from './unauthenticated-story.component';
+import { applicationConfig, argsToTemplate, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
+import { fn } from 'storybook/test';
+import { AuthenticatedStoryComponent } from './authenticated/authenticated-story.component';
+import { UnauthenticatedStoryComponent } from './unauthenticated/unauthenticated-story.component';
 
-@Component({
-    template: '',
-})
+const meta: Meta<AppTopBarComponent & AppTopBarSectionComponent> = {
+    title: 'nav/AppTopBar',
+    component: AuthenticatedStoryComponent,
+    argTypes: {
+        position: {
+            description:
+                'Determines the alignment. Sections with `position="start"` will `flex-grow` to fill available space, pushing "end" sections to the right.',
+            table: {
+                category: 'AppTopBarSectionComponent',
+                subcategory: 'Inputs',
+                defaultValue: {
+                    summary: `'${DEFAULT_SECTION_POSITION}'`,
+                },
+                type: {
+                    summary: 'SectionPosition',
+                    detail: Object.values(SectionPositions)
+                        .map((position) => `'${position}'`)
+                        .join(' | '),
+                },
+            },
+        },
+    },
+};
+
+export default meta;
+
+@Component({ template: '' })
 class NoopComponent {}
 
 const mockRoutes: Routes = [
@@ -44,59 +69,38 @@ const mockRoutes: Routes = [
     },
 ];
 
-const meta: Meta<AppTopBarComponent & AppTopBarSectionComponent> = {
-    title: 'nav/AppTopBar',
-    component: AuthenticatedStoryComponent,
-    argTypes: {
-        position: {
-            description:
-                "Determines the alignment. `'start'` sections will grow to fill available space if applicable.",
-            table: {
-                category: 'AppTopBarSectionComponent',
-                subcategory: 'Inputs',
-                defaultValue: {
-                    summary: `'${DEFAULT_SECTION_POSITION}'`,
-                },
-                type: {
-                    summary: 'SectionPosition',
-                    detail: Object.values(SectionPositions)
-                        .map((position) => `'${position}'`)
-                        .join(' | '),
-                },
-            },
-        },
-    },
-    decorators: [
-        applicationConfig({
-            providers: [provideRouter(mockRoutes, withHashLocation())],
-        }),
-    ],
-};
-
-export default meta;
-
-type Story = StoryObj<AuthenticatedStoryComponent>;
-
-export const Authenticated: Story = {
+export const Authenticated: StoryObj<AuthenticatedStoryComponent> = {
     decorators: [
         applicationConfig({ providers: [provideRouter(mockRoutes, withHashLocation())] }),
         moduleMetadata({ imports: [AuthenticatedStoryComponent] }),
     ],
+    args: {
+        logout: fn(),
+    },
+    argTypes: {
+        logout: { action: 'logout' },
+    },
     render: (args) => ({
         props: args,
-        component: AuthenticatedStoryComponent,
-        template: `<dma-authenticated-story />`,
+        template: `<dma-authenticated-story ${argsToTemplate(args)} />`,
     }),
 };
 
-export const Unauthenticated: Story = {
+export const Unauthenticated: StoryObj<UnauthenticatedStoryComponent> = {
     decorators: [
         applicationConfig({ providers: [provideRouter(mockRoutes, withHashLocation())] }),
         moduleMetadata({ imports: [UnauthenticatedStoryComponent] }),
     ],
+    args: {
+        login: fn(),
+        signup: fn(),
+    },
+    argTypes: {
+        login: { action: 'login' },
+        signup: { action: 'signup' },
+    },
     render: (args) => ({
         props: args,
-        component: UnauthenticatedStoryComponent,
-        template: `<dma-unauthenticated-story />`,
+        template: `<dma-unauthenticated-story ${argsToTemplate(args)} />`,
     }),
 };

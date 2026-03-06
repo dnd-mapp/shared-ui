@@ -78,8 +78,8 @@
         "@schematics/angular:component": {
             "addTypeToClassName": true,
             "changeDetection": "OnPush",
-            "inlineStyle": true,
             "skipTests": true,
+            "style": "scss",
             "type": "component"
         },
         "@schematics/angular:directive": {

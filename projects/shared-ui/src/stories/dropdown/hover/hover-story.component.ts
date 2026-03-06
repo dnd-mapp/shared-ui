@@ -20,7 +20,5 @@ import {
     ],
 })
 export class HoverStoryComponent {
-    public readonly logout = output<void>();
-
-    public readonly dropdownShown = output<boolean>();
+    public readonly dropdownToggle = output<boolean>();
 }

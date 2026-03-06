@@ -1,5 +1,5 @@
-@use "../../../assets/styles/theme-variables" as tv;
-@use "../../../assets/styles/colors" as c;
+@use "../../../../assets/styles/theme-variables/index" as tv;
+@use "../../../../assets/styles/colors/index" as c;
 
 :host {
     display: block;

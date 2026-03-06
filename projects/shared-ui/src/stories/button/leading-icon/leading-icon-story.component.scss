@@ -1,0 +1,11 @@
+@use "../../../assets/styles/theme-variables/index" as tv;
+@use "../../../assets/styles/colors/index" as c;
+
+:host {
+    display: block;
+    border-radius: tv.$radius-xl;
+    margin: 1rem;
+    background-color: c.$neutral-50;
+    color: c.$neutral-900;
+    padding: tv.$spacing * 4;
+}

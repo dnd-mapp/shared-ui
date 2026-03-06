@@ -1,31 +1,19 @@
 import { Component } from '@angular/core';
 import { provideRouter, Routes, withHashLocation } from '@angular/router';
-import { applicationConfig, Meta, StoryObj } from '@storybook/angular';
-import { StoryComponent } from './story.component';
+import { NavbarLinkComponent } from '@dnd-mapp/shared-ui';
+import { applicationConfig, argsToTemplate, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
+import { DefaultStoryComponent } from './default/default-story.component';
 
-@Component({ template: '' })
-class NoopComponent {}
-
-const mockRoutes: Routes = ['my-route'].map((path) => ({
-    path: path,
-    component: NoopComponent,
-}));
-
-const meta: Meta<StoryComponent> = {
+const meta: Meta<NavbarLinkComponent> = {
     title: 'nav/NavbarLink',
-    component: StoryComponent,
-    decorators: [
-        applicationConfig({
-            providers: [provideRouter(mockRoutes, withHashLocation())],
-        }),
-    ],
+    component: NavbarLinkComponent,
     args: {
         label: 'My route',
         route: 'my-route',
     },
     argTypes: {
         label: {
-            description: 'The text to be displayed inside the link.',
+            description: 'The text label passed to the internal active marker.',
             type: {
                 name: 'string',
                 required: true,
@@ -35,7 +23,7 @@ const meta: Meta<StoryComponent> = {
             },
         },
         route: {
-            description: 'The destination URL path (passed to `routerLink`).',
+            description: 'The destination URL path used for both navigation and active state matching.',
             type: {
                 name: 'string',
                 required: true,
@@ -49,9 +37,25 @@ const meta: Meta<StoryComponent> = {
 
 export default meta;
 
-type Story = StoryObj<StoryComponent>;
+@Component({ template: '' })
+class NoopComponent {}
 
-export const Default: Story = {
+const mockRoutes: Routes = [
+    {
+        path: 'my-route',
+        component: NoopComponent,
+    },
+];
+
+export const Default: StoryObj<DefaultStoryComponent> = {
+    decorators: [
+        applicationConfig({ providers: [provideRouter(mockRoutes, withHashLocation())] }),
+        moduleMetadata({ imports: [DefaultStoryComponent] }),
+    ],
+    render: (args) => ({
+        props: args,
+        template: `<dma-default-story ${argsToTemplate(args)} />`,
+    }),
     parameters: {
         docs: {
             source: {

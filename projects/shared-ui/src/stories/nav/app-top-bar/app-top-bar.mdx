@@ -3,13 +3,13 @@ import * as AppTopBarStories from './app-top-bar.stories.ts';
 
 <Meta of={AppTopBarStories} />
 
-# App Top Bar `dma-app-top-bar`
+# App Top Bar
 
 A flexible and layout-oriented header component designed to host navigation, branding, and action elements. It uses a composition-based approach with dedicated sections to ensure consistent spacing and alignment across the application.
 
 ## 🏰 Overview
 
-The `AppTopBarComponent` acts as a container that leverages Tailwind CSS for layout and provides a specific slot for `AppTopBarSectionComponent` instances. This allows developers to easily group elements at the start or end of the bar.
+The `AppTopBarComponent` acts as a flexbox container that provides a specific slot for `AppTopBarSectionComponent` instances. It handles the top-level layout, background colors, and borders, while the sections handle internal alignment and spacing.
 
 - **Selector**: `dma-app-top-bar`
 - **Format**: Standalone Component
@@ -27,8 +27,12 @@ import { AppTopBarComponent, AppTopBarSectionComponent } from '@dnd-mapp/shared-
     selector: 'app-root',
     template: `
         <dma-app-top-bar>
-            <dma-app-top-bar-section position="start"><span>Logo</span></dma-app-top-bar-section>
-            <dma-app-top-bar-section position="end"><button>Profile</button></dma-app-top-bar-section>
+            <dma-app-top-bar-section>
+                <span>Logo</span>
+            </dma-app-top-bar-section>
+            <dma-app-top-bar-section position="end">
+                <button>Profile</button>
+            </dma-app-top-bar-section>
         </dma-app-top-bar>
     `,
     changeDetection: ChangeDetectionStrategy.OnPush,
