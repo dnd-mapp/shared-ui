@@ -105,9 +105,8 @@ code,
 kbd,
 samp,
 pre {
-    // TODO: Use monospace font family
     font-family:
-        tv.$font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+        tv.$font-family-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
         monospace; /* 1 */
     font-feature-settings: normal; /* 2 */
     font-variation-settings: tv.$font-variation-settings; /* 3 */
