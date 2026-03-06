@@ -8,6 +8,34 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
+- (n/a)
+
+### Changed
+
+- (n/a)
+
+### Deprecated
+
+- (n/a)
+
+### Removed
+
+- (n/a)
+
+### Fixed
+
+- (n/a)
+
+### Security
+
+- (n/a)
+
+---
+
+## [2.0.0] - 2026-03-06
+
+### Added
+
 - Directives for `DropdownMenu` and `DropdownTrigger`.
 - Directives enabling leading and trailing icons in components.
 - Exposed dropdown `hide` function for programmatic control and support for closing dropdowns on outside clicks.
@@ -22,22 +50,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Refactored dropdown API to use `open`/`close` methods instead of `hide`/`show`.
 - Various documentation updates and cleanup across components.
 
-### Deprecated
-
-- (n/a)
-
 ### Removed
 
 - Removed unneeded attributes and the `tailwindcss` keyword from package metadata.
 - Tailwind-related configuration and styling files.
-
-### Fixed
-
-- (n/a)
-
-### Security
-
-- (n/a)
 
 ---
 
