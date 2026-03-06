@@ -1,2 +1,12 @@
+@use "../src/assets/styles/colors" as c;
 @use "../src/assets/styles/main";
 @use "../src/assets/styles/font";
+
+.sb-main-padded {
+    padding: 0 !important;
+}
+
+.sb-show-main {
+    background-color: c.$neutral-100;
+    color: c.$neutral-900;
+}

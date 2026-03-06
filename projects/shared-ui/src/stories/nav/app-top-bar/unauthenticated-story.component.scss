@@ -1,0 +1,7 @@
+@use "../../../assets/styles/colors" as c;
+
+:host {
+    display: block;
+    height: 11rem;
+    background-color: c.$neutral-100;
+}

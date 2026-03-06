@@ -4,10 +4,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'nav[dma-navbar]',
     template: `<ng-content />`,
+    styleUrl: './navbar.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    host: {
-        class: 'flex items-center gap-4',
-    },
     imports: [],
 })
 export class NavbarComponent {}

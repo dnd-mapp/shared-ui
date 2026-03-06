@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 @Component({
     selector: 'dma-navbar-brand',
     templateUrl: './navbar-brand.component.html',
+    styleUrl: './navbar-brand.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [RouterLink],
 })

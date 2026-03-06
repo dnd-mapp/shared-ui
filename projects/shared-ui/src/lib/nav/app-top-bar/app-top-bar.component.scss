@@ -1,0 +1,11 @@
+@use "../../../assets/styles/theme-variables" as tv;
+@use "../../../assets/styles/colors" as c;
+
+:host {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: c.$neutral-50;
+    border-bottom: 1px solid c.$neutral-200;
+    padding: tv.$spacing * 1.5 tv.$spacing * 2;
+}

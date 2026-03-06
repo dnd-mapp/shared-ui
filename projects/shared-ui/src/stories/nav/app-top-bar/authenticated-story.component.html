@@ -24,7 +24,7 @@
                 {{ authenticatedUser.username }}
             </ng-container>
             <ng-container ngProjectAs="dropdown-menu">
-                <button type="button" class="w-full" dma-button="danger" (click)="logout.emit()">Log out</button>
+                <button type="button" dma-button="danger" (click)="logout.emit()">Log out</button>
             </ng-container>
         </dma-navbar-menu>
     </dma-app-top-bar-section>

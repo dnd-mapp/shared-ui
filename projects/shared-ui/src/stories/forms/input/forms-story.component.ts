@@ -8,10 +8,8 @@ import { Observable } from 'rxjs';
 @Component({
     selector: 'dma-forms-story',
     templateUrl: './forms-story.component.html',
+    styleUrl: './forms-story.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    host: {
-        class: 'bg-neutral-50 p-4 block',
-    },
     imports: [InputComponent, ReactiveFormsModule, JsonPipe, AsyncPipe],
 })
 export class FormsStoryComponent {

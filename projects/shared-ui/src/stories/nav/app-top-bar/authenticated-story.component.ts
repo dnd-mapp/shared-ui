@@ -16,6 +16,7 @@ import {
 @Component({
     selector: 'dma-authenticated-story',
     templateUrl: `./authenticated-story.component.html`,
+    styleUrl: './authenticated-story.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         AppTopBarComponent,

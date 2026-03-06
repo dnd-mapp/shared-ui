@@ -7,10 +7,9 @@ import { ActiveMarkerComponent } from '../active-marker/active-marker.component'
 @Component({
     selector: 'dma-navbar-link',
     templateUrl: './navbar-link.component.html',
+    styleUrl: './navbar-link.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
-        'class':
-            'block rounded-md p-2 hover:bg-neutral-200 hover:text-neutral-900 active:bg-neutral-300 cursor-pointer',
         '(click)': 'onClick()',
     },
     imports: [RouterLink, ActiveMarkerComponent],

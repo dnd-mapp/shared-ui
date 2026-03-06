@@ -1,0 +1,60 @@
+@use "../../../assets/styles/theme-variables" as tv;
+@use "../../../assets/styles/colors" as c;
+
+:host {
+    label {
+        @include tv.text-sm;
+
+        display: inline-block;
+        color: c.$neutral-900;
+        font-weight: tv.$font-weight-semibold;
+        margin-bottom: tv.$spacing * 2;
+    }
+
+    input {
+        display: block;
+        width: 100%;
+        border: 1px solid c.$neutral-300;
+        border-radius: tv.$radius-xl;
+        padding: tv.$spacing * 2 tv.$spacing * 4;
+        color: c.$neutral-900;
+
+        &:not(:disabled) {
+            &:hover {
+                border-color: c.$neutral-500;
+            }
+
+            &:focus {
+                outline-color: c.$blue-400;
+            }
+
+            &:read-only {
+                outline: 0;
+                cursor: default;
+            }
+        }
+
+        &:disabled {
+            background-color: c.$neutral-300;
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+    }
+
+    &.ng-valid.ng-touched input:not(:disabled) {
+        border-color: c.$green-500;
+
+        &:focus {
+            outline-color: c.$green-500;
+        }
+    }
+
+    &.ng-invalid.ng-touched input:not(:disabled) {
+        border-color: c.$red-500;
+        color: c.$red-500;
+
+        &:focus {
+            outline-color: c.$red-500;
+        }
+    }
+}

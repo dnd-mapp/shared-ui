@@ -7,12 +7,10 @@ import { NgOnChange, NgOnTouched, provideValueAccessor } from '../value-accessor
 @Component({
     selector: 'dma-input',
     templateUrl: './input.component.html',
+    styleUrl: './input.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    host: {
-        class: 'group',
-    },
-    imports: [],
     providers: [provideValueAccessor(InputComponent)],
+    imports: [],
 })
 export class InputComponent implements ControlValueAccessor {
     public readonly inputId = input.required<string>();

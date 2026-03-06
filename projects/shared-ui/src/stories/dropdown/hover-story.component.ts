@@ -9,10 +9,8 @@ import {
 @Component({
     selector: 'dma-hover-story',
     templateUrl: './hover-story.component.html',
+    styleUrl: './hover-story.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    host: {
-        class: 'block p-4 bg-neutral-50 h-[13rem]',
-    },
     imports: [
         ButtonComponent,
         DropdownAnchorDirective,
