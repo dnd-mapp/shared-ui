@@ -4,44 +4,41 @@
 
 # Navbar Menu `dma-navbar-menu`
 
-The `Navbar Menu` is a specialized navigation component designed to trigger dropdown menus within a navigation bar. It integrates seamlessly with the library's dropdown system, supporting both click-based and hover-based interactions for improved user experience.
+The `Navbar Menu` is a specialized navigation component designed to trigger dropdown menus within a navigation bar. It integrates the library's button and dropdown systems into a cohesive unit, supporting both click-based and hover-based interactions.
 
 ## 🏰 Overview
 
-| Feature              | Details              |
-|----------------------|----------------------|
-| **Selector**         | `dma-navbar-menu`    |
-| **Format**           | Standalone Component |
-| **Change Detection** | `OnPush`             |
+- **Selector**: `dma-navbar-menu`
+- **Format**: Standalone Component
+- **Change Detection**: `OnPush`
+- **Dependencies**: `ButtonComponent`, `DropdownAnchorDirective`, `DropdownContainerComponent`
 
 ---
 
 ## 🚀 Usage
 
-The component uses content projection to separate the trigger element from the dropdown content.
+The component uses content projection to separate the trigger element from the dropdown content. The trigger is automatically wrapped in a button using the `dma-button` directive.
 
 ```ts
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { NavbarMenuComponent } from '@dnd-mapp/shared-ui';
+import { DropdownMenuDirective, DropdownTriggerDirective, NavbarMenuComponent } from '@dnd-mapp/shared-ui';
 
 @Component({
     selector: 'app-nav',
     template: `
-        <dma-navbar-menu [toggleOnHover]="true">
-            <ng-container ngProjectAs="dropdown-trigger">
-                <span>Products</span>
-            </ng-container>
-            <ng-container ngProjectAs="dropdown-menu">
+        <dma-navbar-menu toggleOnHover>
+            <span dmaDropdownTrigger>Products</span>
+            
+            <nav dmaDropdownMenu>
                 <a href="/link-1">Feature A</a>
                 <a href="/link-2">Feature B</a>
-            </ng-container>
+            </nav>
         </dma-navbar-menu>
     `,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NavbarMenuComponent],
+    imports: [NavbarMenuComponent, DropdownTriggerDirective, DropdownMenuDirective],
 })
-export class NavComponent {
-}
+export class NavComponent {}
 ```
 
 ---
@@ -50,16 +47,16 @@ export class NavComponent {
 
 ### Inputs
 
-| Name            | Type      | Default | Description                                                                                                |
-|-----------------|-----------|---------|------------------------------------------------------------------------------------------------------------|
-| `toggleOnHover` | `boolean` | `false` | Whether the dropdown should open and close automatically when the mouse enters or leaves the trigger area. |
+| Name            | Type      | Default | Description                                                                                                                                |
+|-----------------|-----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| `toggleOnHover` | `boolean` | `false` | When enabled, the dropdown opens on mouse enter and closes on mouse leave. Uses `booleanAttribute` transform for shorthand property usage. |
 
 ### Content Projection Slots
 
-| Selector           | Description                                               |
-|--------------------|-----------------------------------------------------------|
-| `dropdown-trigger` | The element that acts as the button to toggle the menu.   |
-| `dropdown-menu`    | The container holding the navigation links or menu items. |
+| Selector               | Description                                                                                                  |
+|------------------------|--------------------------------------------------------------------------------------------------------------|
+| `[dmaDropdownTrigger]` | Projected into the main navbar button. This element serves as the label for the dropdown toggle.             |
+| `[dmaDropdownMenu]`    | Projected into the `dma-dropdown-container`. Contains the list of links or actions to display when expanded. |
 
 ---
 
@@ -67,55 +64,32 @@ export class NavComponent {
 
 ### Basic Click Toggle
 
-By default, the menu requires a click interaction to open, which is ideal for mobile-responsive headers or complex navigation.
+By default, the menu requires a click interaction. This is the recommended approach for accessibility and mobile compatibility.
 
-```ts
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { NavbarMenuComponent } from '@dnd-mapp/shared-ui';
-
-@Component({
-    selector: 'app-basic-nav',
-    template: `
-        <dma-navbar-menu>
-            <dropdown-trigger>Settings</dropdown-trigger>
-            <dropdown-menu>
-                <ul>
-                    <li>Profile</li>
-                    <li>Security</li>
-                </ul>
-            </dropdown-menu>
-        </dma-navbar-menu>
-    `,
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NavbarMenuComponent],
-})
-export class BasicNavComponent {
-}
+```html
+<dma-navbar-menu>
+    <span dmaDropdownTrigger>Settings</span>
+    <div dmaDropdownMenu>
+        <dma-dropdown-item>Profile</dma-dropdown-item>
+        <dma-dropdown-item>Security</dma-dropdown-item>
+    </div>
+</dma-navbar-menu>
 ```
 
 ### Hover Activation
 
-Use the `toggleOnHover` input to create a more fluid desktop navigation experience where menus appear instantly on mouseenter.
+Apply the `toggleOnHover` attribute to enable "mega-menu" style interactions where the menu appears on hover. The component includes logic via the `#anchor` reference to handle scheduling closures when the mouse leaves the container.
 
-```ts
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { NavbarMenuComponent } from '@dnd-mapp/shared-ui';
-
-@Component({
-    selector: 'app-hover-nav',
-    template: `
-        <dma-navbar-menu toggleOnHover>
-            <ng-container ngProjectAs="dropdown-trigger">Resources</ng-container>
-            <ng-container ngProjectAs="dropdown-menu">
-                <nav-item>Documentation</nav-item>
-                <nav-item>API Reference</nav-item>
-            </ng-container>
-        </dma-navbar-menu>
-    `,
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NavbarMenuComponent],
-})
-export class HoverNavComponent {}
+```html
+<dma-navbar-menu toggleOnHover>
+    <ng-container dmaDropdownTrigger>
+        Resources
+    </ng-container>
+    <ul dmaDropdownMenu>
+        <li><a href="/docs">Documentation</a></li>
+        <li><a href="/api">API Reference</a></li>
+    </ul>
+</dma-navbar-menu>
 ```
 
 ---
