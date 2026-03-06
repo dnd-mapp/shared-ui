@@ -1,0 +1,18 @@
+@use "../../../assets/styles/theme-variables" as tv;
+@use "../../../assets/styles/colors" as c;
+
+:host {
+    display: block;
+    border-radius: tv.$radius-xl;
+    padding: 1.5 * tv.$spacing 3 * tv.$spacing;
+    cursor: pointer;
+
+    &:hover {
+        background-color: c.$neutral-200;
+        color: c.$neutral-900;
+    }
+
+    &:active {
+        background-color: c.$neutral-300;
+    }
+}

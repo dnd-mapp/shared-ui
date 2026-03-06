@@ -1,0 +1,24 @@
+@use "../../../assets/styles/theme-variables" as tv;
+@use "../../../assets/styles/colors" as c;
+
+:host {
+    display: grid;
+    place-items: center;
+    color: c.$neutral-600;
+    font-weight: tv.$font-weight-normal;
+
+    &.active {
+        color: c.$neutral-900;
+        font-weight: tv.$font-weight-semibold;
+    }
+
+    span {
+        grid-column: 1;
+        grid-row: 1;
+
+        &.label-spacer {
+            visibility: hidden;
+            font-weight: tv.$font-weight-semibold;
+        }
+    }
+}

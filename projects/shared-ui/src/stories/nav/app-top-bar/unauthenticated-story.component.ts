@@ -15,6 +15,7 @@ import {
 @Component({
     selector: 'dma-unauthenticated-story',
     templateUrl: `./unauthenticated-story.component.html`,
+    styleUrl: `./unauthenticated-story.component.scss`,
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         AppTopBarComponent,

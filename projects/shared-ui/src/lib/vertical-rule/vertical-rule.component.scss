@@ -1,0 +1,7 @@
+@use "../../assets/styles/colors" as c;
+
+:host {
+    display: inline-block;
+    height: stretch;
+    border-left: 1px solid c.$neutral-500;
+}

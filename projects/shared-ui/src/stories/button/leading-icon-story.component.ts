@@ -4,10 +4,8 @@ import { ButtonComponent, CircleUserSoIcon } from '@dnd-mapp/shared-ui';
 @Component({
     selector: 'dma-leading-icon-story',
     templateUrl: './leading-icon-story.component.html',
+    styleUrl: './story.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    host: {
-        class: 'block p-4 bg-neutral-100',
-    },
     imports: [ButtonComponent, CircleUserSoIcon],
 })
 export class LeadingIconStoryComponent {}

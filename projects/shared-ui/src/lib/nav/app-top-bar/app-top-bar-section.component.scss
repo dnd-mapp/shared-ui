@@ -1,0 +1,12 @@
+@use "../../../assets/styles/theme-variables" as tv;
+
+:host {
+    display: flex;
+    align-items: center;
+    gap: tv.$spacing * 3;
+    flex-shrink: 0;
+
+    &[position="start"] {
+        flex-grow: 1;
+    }
+}

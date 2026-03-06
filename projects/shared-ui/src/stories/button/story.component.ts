@@ -4,10 +4,8 @@ import { buttonColorAttribute, ButtonColors, ButtonComponent } from '@dnd-mapp/s
 @Component({
     selector: 'dma-story',
     templateUrl: `./story.component.html`,
+    styleUrl: './story.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    host: {
-        class: 'block p-4 bg-neutral-100',
-    },
     imports: [ButtonComponent],
 })
 export class StoryComponent {

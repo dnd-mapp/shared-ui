@@ -9,10 +9,8 @@ import {
 @Component({
     selector: 'dma-toggle-story',
     templateUrl: './toggle-story.component.html',
+    styleUrl: './toggle-story.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    host: {
-        class: 'block p-4 bg-neutral-50 h-[8rem]',
-    },
     imports: [ButtonComponent, CircleUserSoIcon, DropdownAnchorDirective, DropdownContainerComponent],
 })
 export class ToggleStoryComponent {

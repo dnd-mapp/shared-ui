@@ -1,0 +1,15 @@
+@use "../../../assets/styles/theme-variables" as tv;
+
+:host {
+    a {
+        display: flex;
+        align-items: center;
+        gap: tv.$spacing * 2;
+
+        span {
+            @include tv.text-2xl;
+
+            font-weight: tv.$font-weight-semibold;
+        }
+    }
+}

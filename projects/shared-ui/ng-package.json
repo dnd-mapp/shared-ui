@@ -9,6 +9,7 @@
         },
         "src/**/README.md"
     ],
+    "inlineStyleLanguage": "scss",
     "lib": {
         "entryFile": "src/public-api.ts"
     }

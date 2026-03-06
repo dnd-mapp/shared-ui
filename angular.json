@@ -41,14 +41,15 @@
                             {
                                 "input": "projects/shared-ui/src/assets",
                                 "glob": "**/*",
-                                "output": "."
+                                "output": "assets"
                             }
                         ],
                         "browserTarget": "shared-ui:build",
                         "compodoc": false,
                         "configDir": "projects/shared-ui/.storybook",
+                        "experimentalZoneless": true,
                         "outputDir": "dist/storybook-static",
-                        "styles": ["projects/shared-ui/.storybook/styles.css"]
+                        "styles": ["projects/shared-ui/.storybook/styles.scss"]
                     }
                 },
                 "storybook": {
@@ -58,15 +59,16 @@
                             {
                                 "input": "projects/shared-ui/src/assets",
                                 "glob": "**/*",
-                                "output": "."
+                                "output": "assets"
                             }
                         ],
                         "browserTarget": "shared-ui:build",
                         "compodoc": false,
                         "configDir": "projects/shared-ui/.storybook",
+                        "experimentalZoneless": true,
                         "open": false,
                         "port": 6006,
-                        "styles": ["projects/shared-ui/.storybook/styles.css"]
+                        "styles": ["projects/shared-ui/.storybook/styles.scss"]
                     }
                 }
             }

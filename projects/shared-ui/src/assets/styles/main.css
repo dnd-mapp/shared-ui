@@ -1,8 +1,0 @@
-@plugin 'tailwind-scrollbar' {
-    nocompatible: true;
-}
-
-html,
-body {
-    @apply text-neutral-900 bg-neutral-100 p-0!;
-}

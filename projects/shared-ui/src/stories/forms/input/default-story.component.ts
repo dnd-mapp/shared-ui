@@ -4,10 +4,8 @@ import { InputComponent } from '@dnd-mapp/shared-ui';
 @Component({
     selector: 'dma-story',
     templateUrl: './default-story.component.html',
+    styleUrl: './default-story.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    host: {
-        class: 'bg-neutral-50 p-4 block',
-    },
     imports: [InputComponent],
 })
 export class DefaultStoryComponent {

@@ -1,0 +1,17 @@
+@use "./theme-variables" as tv;
+@use "./colors" as c;
+@use "./normalize";
+
+html,
+body {
+    font-family: tv.$font-family;
+    font-size: 16px;
+    font-weight: tv.$font-weight-normal;
+    font-style: tv.$font-style;
+    font-optical-sizing: tv.$font-optical-sizing;
+    font-variation-settings: tv.$font-variation-settings;
+
+    background-color: c.$neutral-100;
+    color: c.$neutral-900;
+    padding: 0;
+}

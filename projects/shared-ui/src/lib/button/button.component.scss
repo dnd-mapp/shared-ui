@@ -1,0 +1,66 @@
+@use "../../assets/styles/theme-variables" as tv;
+@use "../../assets/styles/colors" as c;
+
+:host {
+    font-weight: tv.$font-weight-semibold;
+    cursor: pointer;
+    border-radius: tv.$radius-xl;
+    padding: 1.5 * tv.$spacing 3 * tv.$spacing;
+
+    .button-content {
+        display: flex;
+        gap: 1.5 * tv.$spacing;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &[dma-button=""],
+    &[dma-button="base"] {
+        background-color: c.$neutral-50;
+        color: c.$neutral-900;
+
+        &:not(:disabled) {
+            &:hover {
+                background-color: c.$neutral-200;
+            }
+
+            &:active {
+                background-color: c.$neutral-300;
+            }
+        }
+    }
+
+    &[dma-button="primary"] {
+        background-color: c.$blue-400;
+        color: c.$neutral-50;
+
+        &:not(:disabled) {
+            &:hover {
+                background-color: c.$blue-500;
+            }
+
+            &:active {
+                background-color: c.$blue-600;
+            }
+        }
+    }
+
+    &[dma-button="danger"] {
+        background-color: c.$neutral-50;
+        color: c.$red-600;
+
+        &:not(:disabled) {
+            &:hover {
+                background-color: c.$red-100;
+            }
+
+            &:active {
+                background-color: c.$red-200;
+            }
+        }
+    }
+}
+
+:host-context(dma-dropdown-container) {
+    width: 100%;
+}

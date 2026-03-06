@@ -31,7 +31,7 @@
     "format:check": "pnpm exec prettier -l .",
     "format:write": "pnpm exec prettier -w .",
     "lint": "pnpm exec ng lint",
-    "stylelint": "pnpm exec stylelint \"**/*.css\""
+    "stylelint": "pnpm exec stylelint \"**/*.scss\""
   },
   "dependencies": {
     "@angular/cdk": "~21.2",
@@ -41,7 +41,6 @@
     "@angular/forms": "~21.2",
     "@angular/router": "~21.2",
     "rxjs": "~7.8",
-    "tailwind-scrollbar": "~4.0",
     "tslib": "~2.8"
   },
   "devDependencies": {
@@ -54,20 +53,17 @@
     "@storybook/addon-a11y": "~10.2",
     "@storybook/addon-docs": "~10.2",
     "@storybook/angular": "~10.2",
-    "@tailwindcss/postcss": "~4.2",
     "@types/node": "~24.10",
     "angular-eslint": "~21.2",
     "eslint": "~9.39",
     "eslint-config-prettier": "~10.1",
     "eslint-plugin-storybook": "~10.2",
     "ng-packagr": "~21.2",
-    "postcss": "~8.5",
     "prettier": "~3.8",
     "prettier-plugin-organize-imports": "~4.3",
     "storybook": "~10.2",
     "stylelint": "~17.4",
-    "stylelint-config-standard": "~40.0",
-    "tailwindcss": "~4.2",
+    "stylelint-config-standard-scss": "~17.0",
     "typescript": "~5.9",
     "typescript-eslint": "~8.56"
   }

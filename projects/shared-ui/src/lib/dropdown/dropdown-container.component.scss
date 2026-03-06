@@ -1,0 +1,13 @@
+// scrollbar scrollbar-w-2 scrollbar-thumb-rounded-sm scrollbar-thumb-neutral-400
+@use "../../assets/styles/colors" as c;
+@use "../../assets/styles/theme-variables" as tv;
+
+:host {
+    display: block;
+    width: 100%;
+    border: 1px solid c.$neutral-200;
+    border-radius: tv.$radius-xl;
+    background-color: c.$neutral-50;
+    color: c.$neutral-900;
+    box-shadow: tv.$shadow-sm;
+}

@@ -1,0 +1,10 @@
+@use "../../../assets/styles/theme-variables" as tv;
+@use "../../../assets/styles/colors" as c;
+
+:host {
+    display: block;
+    border-radius: tv.$radius-xl;
+    background-color: c.$neutral-50;
+    padding: tv.$spacing * 3;
+    margin: 1rem;
+}

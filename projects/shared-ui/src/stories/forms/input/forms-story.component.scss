@@ -1,0 +1,21 @@
+@use "../../../assets/styles/theme-variables" as tv;
+@use "../../../assets/styles/colors" as c;
+
+:host {
+    display: block;
+    border-radius: tv.$radius-xl;
+    background-color: c.$neutral-50;
+    margin: 1rem;
+    padding: tv.$spacing * 4;
+
+    form {
+        margin-bottom: tv.$spacing * 3;
+    }
+
+    pre {
+        border-radius: tv.$radius-md;
+        background-color: c.$yellow-50;
+        color: c.$neutral-500;
+        padding: tv.$spacing * 3;
+    }
+}
