@@ -1,20 +1,21 @@
 packages:
-    - projects/*
+  - projects/*
 
 blockExoticSubdeps: true
 
 engineStrict: true
 
 executionEnv:
-    nodeVersion: 24.14.0
+  nodeVersion: 24.14.0
 
 ignoreDepScripts: true
 
 ignoreScripts: true
 
 minimumReleaseAge: 2880
+
 minimumReleaseAgeExclude:
-    - '@dnd-mapp/*'
+  - '@dnd-mapp/*'
 
 nodeVersion: 24.14.0
 

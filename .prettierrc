@@ -21,7 +21,7 @@
             }
         },
         {
-            "files": ["package.json"],
+            "files": ["package.json", "pnpm-workspace.yaml"],
             "options": {
                 "tabWidth": 2
             }
