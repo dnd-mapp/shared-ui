@@ -47,6 +47,7 @@
                         "browserTarget": "shared-ui:build",
                         "compodoc": false,
                         "configDir": "projects/shared-ui/.storybook",
+                        "experimentalZoneless": true,
                         "outputDir": "dist/storybook-static",
                         "styles": ["projects/shared-ui/.storybook/styles.scss"]
                     }
@@ -64,6 +65,7 @@
                         "browserTarget": "shared-ui:build",
                         "compodoc": false,
                         "configDir": "projects/shared-ui/.storybook",
+                        "experimentalZoneless": true,
                         "open": false,
                         "port": 6006,
                         "styles": ["projects/shared-ui/.storybook/styles.scss"]
