@@ -76,7 +76,7 @@ pnpm format:write
 ### Angular Best Practices
 
 - **Strict Typing**: Always use TypeScript's strict mode. Avoid `any` whenever possible.
-- **Component Structure**: Follow the established pattern of separating logic (.ts), template (.html), and styles (.scss/tailwind).
+- **Component Structure**: Follow the established pattern of separating logic (.ts), template (.html), and styles.
 - **Signals**: Since we are on Angular 21, prefer **Signals** for reactive state management over traditional ChangeDetection/RxJS where appropriate.
 
 ---
