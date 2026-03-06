@@ -13,10 +13,10 @@ import { Observable } from 'rxjs';
     imports: [InputComponent, ReactiveFormsModule, JsonPipe, AsyncPipe],
 })
 export class FormsStoryComponent {
-    private readonly formBuilder = inject(FormBuilder);
+    private readonly formBuilder = inject(FormBuilder).nonNullable;
 
     protected readonly form = this.formBuilder.group({
-        input: this.formBuilder.nonNullable.control('', [Validators.required, Validators.minLength(3)]),
+        input: this.formBuilder.control('', [Validators.required, Validators.minLength(3)]),
     });
 
     protected readonly formValue: Observable<Partial<{ input: string }>> =

@@ -3,12 +3,12 @@ import { buttonColorAttribute, ButtonColors, ButtonComponent } from '@dnd-mapp/s
 
 @Component({
     selector: 'dma-story',
-    templateUrl: `./story.component.html`,
-    styleUrl: './story.component.scss',
+    templateUrl: `./default-story.component.html`,
+    styleUrl: './default-story.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [ButtonComponent],
 })
-export class StoryComponent {
+export class DefaultStoryComponent {
     public readonly color = input(ButtonColors.BASE, { transform: buttonColorAttribute });
 
     public readonly label = input.required<string>();

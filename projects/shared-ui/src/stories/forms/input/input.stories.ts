@@ -1,8 +1,9 @@
 import { InputComponent } from '@dnd-mapp/shared-ui';
 import { argsToTemplate, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 import { fn } from 'storybook/test';
-import { DefaultStoryComponent } from './default-story.component';
-import { FormsStoryComponent } from './forms-story.component';
+import { DefaultStoryComponent } from './default/default-story.component';
+import { FormsStoryComponent } from './forms/forms-story.component';
+import { ReadonlyStoryComponent } from './readonly/readonly-story.component';
 
 const meta: Meta<InputComponent> = {
     component: InputComponent,
@@ -26,18 +27,6 @@ const meta: Meta<InputComponent> = {
             },
             table: {
                 category: 'Inputs',
-            },
-        },
-        disabled: {
-            description: 'Controls the disabled state of the input.',
-            type: {
-                name: 'boolean',
-            },
-            table: {
-                category: 'Inputs',
-                defaultValue: {
-                    summary: 'false',
-                },
             },
         },
         placeholder: {
@@ -64,13 +53,25 @@ const meta: Meta<InputComponent> = {
                 },
             },
         },
+        disabled: {
+            description: 'Controls the disabled state. Automatically handled by Reactive Forms.',
+            type: {
+                name: 'boolean',
+            },
+            table: {
+                category: 'Models (Two-way Data Binding)',
+                defaultValue: {
+                    summary: 'false',
+                },
+            },
+        },
         value: {
-            description: 'The current text value of the input. Supports `[(value)]`.',
+            description: 'The current text value.',
             type: {
                 name: 'string',
             },
             table: {
-                category: 'Inputs',
+                category: 'Models (Two-way Data Binding)',
                 defaultValue: {
                     summary: '',
                 },
@@ -121,6 +122,24 @@ export const Default: StoryObj<DefaultStoryComponent> = {
     },
 };
 
+export const Readonly: StoryObj<ReadonlyStoryComponent> = {
+    decorators: [moduleMetadata({ imports: [ReadonlyStoryComponent] })],
+    render: (args) => ({
+        props: args,
+        component: ReadonlyStoryComponent,
+        template: `<dma-readonly-story />`,
+    }),
+    parameters: {
+        docs: {
+            source: {
+                type: 'code',
+                language: 'html',
+                code: `<dma-input inputId="id-field" label="ID" value="" readonly />`,
+            },
+        },
+    },
+};
+
 export const Forms: StoryObj<FormsStoryComponent> = {
     args: {
         inputId: 'spell-name-input',
@@ -133,4 +152,19 @@ export const Forms: StoryObj<FormsStoryComponent> = {
         component: FormsStoryComponent,
         template: `<dma-forms-story ${argsToTemplate(args)} />`,
     }),
+    parameters: {
+        docs: {
+            source: {
+                type: 'code',
+                language: 'html',
+                code: `
+                    <dma-input
+                        inputId="name-field"
+                        label="Spell name"
+                        placeholder="Fireball"
+                        formControlName="input"
+                    />`,
+            },
+        },
+    },
 };

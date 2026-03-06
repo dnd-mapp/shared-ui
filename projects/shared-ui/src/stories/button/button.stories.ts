@@ -1,7 +1,7 @@
 import { ButtonColors, ButtonComponent } from '@dnd-mapp/shared-ui';
 import { argsToTemplate, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
-import { LeadingIconStoryComponent } from './leading-icon-story.component';
-import { StoryComponent } from './story.component';
+import { DefaultStoryComponent } from './default/default-story.component';
+import { LeadingIconStoryComponent } from './leading-icon/leading-icon-story.component';
 
 const meta: Meta<ButtonComponent> = {
     title: 'Button',
@@ -28,15 +28,15 @@ const meta: Meta<ButtonComponent> = {
 
 export default meta;
 
-export const Primary: StoryObj<StoryComponent> = {
+export const Primary: StoryObj<DefaultStoryComponent> = {
     args: {
         color: ButtonColors.PRIMARY,
         label: 'Attack!',
     },
-    decorators: [moduleMetadata({ imports: [StoryComponent] })],
+    decorators: [moduleMetadata({ imports: [DefaultStoryComponent] })],
     render: (args) => ({
         props: args,
-        component: StoryComponent,
+        component: DefaultStoryComponent,
         template: `<dma-story ${argsToTemplate(args)} />`,
     }),
     parameters: {
@@ -50,15 +50,15 @@ export const Primary: StoryObj<StoryComponent> = {
     },
 };
 
-export const Base: StoryObj<StoryComponent> = {
+export const Base: StoryObj<DefaultStoryComponent> = {
     args: {
         color: ButtonColors.BASE,
         label: 'Dismiss',
     },
-    decorators: [moduleMetadata({ imports: [StoryComponent] })],
+    decorators: [moduleMetadata({ imports: [DefaultStoryComponent] })],
     render: (args) => ({
         props: args,
-        component: StoryComponent,
+        component: DefaultStoryComponent,
         template: `<dma-story ${argsToTemplate(args)} />`,
     }),
     parameters: {
@@ -72,15 +72,15 @@ export const Base: StoryObj<StoryComponent> = {
     },
 };
 
-export const Danger: StoryObj<StoryComponent> = {
+export const Danger: StoryObj<DefaultStoryComponent> = {
     args: {
         color: ButtonColors.DANGER,
         label: 'Log out',
     },
-    decorators: [moduleMetadata({ imports: [StoryComponent] })],
+    decorators: [moduleMetadata({ imports: [DefaultStoryComponent] })],
     render: (args) => ({
         props: args,
-        component: StoryComponent,
+        component: DefaultStoryComponent,
         template: `<dma-story ${argsToTemplate(args)} />`,
     }),
     parameters: {

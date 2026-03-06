@@ -3,8 +3,8 @@ import { provideRouter, Routes, withHashLocation } from '@angular/router';
 import { DEFAULT_DROPDOWN_POSITIONS, DropdownAnchorDirective, DropdownContainerComponent } from '@dnd-mapp/shared-ui';
 import { applicationConfig, argsToTemplate, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 import { fn } from 'storybook/test';
-import { HoverStoryComponent } from './hover-story.component';
-import { ToggleStoryComponent } from './toggle-story.component';
+import { HoverStoryComponent } from './hover/hover-story.component';
+import { ToggleStoryComponent } from './toggle/toggle-story.component';
 
 const meta: Meta<DropdownAnchorDirective & DropdownContainerComponent> = {
     title: 'Dropdown',
