@@ -1,11 +1,11 @@
 import { provideRouter, withHashLocation } from '@angular/router';
 import { NavbarBrandComponent } from '@dnd-mapp/shared-ui';
-import { applicationConfig, Meta, StoryObj } from '@storybook/angular';
-import { StoryComponent } from './story.component';
+import { applicationConfig, argsToTemplate, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
+import { DefaultStoryComponent } from './default/default-story.component';
 
-const meta: Meta<StoryComponent & NavbarBrandComponent> = {
+const meta: Meta<NavbarBrandComponent> = {
     title: 'nav/NavbarBrand',
-    component: StoryComponent,
+    component: NavbarBrandComponent,
     args: {
         brandName: 'D&D Mapp',
     },
@@ -40,9 +40,12 @@ const meta: Meta<StoryComponent & NavbarBrandComponent> = {
 
 export default meta;
 
-type Story = StoryObj<StoryComponent>;
-
-export const Default: Story = {
+export const Default: StoryObj<DefaultStoryComponent> = {
+    decorators: [moduleMetadata({ imports: [DefaultStoryComponent] })],
+    render: (args) => ({
+        props: args,
+        template: `<dma-default-story ${argsToTemplate(args)} />`,
+    }),
     parameters: {
         docs: {
             source: {
