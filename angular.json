@@ -41,7 +41,7 @@
                             {
                                 "input": "projects/shared-ui/src/assets",
                                 "glob": "**/*",
-                                "output": "."
+                                "output": "assets"
                             }
                         ],
                         "browserTarget": "shared-ui:build",
@@ -59,7 +59,7 @@
                             {
                                 "input": "projects/shared-ui/src/assets",
                                 "glob": "**/*",
-                                "output": "."
+                                "output": "assets"
                             }
                         ],
                         "browserTarget": "shared-ui:build",
