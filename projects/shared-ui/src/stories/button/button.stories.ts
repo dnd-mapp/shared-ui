@@ -108,7 +108,7 @@ export const LeadingIcon: StoryObj<LeadingIconStoryComponent> = {
                 language: 'html',
                 code: `
                     <button type="button" dma-button>
-                        <dma-icon dma-circle-user-icon />
+                        <dma-icon dma-circle-user-icon dmaLeadingIcon />
                         NoNamer777
                     </button>
                 `,
