@@ -4,7 +4,11 @@
 
 # Ensure standard text files use LF (crucial for Docker/Linux environments)
 *.ts            text eol=lf
+*.mts           text eol=lf
+*.cts           text eol=lf
 *.js            text eol=lf
+*.mjs           text eol=lf
+*.cjs           text eol=lf
 *.json          text eol=lf
 *.yaml          text eol=lf
 *.yml           text eol=lf
