@@ -12,15 +12,7 @@ While it is often used in conjunction with the `DropdownContainerComponent` for 
 
 - **Selector:** `[dmaDropdownAnchor]`
 - **Export As:** `dmaDropdownAnchor`
-- **Format:** Angular Attribute Directive
-
-## Installation
-
-The component is part of the `@dnd-mapp/shared-ui` library.
-
-```typescript
-import { DropdownAnchorDirective, DropdownContainerComponent } from '@dnd-mapp/shared-ui';
-```
+- **Format:** Angular Attribute Directive (Signals-based)
 
 ## 🚀 Usage
 
@@ -45,17 +37,22 @@ To use the dropdown, define a template for your content and attach the `dmaDropd
 
 ### Hover Mode
 
-The `DropdownAnchor` supports a hover-to-open mode. It includes a built-in 100ms debounce timer to prevent the dropdown from flickering or closing immediately when moving the mouse between the anchor and the container.
+The `DropdownAnchor` supports a hover-to-open mode. It includes a built-in **100ms** debounce timer to prevent the dropdown from flickering or closing immediately when moving the mouse between the anchor and the container.
 
 ```html
-<button [dmaDropdownAnchor]="myDropdown" [toggleOnHover]="true" #anchor="dmaDropdownAnchor">Hover me</button>
+<button 
+    [dmaDropdownAnchor]="myDropdown" 
+    [toggleOnHover]="true" 
+    #anchor="dmaDropdownAnchor">
+    Hover me
+</button>
 
 <ng-template #myDropdown>
    <!-- 
        The DropdownContainer provides the (hover) output 
        to help keep the anchor open while interacting with the menu 
    -->
-   <dma-dropdown-container (hover)="anchor.scheduleHide(!$event)">
+   <dma-dropdown-container (hover)="anchor.scheduleClose(!$event)">
        <p>Hovering over this element keeps the menu open!</p>
    </dma-dropdown-container>
 </ng-template>
@@ -81,10 +78,17 @@ The `DropdownAnchor` supports a hover-to-open mode. It includes a built-in 100ms
 
 #### Methods
 
-| Name                                | Parameters | Description                                                                   |
-|-------------------------------------|------------|-------------------------------------------------------------------------------|
-| `show()`                            | None       | Programmatically opens the dropdown.                                          |
-| `scheduleHide(shouldHide: boolean)` | `boolean`  | Schedules a hide action with a 500ms debounce. Useful for hover interactions. |
+| Name                                  | Description                                                                    |
+|---------------------------------------|--------------------------------------------------------------------------------|
+| `open()`                              | Programmatically opens the dropdown.                                           |
+| `close()`                             | Programmatically closes the dropdown and disposes of the overlay.              |
+| `scheduleClose(shouldClose: boolean)` | Schedules a close action with a 100ms debounce. Useful for hover interactions. |
+
+#### Properties (Read-only)
+
+| Name           | Type              | Description                                            |
+|----------------|-------------------|--------------------------------------------------------|
+| `dropdownOpen` | `Signal<boolean>` | A computed signal indicating if the overlay is active. |
 
 ---
 
