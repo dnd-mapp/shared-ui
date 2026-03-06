@@ -24,11 +24,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Fixed
 
-- Use correct file paths for color and theme SCSS imports in stylesheets.
+- (n/a)
 
 ### Security
 
 - (n/a)
+
+---
+
+## [2.0.2] - 2026-03-06
+
+### Fixed
+
+- Use correct file paths for color and theme SCSS imports in stylesheets.
 
 ---
 
