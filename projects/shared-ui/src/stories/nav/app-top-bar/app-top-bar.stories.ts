@@ -82,7 +82,6 @@ export const Authenticated: StoryObj<AuthenticatedStoryComponent> = {
     },
     render: (args) => ({
         props: args,
-        component: AuthenticatedStoryComponent,
         template: `<dma-authenticated-story ${argsToTemplate(args)} />`,
     }),
 };
@@ -102,7 +101,6 @@ export const Unauthenticated: StoryObj<UnauthenticatedStoryComponent> = {
     },
     render: (args) => ({
         props: args,
-        component: UnauthenticatedStoryComponent,
         template: `<dma-unauthenticated-story ${argsToTemplate(args)} />`,
     }),
 };

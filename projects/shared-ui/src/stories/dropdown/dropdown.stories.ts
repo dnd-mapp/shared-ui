@@ -146,7 +146,6 @@ export const Toggle: StoryObj<ToggleStoryComponent> = {
         logout: { action: 'logout' },
     },
     render: (args) => ({
-        component: ToggleStoryComponent,
         props: args,
         template: `<dma-toggle-story ${argsToTemplate(args)} />`,
     }),
@@ -164,7 +163,6 @@ export const Hover: StoryObj<HoverStoryComponent> = {
         dropdownToggle: { action: 'dropdownToggle' },
     },
     render: (args) => ({
-        component: HoverStoryComponent,
         props: args,
         template: `<dma-hover-story ${argsToTemplate(args)} />`,
     }),

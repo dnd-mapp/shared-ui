@@ -83,6 +83,7 @@ const meta: Meta<InputComponent> = {
 export default meta;
 
 export const Default: StoryObj<DefaultStoryComponent> = {
+    decorators: [moduleMetadata({ imports: [DefaultStoryComponent] })],
     args: {
         inputId: 'spell-name-input',
         label: 'Spell Name',
@@ -97,10 +98,8 @@ export const Default: StoryObj<DefaultStoryComponent> = {
             action: 'valueChange',
         },
     },
-    decorators: [moduleMetadata({ imports: [DefaultStoryComponent] })],
     render: (args) => ({
         props: args,
-        component: DefaultStoryComponent,
         template: `<dma-story ${argsToTemplate(args)} />`,
     }),
     parameters: {
@@ -126,7 +125,6 @@ export const Readonly: StoryObj<ReadonlyStoryComponent> = {
     decorators: [moduleMetadata({ imports: [ReadonlyStoryComponent] })],
     render: (args) => ({
         props: args,
-        component: ReadonlyStoryComponent,
         template: `<dma-readonly-story />`,
     }),
     parameters: {
@@ -141,15 +139,14 @@ export const Readonly: StoryObj<ReadonlyStoryComponent> = {
 };
 
 export const Forms: StoryObj<FormsStoryComponent> = {
+    decorators: [moduleMetadata({ imports: [FormsStoryComponent] })],
     args: {
         inputId: 'spell-name-input',
         label: 'Spell Name',
         placeholder: 'Fireball',
     },
-    decorators: [moduleMetadata({ imports: [FormsStoryComponent] })],
     render: (args) => ({
         props: args,
-        component: FormsStoryComponent,
         template: `<dma-forms-story ${argsToTemplate(args)} />`,
     }),
     parameters: {
