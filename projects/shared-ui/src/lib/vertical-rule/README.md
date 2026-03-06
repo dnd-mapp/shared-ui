@@ -2,13 +2,14 @@
 
 ---
 
-# Vertical Rule Component (`dma-vr`)
+# Vertical Rule
 
 The `VerticalRuleComponent` is a structural utility component designed to provide a consistent vertical divider for separating content within layouts, such as navigation bars, toolbars, or flex containers.
 
 ## 🏰 Overview
 
 - **Selector**: `dma-vr`
+- **Change Detection**: `OnPush` for optimal performance.
 - **Use Case**: Visual separation of inline elements.
 - **Compatibility**: Designed for use within flexbox or grid containers.
 
@@ -53,11 +54,12 @@ For the divider to display correctly, the parent container should have a defined
 
 `dma-vr`
 
-### Visual Behavior
+### Technical Implementation
 
-- **Orientation**: Vertical.
-- **Color**: Preset to the design system's neutral palette.
-- **Thickness**: Single-pixel border (start-aligned).
+- **Display**: `inline-block`
+- **Height**: `stretch` (Inherits height from parent container)
+- **Color**: Uses `$neutral-500` from the design system's palette.
+- **Thickness**: 1px solid left border.
 
 ---
 
