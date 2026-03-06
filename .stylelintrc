@@ -2,16 +2,9 @@
     "extends": ["stylelint-config-standard-scss"],
     "cache": true,
     "rules": {
-        "at-rule-no-unknown": [
-            true,
-            {
-                "ignoreAtRules": [
-                    "plugin",
-                    "reference",
-                    "source"
-                ]
-            }
-        ],
-        "import-notation": null
+        "declaration-empty-line-before": null,
+        "declaration-property-value-keyword-no-deprecated": null,
+        "import-notation": null,
+        "property-no-vendor-prefix": null
     }
 }
