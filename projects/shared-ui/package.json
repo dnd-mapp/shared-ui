@@ -18,11 +18,22 @@
   "bugs": {
     "url": "https://github.com/dnd-mapp/shared-ui"
   },
-  "sideEffects": [
-    "*.scss"
-  ],
   "exports": {
-    "./assets/*": "./assets/*"
+    "./fonts/*": "./assets/fonts/*",
+    "./images/*": "./assets/images/*",
+    "./styles/*": "./assets/styles/*",
+    "./styles/colors": {
+      "sass": "./assets/styles/colors/index.scss"
+    },
+    "./styles/fonts": {
+      "sass": "./assets/styles/fonts.scss"
+    },
+    "./styles/main": {
+      "sass": "./assets/styles/main.scss"
+    },
+    "./styles/theme-variables": {
+      "sass": "./assets/styles/theme-variables/index.scss"
+    }
   },
   "type": "module",
   "engines": {
