@@ -2,13 +2,13 @@ import { ConnectedPosition, Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import {
     booleanAttribute,
-    computed,
     DestroyRef,
     Directive,
     ElementRef,
     inject,
     input,
     output,
+    signal,
     TemplateRef,
     ViewContainerRef,
 } from '@angular/core';
@@ -39,7 +39,7 @@ export class DropdownAnchorDirective {
 
     public readonly dropdownToggle = output<boolean>();
 
-    public readonly dropdownOpen = computed(() => Boolean(this.overlayRef));
+    public readonly dropdownOpen = signal(false);
 
     private readonly closeScheduler = new Subject<boolean>();
 
@@ -89,6 +89,7 @@ export class DropdownAnchorDirective {
                 next: (mouseEvent) => this.onOutsideClick(mouseEvent),
             });
 
+        this.dropdownOpen.set(true);
         this.dropdownToggle.emit(true);
     }
 
@@ -97,6 +98,7 @@ export class DropdownAnchorDirective {
         this.overlayRef.dispose();
         this.overlayRef = null;
 
+        this.dropdownOpen.set(false);
         this.dropdownToggle.emit(false);
     }
 
