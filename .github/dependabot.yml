@@ -4,6 +4,10 @@ updates:
       directory: '.docker/'
       schedule:
           interval: 'weekly'
+    - package-ecosystem: 'github-actions'
+      directory: '/'
+      schedule:
+          interval: 'daily'
     - package-ecosystem: 'npm'
       versioning-strategy: 'lockfile-only'
       directory: '/'
