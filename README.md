@@ -127,14 +127,13 @@ shared-ui/
 ├── projects/
 │   └── shared-ui/              # The Angular Library source
 │       ├── .storybook/         # Storybook configuration
-│       ├── src/
-│       │   ├── assets/         # Global SCSS, Fonts, and Images
-│       │   │   ├── fonts/      # Proprietary font files
-│       │   │   └── styles/     # SCSS Variables, Mixins, and Themes
-│       │   ├── lib/            # Components, Services, and Pipes
-│       │   ├── stories/        # Storybook (.stories.ts) files
-│       │   └── public-api.ts   # Library export map
-├── .tool-versions              # Mise version config
+│       └── src/
+│           ├── assets/         # Global SCSS, Fonts, and Images
+│           │   ├── fonts/      # Proprietary font files
+│           │   └── styles/     # SCSS Variables, Mixins, and Themes
+│           ├── lib/            # Components, Services, and Pipes
+│           ├── stories/        # Storybook (.stories.ts) files
+│           └── public-api.ts   # Library export map
 └── package.json
 ```
 
