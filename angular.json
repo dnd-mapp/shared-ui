@@ -10,8 +10,8 @@
     "projects": {
         "shared-ui": {
             "projectType": "library",
-            "root": "projects/shared-ui",
-            "sourceRoot": "projects/shared-ui/src",
+            "root": "",
+            "sourceRoot": "src",
             "prefix": "dma",
             "architect": {
                 "build": {
@@ -19,10 +19,10 @@
                     "defaultConfiguration": "production",
                     "configurations": {
                         "production": {
-                            "tsConfig": "projects/shared-ui/tsconfig.lib.prod.json"
+                            "tsConfig": "tsconfig.lib.prod.json"
                         },
                         "development": {
-                            "tsConfig": "projects/shared-ui/tsconfig.lib.json",
+                            "tsConfig": "tsconfig.lib.json",
                             "watch": true
                         }
                     }
@@ -30,8 +30,8 @@
                 "lint": {
                     "builder": "@angular-eslint/builder:lint",
                     "options": {
-                        "lintFilePatterns": ["projects/shared-ui/**/*.ts", "projects/shared-ui/**/*.html"],
-                        "eslintConfig": "projects/shared-ui/eslint.config.mjs"
+                        "lintFilePatterns": ["src/**/*.ts", "src/**/*.html", ".storybook/**/*.ts"],
+                        "eslintConfig": "eslint.config.mjs"
                     }
                 },
                 "build-storybook": {
@@ -39,17 +39,17 @@
                     "options": {
                         "assets": [
                             {
-                                "input": "projects/shared-ui/src/assets",
+                                "input": "src/assets",
                                 "glob": "**/*",
                                 "output": "assets"
                             }
                         ],
                         "browserTarget": "shared-ui:build",
                         "compodoc": false,
-                        "configDir": "projects/shared-ui/.storybook",
+                        "configDir": ".storybook",
                         "experimentalZoneless": true,
                         "outputDir": "dist/storybook-static",
-                        "styles": ["projects/shared-ui/.storybook/styles.scss"]
+                        "styles": [".storybook/styles.scss"]
                     }
                 },
                 "storybook": {
@@ -57,18 +57,18 @@
                     "options": {
                         "assets": [
                             {
-                                "input": "projects/shared-ui/src/assets",
+                                "input": "src/assets",
                                 "glob": "**/*",
                                 "output": "assets"
                             }
                         ],
                         "browserTarget": "shared-ui:build",
                         "compodoc": false,
-                        "configDir": "projects/shared-ui/.storybook",
+                        "configDir": ".storybook",
                         "experimentalZoneless": true,
                         "open": false,
                         "port": 6006,
-                        "styles": ["projects/shared-ui/.storybook/styles.scss"]
+                        "styles": [".storybook/styles.scss"]
                     }
                 }
             }
