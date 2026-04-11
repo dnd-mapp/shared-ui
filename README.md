@@ -21,7 +21,7 @@ The official Angular component library for the **D&D Mapp** platform. This repos
 
 ### Prerequisites
 
-This project uses [mise-en-place](https://mise.jdx.dev/) to manage runtime versions locally.
+This project uses [mise-en-place](https://mise.jdx.dev/) to manage runtime versions locally. See the [Mise Configuration Guide](https://github.com/dnd-mapp/.github/blob/main/docs/mise-configuration.md) for global setup instructions.
 
 1. **Install Mise** to automatically manage:
 
