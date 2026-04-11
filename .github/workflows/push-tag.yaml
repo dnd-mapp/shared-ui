@@ -22,14 +22,6 @@ jobs:
                   build-storybook: false
 
             - name: Publish package
-              working-directory: dist/shared-ui
-              shell: bash
-              run: |
-                  if [[ "$GITHUB_REF_NAME" == *"-"* ]]; then
-                      TAG="${GITHUB_REF_NAME#*-}"
-                      TAG="${TAG%%.*}"
-                  else
-                      TAG="latest"
-                  fi
-
-                  pnpm publish --no-git-checks --tag "$TAG"
+              uses: dnd-mapp/.github/.github/actions/publish-npm-package@f41a6251f959b29201d2b8a77da6ae8f1c8bf40d
+              with:
+                  working-directory: dist/shared-ui
