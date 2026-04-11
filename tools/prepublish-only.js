@@ -1,7 +1,7 @@
 import { copyFile, rm } from 'fs/promises';
 import { join } from 'path';
 
-const PACKAGE_README_PATH = '../../projects/shared-ui/README.md';
+const PACKAGE_README_PATH = '../../src/README.md';
 const DIST_README_PATH = 'README.md';
 const LICENSE_PATH = '../../LICENSE';
 

@@ -70,7 +70,6 @@ jobs:
 
             - name: Bump version
               id: bump-version
-              working-directory: projects/shared-ui
               shell: bash
               run: |
                   VERSION_INPUT="${{ inputs.version }}"
@@ -121,7 +120,7 @@ jobs:
                   REPO="${{ github.repository }}"
                   BRANCH="${{ github.ref_name }}"
                   COMMIT_MESSAGE="${{ steps.bump-version.outputs.clean-version }}"
-                  MANIFEST_PATH="projects/shared-ui/package.json"
+                  MANIFEST_PATH="package.json"
 
                   # Get the current file SHA (required by the Contents API for updates)
                   FILE_SHA=$(gh api repos/$REPO/contents/$MANIFEST_PATH --jq '.sha')

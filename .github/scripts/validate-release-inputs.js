@@ -204,7 +204,7 @@ async function main() {
     if (!versionInput) {
         throw new Error('Missing required environment variable: VERSION.');
     }
-    const manifestPath = join(process.cwd(), 'projects/shared-ui/package.json');
+    const manifestPath = join(process.cwd(), 'package.json');
     const manifestRaw = await readFile(manifestPath, { encoding: 'utf-8' });
     const manifest = JSON.parse(manifestRaw);
 
