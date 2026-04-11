@@ -124,16 +124,15 @@ The repository is organized as an Angular Workspace focusing on modular SCSS and
 
 ```text
 shared-ui/
-├── projects/
-│   └── shared-ui/              # The Angular Library source
-│       ├── .storybook/         # Storybook configuration
-│       └── src/
-│           ├── assets/         # Global SCSS, Fonts, and Images
-│           │   ├── fonts/      # Proprietary font files
-│           │   └── styles/     # SCSS Variables, Mixins, and Themes
-│           ├── lib/            # Components, Services, and Pipes
-│           ├── stories/        # Storybook (.stories.ts) files
-│           └── public-api.ts   # Library export map
+├── .storybook/         # Storybook configuration
+├── src/                # The Angular Library source
+│   ├── assets/         # Global SCSS, Fonts, and Images
+│   │   ├── fonts/      # Proprietary font files
+│   │   └── styles/     # SCSS Variables, Mixins, and Themes
+│   ├── lib/            # Components, Services, and Pipes
+│   ├── stories/        # Storybook (.stories.ts) files
+│   ├── public-api.ts   # Library export map
+│   └── README.md       # npm package README
 └── package.json
 ```
 
