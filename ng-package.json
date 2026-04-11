@@ -1,0 +1,21 @@
+{
+    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+    "dest": "./dist/shared-ui",
+    "assets": [
+        {
+            "input": "src/assets",
+            "glob": "**/*",
+            "output": "assets"
+        },
+        {
+            "input": "src",
+            "glob": "README.md",
+            "output": "."
+        },
+        "src/lib/**/README.md"
+    ],
+    "inlineStyleLanguage": "scss",
+    "lib": {
+        "entryFile": "src/public-api.ts"
+    }
+}

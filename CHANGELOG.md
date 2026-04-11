@@ -12,7 +12,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
-- (n/a)
+- Migrated project from `projects/shared-ui/` monorepo layout to the repository root, simplifying the workspace structure.
+- Moved the npm package README into `src/README.md` to distinguish it from the repository's contributor-facing README.
 
 ### Deprecated
 

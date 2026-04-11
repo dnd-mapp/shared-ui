@@ -14,9 +14,6 @@ importers:
       '@angular/common':
         specifier: ~21.2
         version: 21.2.5(@angular/core@21.2.5(@angular/compiler@21.2.5)(rxjs@7.8.2))(rxjs@7.8.2)
-      '@angular/compiler':
-        specifier: ~21.2
-        version: 21.2.5
       '@angular/core':
         specifier: ~21.2
         version: 21.2.5(@angular/compiler@21.2.5)(rxjs@7.8.2)
@@ -99,27 +96,6 @@ importers:
       typescript-eslint:
         specifier: ~8.57
         version: 8.57.1(eslint@10.1.0(jiti@2.6.1))(typescript@5.9.3)
-
-  projects/shared-ui:
-    dependencies:
-      '@angular/cdk':
-        specifier: ~21.2
-        version: 21.2.3(@angular/common@21.2.5(@angular/core@21.2.5(@angular/compiler@21.2.5)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.5(@angular/compiler@21.2.5)(rxjs@7.8.2))(@angular/platform-browser@21.2.5(@angular/common@21.2.5(@angular/core@21.2.5(@angular/compiler@21.2.5)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.5(@angular/compiler@21.2.5)(rxjs@7.8.2)))(rxjs@7.8.2)
-      '@angular/common':
-        specifier: ~21.2
-        version: 21.2.5(@angular/core@21.2.5(@angular/compiler@21.2.5)(rxjs@7.8.2))(rxjs@7.8.2)
-      '@angular/core':
-        specifier: ~21.2
-        version: 21.2.5(@angular/compiler@21.2.5)(rxjs@7.8.2)
-      '@angular/forms':
-        specifier: ~21.2
-        version: 21.2.5(@angular/common@21.2.5(@angular/core@21.2.5(@angular/compiler@21.2.5)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.5(@angular/compiler@21.2.5)(rxjs@7.8.2))(@angular/platform-browser@21.2.5(@angular/common@21.2.5(@angular/core@21.2.5(@angular/compiler@21.2.5)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.5(@angular/compiler@21.2.5)(rxjs@7.8.2)))(rxjs@7.8.2)
-      '@angular/router':
-        specifier: ~21.2
-        version: 21.2.5(@angular/common@21.2.5(@angular/core@21.2.5(@angular/compiler@21.2.5)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.5(@angular/compiler@21.2.5)(rxjs@7.8.2))(@angular/platform-browser@21.2.5(@angular/common@21.2.5(@angular/core@21.2.5(@angular/compiler@21.2.5)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.5(@angular/compiler@21.2.5)(rxjs@7.8.2)))(rxjs@7.8.2)
-      tslib:
-        specifier: ~2.8
-        version: 2.8.1
 
 packages:
 
@@ -6714,7 +6690,7 @@ snapshots:
   '@babel/core@7.28.5':
     dependencies:
       '@babel/code-frame': 7.29.0
-      '@babel/generator': 7.28.5
+      '@babel/generator': 7.29.1
       '@babel/helper-compilation-targets': 7.28.6
       '@babel/helper-module-transforms': 7.28.6(@babel/core@7.28.5)
       '@babel/helpers': 7.29.2
@@ -9583,7 +9559,7 @@ snapshots:
       postcss-modules-scope: 3.2.1(postcss@8.5.8)
       postcss-modules-values: 4.0.0(postcss@8.5.8)
       postcss-value-parser: 4.2.0
-      semver: 7.7.3
+      semver: 7.7.4
     optionalDependencies:
       webpack: 5.105.0(esbuild@0.27.2)
 
@@ -11293,7 +11269,7 @@ snapshots:
       cosmiconfig: 9.0.1(typescript@5.9.3)
       jiti: 2.6.1
       postcss: 8.5.6
-      semver: 7.7.3
+      semver: 7.7.4
     optionalDependencies:
       webpack: 5.105.0(esbuild@0.27.2)
     transitivePeerDependencies:
@@ -12305,7 +12281,7 @@ snapshots:
 
   vite@7.3.0(@types/node@24.12.0)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.31.1)(sass@1.97.1)(terser@5.44.1):
     dependencies:
-      esbuild: 0.27.2
+      esbuild: 0.27.4
       fdir: 6.5.0(picomatch@4.0.3)
       picomatch: 4.0.3
       postcss: 8.5.8
