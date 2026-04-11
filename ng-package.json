@@ -7,7 +7,12 @@
             "glob": "**/*",
             "output": "assets"
         },
-        "src/**/README.md"
+        {
+            "input": "src",
+            "glob": "README.md",
+            "output": "."
+        },
+        "src/lib/**/README.md"
     ],
     "inlineStyleLanguage": "scss",
     "lib": {
