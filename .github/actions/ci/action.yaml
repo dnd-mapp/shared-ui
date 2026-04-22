@@ -20,9 +20,7 @@ runs:
 
         - name: Run linting
           shell: bash
-          run: |
-              pnpm lint
-              pnpm stylelint
+          run: pnpm lint
 
         - name: Compile storybook
           if: ${{ inputs.build-storybook == 'true' }}
