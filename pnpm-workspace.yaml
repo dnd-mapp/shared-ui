@@ -1,5 +1,4 @@
 packages:
-  - 'projects/*'
   - '!dist/**/*'
 blockExoticSubdeps: true
 ignoreDepScripts: true
