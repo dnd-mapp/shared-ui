@@ -19,7 +19,7 @@
 - **Usage Section**: Provide a clear "Import" and "Implementation" code block.
 - **API Reference Table**: Create tables for `Inputs`, `Outputs`, and `Methods` (only include tables that have data).
 - **Examples Section**: Provide 2-3 realistic use-case scenarios.
-- **License Section**: Standard proprietary library footer.
+- **License Section**: Standard MIT library footer linking to the root LICENSE file.
 
 **Component Data**:
 

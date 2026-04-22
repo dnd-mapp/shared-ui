@@ -96,4 +96,4 @@ Apply the `toggleOnHover` attribute to enable "mega-menu" style interactions whe
 
 ## 📜 License
 
-This component is part of the `@dnd-mapp/shared-ui` internal library. All rights reserved. Proprietary and confidential.
+This component is part of the `@dnd-mapp/shared-ui` library, released under the [MIT License](https://github.com/dnd-mapp/shared-ui/blob/main/LICENSE).

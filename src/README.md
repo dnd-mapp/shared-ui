@@ -2,7 +2,7 @@
 
 ![CI Status](https://github.com/dnd-mapp/shared-ui/actions/workflows/push-main.yaml/badge.svg)
 ![NPM Version](https://img.shields.io/npm/v/@dnd-mapp/shared-ui)
-![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 The official Angular component library for the **D&D Mapp** platform. This library provides a unified design language and high-performance, accessible UI components built specifically for tabletop gaming applications.
 
@@ -129,6 +129,6 @@ If you are contributing or wish to run the documentation locally, please refer t
 
 ## ⚖️ License
 
-Copyright © 2026 NoNamer777. All rights reserved.
+Copyright © 2026 NoNamer777.
 
-Proprietary software. Unauthorized copying or distribution is strictly prohibited. See the [LICENSE](https://github.com/dnd-mapp/shared-ui?tab=License-1-ov-file) for full terms.
+Released under the [MIT License](https://github.com/dnd-mapp/shared-ui?tab=MIT-1-ov-file).

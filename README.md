@@ -2,7 +2,7 @@
 
 ![CI Status](https://github.com/dnd-mapp/shared-ui/actions/workflows/push-main.yaml/badge.svg)
 ![NPM Version](https://img.shields.io/npm/v/@dnd-mapp/shared-ui)
-![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 The official Angular component library for the **D&D Mapp** platform. This repository contains the source code, design system, and documentation for the reusable UI components used across the D&D Mapp ecosystem.
 
@@ -25,7 +25,7 @@ This project uses [mise-en-place](https://mise.jdx.dev/) to manage runtime versi
 
 1. **Install Mise** to automatically manage:
 
-   - **Node.js**: v24.14.0
+   - **Node.js**: v24.15.0
    - **pnpm**: v10.33.0
 
 ### Local Setup
@@ -141,8 +141,9 @@ shared-ui/
 ## 📜 Scripts
 
 - `pnpm build`: Builds the library for production into `dist/shared-ui`.
-- `pnpm lint`: Runs ESLint for TypeScript/Angular logic.
-- `pnpm stylelint`: Checks SCSS compliance against our design system rules.
+- `pnpm lint`: Runs ESLint and Stylelint.
+- `pnpm lint:eslint`: Runs ESLint for TypeScript/Angular logic.
+- `pnpm lint:stylelint`: Checks SCSS compliance against our design system rules.
 - `pnpm format:write`: Formats the codebase using Prettier.
 
 ---
@@ -155,6 +156,6 @@ For details on how releases are triggered, versioned, and published, see the [Re
 
 ## ⚖️ License
 
-Copyright © 2026 NoNamer777. All rights reserved.
+Copyright © 2026 NoNamer777.
 
-This software is proprietary. Unauthorized copying, modification, or distribution is strictly prohibited. Use is subject to the terms in the [LICENSE](LICENSE) file.
+Released under the [MIT License](LICENSE).

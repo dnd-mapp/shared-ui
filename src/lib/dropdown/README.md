@@ -128,4 +128,4 @@ export const MY_CUSTOM_POSITION: ConnectedPosition[] = [
 
 ## 📜 License
 
-This component is part of the `@dnd-mapp/shared-ui` proprietary library. Refer to the root [LICENSE](https://github.com/dnd-mapp/shared-ui/blob/main/LICENSE) for usage restrictions.
+This component is part of the `@dnd-mapp/shared-ui` library, released under the [MIT License](https://github.com/dnd-mapp/shared-ui/blob/main/LICENSE).

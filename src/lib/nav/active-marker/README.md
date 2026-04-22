@@ -110,6 +110,6 @@ Ideal for tab headers where centered text must remain perfectly centered regardl
 
 ## 📜 License
 
-Internal use only. Copyright © 2026 DnD Mapp. All rights reserved.
+This component is part of the `@dnd-mapp/shared-ui` library, released under the [MIT License](https://github.com/dnd-mapp/shared-ui/blob/main/LICENSE).
 
 [← Back to Library Overview](../../../../README.md#-component-library)

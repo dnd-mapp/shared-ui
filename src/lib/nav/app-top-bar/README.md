@@ -93,4 +93,4 @@ A standard layout with a title on the left and a single action on the right.
 
 ## 📜 License
 
-Internal Proprietary Library – All Rights Reserved.
+This component is part of the `@dnd-mapp/shared-ui` library, released under the [MIT License](https://github.com/dnd-mapp/shared-ui/blob/main/LICENSE).
