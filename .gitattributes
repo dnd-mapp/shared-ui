@@ -1,13 +1,50 @@
 # All text files use LF; binary files are left untouched.
-*               text=auto eol=lf
+*                   text=auto
+
+*.md                text eol=lf
+*.mdx               text eol=lf
+*.json              text eol=lf
+*.yaml              text eol=lf
+*.yml               text eol=lf
+*.js                text eol=lf
+*.mjs               text eol=lf
+*.cjs               text eol=lf
+*.ts                text eol=lf
+*.mts               text eol=lf
+*.cts               text eol=lf
+*.css               text eol=lf
+*.scss              text eol=lf
+*.html              text eol=lf
+*.svg               text eol=lf
+
+# Configuration files
+.stylelintrc        text eol=lf
+.stylelintignore    text eol=lf
+.prettierrc         text eol=lf
+.prettierignore     text eol=lf
+.npmrc              text eol=lf
+.gitattributes      text eol=lf
+.gitignore          text eol=lf
+.github/CODEOWNERS  text eol=lf
+
+LICENSE             text eol=lf
 
 # Binary files
-*.png           binary
-*.jpg           binary
-*.jpeg          binary
-*.gif           binary
-*.ico           binary
-*.pdf           binary
+*.png               binary
+*.jpg               binary
+*.jpeg              binary
+*.gif               binary
+*.ico               binary
+*.webp              binary
+*.pdf               binary
+*.avif              binary
+*.woff              binary
+*.woff2             binary
+*.eot               binary
+*.ttf               binary
+*.otf               binary
 
 # GitHub Linguist Overrides
-pnpm-lock.yaml  linguist-generated=true
+pnpm-lock.yaml      linguist-generated=true
+docs/*.md           text eol=lf linguist-documentation
+.run/*.xml          text eol=lf linguist-vendored linguist-generated
