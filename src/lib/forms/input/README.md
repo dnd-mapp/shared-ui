@@ -126,4 +126,4 @@ The `readonly` attribute is transformed using `booleanAttribute`, allowing for e
 
 ## 📜 License
 
-This component is part of the `@dnd-mapp/shared-ui` proprietary library. All rights reserved.
+This component is part of the `@dnd-mapp/shared-ui` library, released under the [MIT License](https://github.com/dnd-mapp/shared-ui/blob/main/LICENSE).

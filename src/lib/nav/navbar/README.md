@@ -90,4 +90,4 @@ export class HeaderComponent {}
 
 ## 📜 License
 
-This component is part of the `@dnd-mapp/shared-ui` internal library. All rights reserved. Proprietary and confidential.
+This component is part of the `@dnd-mapp/shared-ui` library, released under the [MIT License](https://github.com/dnd-mapp/shared-ui/blob/main/LICENSE).
