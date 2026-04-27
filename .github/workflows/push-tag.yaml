@@ -22,6 +22,6 @@ jobs:
                   build-storybook: false
 
             - name: Publish package
-              uses: dnd-mapp/.github/.github/actions/publish-npm-package@e447e89f2347766291393f81dc00cbc0877850f5
+              uses: dnd-mapp/.github/.github/actions/publish-npm-package@ea5195108759ac7d5b831d9274ec9c574571fede
               with:
                   working-directory: dist/shared-ui
