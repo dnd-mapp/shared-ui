@@ -1,15 +1,19 @@
 import { copyFile, rm } from 'fs/promises';
 import { join } from 'path';
 
-const PACKAGE_README_PATH = '../../src/README.md';
-const DIST_README_PATH = 'README.md';
-const LICENSE_PATH = '../../LICENSE';
+const README_FILE_NAME = 'README.md';
+const SOURCE_README_PATH = join(process.cwd(), `./src/${README_FILE_NAME}`);
+const DIST_README_PATH = join(process.cwd(), `./dist/shared-ui/${README_FILE_NAME}`);
+
+const LICENSE_FILE_NAME = 'LICENSE';
+const SOURCE_LICENSE_PATH = join(process.cwd(), `./${LICENSE_FILE_NAME}`);
+const DESTINATION_LICENSE_PATH = join(process.cwd(), `./dist/shared-ui/${LICENSE_FILE_NAME}`);
 
 async function main() {
-    await rm(join(process.cwd(), DIST_README_PATH));
+    await rm(DIST_README_PATH);
 
-    await copyFile(join(process.cwd(), PACKAGE_README_PATH), join(process.cwd(), 'README.md'));
-    await copyFile(join(process.cwd(), LICENSE_PATH), join(process.cwd(), 'LICENSE'));
+    await copyFile(SOURCE_README_PATH, DIST_README_PATH);
+    await copyFile(SOURCE_LICENSE_PATH, DESTINATION_LICENSE_PATH);
 }
 
 main().catch((error) => {
