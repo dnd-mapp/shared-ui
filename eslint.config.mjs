@@ -4,6 +4,7 @@ import angular from 'angular-eslint';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import storybook from 'eslint-plugin-storybook';
 import { defineConfig } from 'eslint/config';
+import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default defineConfig([
@@ -45,6 +46,13 @@ export default defineConfig([
                 },
             ],
             '@typescript-eslint/unbound-method': 'off',
+        },
+    },
+    {
+        files: ['tools/**/*.mjs'],
+        extends: [tseslint.configs.disableTypeChecked],
+        languageOptions: {
+            globals: globals.node,
         },
     },
     {
