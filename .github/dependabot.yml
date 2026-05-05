@@ -1,13 +1,10 @@
 version: 2
 updates:
-    - package-ecosystem: 'docker'
-      directory: '.docker/'
-      schedule:
-          interval: 'weekly'
     - package-ecosystem: 'github-actions'
       directory: '/'
       schedule:
           interval: 'daily'
+
     - package-ecosystem: 'npm'
       versioning-strategy: 'lockfile-only'
       directory: '/'
@@ -35,16 +32,6 @@ updates:
               applies-to: 'security-updates'
               patterns:
                   - 'prettier*'
-          nestjs:
-              applies-to: 'security-updates'
-              patterns:
-                  - '@fastify/*'
-                  - '@nestjs/*'
-          prisma:
-              applies-to: 'security-updates'
-              patterns:
-                  - '@prisma/*'
-                  - 'prisma'
           stylelint:
               applies-to: 'security-updates'
               patterns:
