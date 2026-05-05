@@ -4,11 +4,41 @@
   "description": "Official Angular component library for the D&D Mapp platform.",
   "author": "NoNamer777",
   "license": "MIT",
-  "keywords": [
-    "angular",
-    "component-library",
-    "ui-kit"
-  ],
+  "scripts": {
+    "build": "ng build",
+    "postbuild": "node tools/postbuild.mjs",
+    "build:development": "ng build -c development",
+    "storybook:start": "ng run shared-ui:storybook",
+    "storybook:build": "ng run shared-ui:build-storybook",
+    "format:check": "prettier -l .",
+    "format:write": "prettier -w .",
+    "lint": "pnpm lint:eslint && pnpm lint:stylelint",
+    "lint:eslint": "ng lint",
+    "lint:stylelint": "stylelint \"**/*.scss\""
+  },
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": "~24.15"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "~24.15",
+      "onFail": "error"
+    },
+    "packageManager": [
+      {
+        "name": "pnpm",
+        "version": "10.33.0",
+        "onFail": "error"
+      },
+      {
+        "name": "npm",
+        "version": "11.21.1",
+        "onFail": "warn"
+      }
+    ]
+  },
   "homepage": "https://github.com/dnd-mapp/shared-ui",
   "repository": {
     "type": "git",
@@ -17,6 +47,11 @@
   "bugs": {
     "url": "https://github.com/dnd-mapp/shared-ui/issues"
   },
+  "keywords": [
+    "angular",
+    "component-library",
+    "ui-kit"
+  ],
   "exports": {
     "./fonts/*": "./assets/fonts/*",
     "./images/*": "./assets/images/*",
@@ -34,37 +69,6 @@
       "sass": "./assets/styles/theme-variables/index.scss"
     }
   },
-  "packageManager": "pnpm@10.33.0",
-  "engines": {
-    "node": "~24.15"
-  },
-  "devEngines": {
-    "runtime": {
-      "name": "node",
-      "version": "~24.15",
-      "onFail": "error"
-    },
-    "packageManager": [
-      {
-        "name": "pnpm",
-        "version": "10.33.0",
-        "onFail": "error"
-      }
-    ]
-  },
-  "type": "module",
-  "scripts": {
-    "prepublishOnly": "node tools/prepublish-only.js",
-    "build": "pnpm exec ng build",
-    "build:development": "pnpm exec ng build -c development",
-    "storybook:start": "pnpm exec ng run shared-ui:storybook",
-    "storybook:build": "pnpm exec ng run shared-ui:build-storybook",
-    "format:check": "pnpm exec prettier -l .",
-    "format:write": "pnpm exec prettier -w .",
-    "lint": "pnpm lint:eslint && pnpm lint:stylelint",
-    "lint:eslint": "pnpm exec ng lint",
-    "lint:stylelint": "pnpm exec stylelint \"**/*.scss\""
-  },
   "peerDependencies": {
     "@angular/cdk": "~21.2.7",
     "@angular/common": "~21.2.9",
@@ -78,26 +82,27 @@
   },
   "devDependencies": {
     "@angular-eslint/builder": "~21.3.1",
-    "@angular/build": "~21.2.8",
-    "@angular/cli": "~21.2.8",
-    "@angular/compiler-cli": "~21.2.10",
-    "@angular/platform-browser-dynamic": "~21.2.10",
+    "@angular/build": "~21.2.9",
+    "@angular/cli": "~21.2.9",
+    "@angular/compiler-cli": "~21.2.11",
+    "@angular/platform-browser-dynamic": "~21.2.11",
     "@eslint/js": "~10.0.1",
-    "@storybook/addon-a11y": "~10.3.5",
-    "@storybook/addon-docs": "~10.3.5",
-    "@storybook/angular": "~10.3.5",
+    "@storybook/addon-a11y": "~10.3.6",
+    "@storybook/addon-docs": "~10.3.6",
+    "@storybook/angular": "~10.3.6",
     "@types/node": "~24.12.2",
     "angular-eslint": "~21.3.1",
-    "eslint": "~10.2.1",
+    "eslint": "~10.3.0",
     "eslint-config-prettier": "~10.1.8",
-    "eslint-plugin-storybook": "~10.3.5",
+    "eslint-plugin-storybook": "~10.3.6",
+    "globals": "~17.6.0",
     "ng-packagr": "~21.2.3",
     "prettier": "~3.8.3",
     "prettier-plugin-organize-imports": "~4.3.0",
-    "storybook": "~10.3.5",
-    "stylelint": "~17.9.0",
+    "storybook": "~10.3.6",
+    "stylelint": "~17.10.0",
     "stylelint-config-standard-scss": "~17.0.0",
     "typescript": "~5.9.3",
-    "typescript-eslint": "~8.59.0"
+    "typescript-eslint": "~8.59.1"
   }
 }
